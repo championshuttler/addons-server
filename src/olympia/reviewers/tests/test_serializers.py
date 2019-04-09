@@ -17,7 +17,7 @@ from olympia import amo
 from olympia.reviewers.serializers import (
     AddonBrowseVersionSerializer, FileEntriesSerializer)
 from olympia.amo.urlresolvers import reverse
-from olympia.amo.tests import TestCase, addon_factory, reverse_ns
+from olympia.amo.tests import TestCase, addon_factory
 from olympia.amo.templatetags.jinja_helpers import absolutify
 from olympia.versions.tasks import extract_version_to_git
 from olympia.versions.models import License
@@ -63,14 +63,13 @@ class TestFileEntriesSerializer(TestCase):
             '/notify-link-clicks-i18n.xpi?src=').format(file.pk)
 
         assert data['selected_file'] == 'manifest.json'
-        assert data['download_url'] == reverse_ns(
-            'reviewers-versions-download',
+        assert data['download_url'] == absolutify(reverse(
+            'reviewers.download_git_file',
             kwargs={
-                'addon_pk': self.addon.pk,
-                'pk': self.addon.current_version.pk,
+                'version_id': self.addon.current_version.pk,
                 'filename': 'manifest.json'
             }
-        )
+        ))
 
         assert set(data['entries'].keys()) == {
             'README.md',
@@ -131,14 +130,34 @@ class TestFileEntriesSerializer(TestCase):
         assert data['selected_file'] == 'icons/LICENSE'
         assert data['content'].startswith(
             'The "link-48.png" icon is taken from the Geomicons')
-        assert data['download_url'] == reverse_ns(
-            'reviewers-versions-download',
+        assert data['download_url'] == absolutify(reverse(
+            'reviewers.download_git_file',
             kwargs={
-                'addon_pk': self.addon.pk,
-                'pk': self.addon.current_version.pk,
+                'version_id': self.addon.current_version.pk,
                 'filename': 'icons/LICENSE'
             }
-        )
+        ))
+
+    def test_supports_search_plugin(self):
+        self.addon = addon_factory(file_kw={'filename': 'search_20190331.xml'})
+        extract_version_to_git(self.addon.current_version.pk)
+        self.addon.current_version.refresh_from_db()
+        file = self.addon.current_version.current_file
+
+        data = self.serialize(file)
+
+        assert data['id'] == file.pk
+        assert set(data['entries'].keys()) == {'search_20190331.xml'}
+        assert data['selected_file'] == 'search_20190331.xml'
+        assert data['content'].startswith(
+            '<?xml version="1.0" encoding="utf-8"?>')
+        assert data['download_url'] == absolutify(reverse(
+            'reviewers.download_git_file',
+            kwargs={
+                'version_id': self.addon.current_version.pk,
+                'filename': 'search_20190331.xml'
+            }
+        ))
 
     def test_get_entries_cached(self):
         file = self.addon.current_version.current_file
@@ -283,10 +302,11 @@ class TestAddonBrowseVersionSerializer(TestCase):
             self.version.reviewed.replace(microsecond=0).isoformat() + 'Z')
 
         # Custom fields
-        validation_url_json = reverse('devhub.json_file_validation', args=[
-            self.addon.slug, self.version.current_file.id])
-        validation_url = reverse('devhub.file_validation', args=[
-            self.addon.slug, self.version.current_file.id])
+        validation_url_json = absolutify(reverse(
+            'devhub.json_file_validation', args=[
+                self.addon.slug, self.version.current_file.id]))
+        validation_url = absolutify(reverse('devhub.file_validation', args=[
+            self.addon.slug, self.version.current_file.id]))
 
         assert data['validation_url_json'] == validation_url_json
         assert data['validation_url'] == validation_url

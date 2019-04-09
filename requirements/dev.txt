@@ -3,8 +3,8 @@ pyinotify==0.9.6 \
 # ipython / ipdb for easier debugging, supervisor to run services
 # Remove ipython<6 version restriction when we move to python 3, see
 # https://github.com/mozilla/addons-server/issues/5380
-ipdb==0.11 \
-    --hash=sha256:7081c65ed7bfe7737f83fa4213ca8afd9617b42ff6b3f1daf9a3419839a2a00a
+ipdb==0.12 \
+    --hash=sha256:dce2112557edfe759742ca2d0fee35c59c97b0cc7a05398b791079d78f1519ce
 ipython==5.8.0 \
     --hash=sha256:37101b8cbe072fe17bff100bc03d096404e4a9a0357097aeb5b61677c042cab1 \
     --hash=sha256:0371b7e4bd74954a35086eac949beeac5b1c9f5ce231e2e77df2286a293765e3 \
@@ -16,9 +16,9 @@ watchdog==0.9.0 \
 traitlets==4.3.2 \
     --hash=sha256:c6cb5e6f57c5a9bdaa40fa71ce7b4af30298fbab9ece9815b5d995ab6217c7d9 \
     --hash=sha256:9c4bd2d267b7153df9152698efb1050a5d84982d3384a37b2c1f7723ba3e7835
-pexpect==4.6.0 \
-    --hash=sha256:3fbd41d4caf27fa4a377bfd16fef87271099463e6fa73e92a52f92dfee5d425b \
-    --hash=sha256:2a8e88259839571d1251d278476f3eec5db26deb73a70be5ed5dc5435e418aba
+pexpect==4.7.0 \
+    --hash=sha256:2094eefdfcf37a1fdbfb9aa090862c1a4878e5c7e0e7e7088bdb511c558e5cd1 \
+    --hash=sha256:9e2c1fd0e6ee3a49b28f95d4b33bc389c89b20af6a1255906e90ff1262ce62eb
 ipython_genutils==0.2.0 \
     --hash=sha256:72dd37233799e619666c9f639a9da83c34013a73e8bbc79a7a6348d93c61fab8 \
     --hash=sha256:eb2e116e75ecef9d4d228fdc66af54269afa26ab4463042e33785b887c628ba8
@@ -40,9 +40,9 @@ wcwidth==0.1.7 \
     --hash=sha256:3df37372226d6e63e1b1e1eda15c594bca98a22d33a23832a90998faa96bc65e
 simplegeneric==0.8.1 \
     --hash=sha256:dc972e06094b9af5b855b3df4a646395e43d1c9d0d39ed345b7393560d0b9173
-isort==4.3.15 \
-    --hash=sha256:18c796c2cd35eb1a1d3f012a214a542790a1aed95e29768bdcb9f2197eccbd0b \
-    --hash=sha256:96151fca2c6e736503981896495d344781b60d18bfda78dc11b290c6125ebdb6
+isort==4.3.17 \
+    --hash=sha256:01cb7e1ca5e6c5b3f235f0385057f70558b70d2f00320208825fa62887292f43 \
+    --hash=sha256:268067462aed7eb2a1e237fcb287852f22077de3fb07964e87e00f829eea2d1a
 # meld3 is required by supervisor
 meld3==1.0.2 \
     --hash=sha256:b28a9bfac342aadb4557aa144bea9f8e6208bfb0596190570d10a892d35ff7dc

@@ -2,7 +2,6 @@
 import hashlib
 import os
 import shutil
-import tempfile
 import zipfile
 import collections
 import datetime
@@ -18,14 +17,15 @@ import pytest
 import responses
 import pytz
 
-from waffle.testutils import override_sample
+from waffle.testutils import override_sample, override_switch
 
 from olympia import amo
 from olympia.addons.models import AddonUser
 from olympia.amo.tests import TestCase
-from olympia.files.utils import extract_xpi
 from olympia.lib.crypto import signing, tasks
+from olympia.lib.git import AddonGitRepository
 from olympia.versions.compare import version_int
+from olympia.lib.tests.test_git import _run_process
 
 
 @override_settings(ENABLE_ADDON_SIGNING=True)
@@ -223,30 +223,6 @@ class TestSigning(TestCase):
         assert self.file_.size == signed_size
         assert unsigned_size < signed_size
 
-    def test_sign_file_multi_package(self):
-        fpath = 'src/olympia/files/fixtures/files/multi-package.xpi'
-        with amo.tests.copy_file(fpath, self.file_.file_path, overwrite=True):
-            self.file_.update(is_multi_package=True)
-            self.assert_not_signed()
-
-            with self.assertRaises(signing.SigningError):
-                signing.sign_file(self.file_)
-            self.assert_not_signed()
-            # The multi-package itself isn't signed.
-            assert not signing.is_signed(self.file_.file_path)
-            # The internal extensions aren't either.
-            folder = tempfile.mkdtemp(dir=settings.TMP_PATH)
-            try:
-                extract_xpi(self.file_.file_path, folder)
-                # The extension isn't.
-                assert not signing.is_signed(
-                    os.path.join(folder, 'random_extension.xpi'))
-                # And the theme isn't either.
-                assert not signing.is_signed(
-                    os.path.join(folder, 'random_theme.xpi'))
-            finally:
-                amo.utils.rm_local_tmp_dir(folder)
-
     def test_call_signing(self):
         assert signing.sign_file(self.file_)
 
@@ -333,6 +309,29 @@ class TestSigning(TestCase):
             'MD5-Digest: AtjchjiOU/jDRLwMx214hQ==\n'
             'SHA1-Digest: W9kwfZrvMkbgjOx6nDdibCNuCjk=\n'
             'SHA256-Digest: 3Wjjho1pKD/9VaK+FszzvZFN/2crBmaWbdisLovwo6g=\n\n')
+
+    @override_switch('enable-uploads-commit-to-git-storage', active=True)
+    def test_runs_git_extraction_after_signing(self):
+        # Make sure the initial version is already extracted, simulating
+        # a regular upload.
+        AddonGitRepository.extract_and_commit_from_version(self.version)
+        self.version.refresh_from_db()
+
+        old_git_hash = self.version.git_hash
+
+        signing.sign_file(self.file_)
+
+        self.version.refresh_from_db()
+        assert self.version.git_hash != old_git_hash
+
+        repo = AddonGitRepository(self.addon)
+
+        output = _run_process('git log listed', repo)
+        assert output.count('Create new version') == 2
+        assert '(after successful signing)' in output
+
+        # 2 actual commits, including the repo initialization
+        assert output.count('Mozilla Add-ons Robot') == 3
 
 
 @override_settings(ENABLE_ADDON_SIGNING=True)

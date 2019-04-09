@@ -144,6 +144,10 @@ class NoManifestFound(forms.ValidationError):
     pass
 
 
+class InvalidManifest(forms.ValidationError):
+    pass
+
+
 class Extractor(object):
     """Extract add-on info from a manifest file."""
     App = collections.namedtuple('App', 'appdata id min max')
@@ -248,7 +252,6 @@ class RDFExtractor(object):
                     self.find('bootstrap') != 'true' and
                     self.find('type') not in self.ALWAYS_RESTARTLESS_TYPES),
                 'apps': self.apps(),
-                'is_multi_package': self.package_type == '32',
             })
 
             # We used to simply use the value of 'strictCompatibility' in the
@@ -395,7 +398,11 @@ class ManifestJSONExtractor(object):
             if name not in ('blockcomment', 'linecomment'):
                 json_string += token
 
-        self.data = json.loads(json_string)
+        try:
+            self.data = json.loads(json_string)
+        except Exception:
+            raise InvalidManifest(
+                ugettext('Could not parse the manifest file.'))
 
     def get(self, key, default=None):
         return self.data.get(key, default)
@@ -984,9 +991,13 @@ def parse_xpi(xpi, addon=None, minimal=False, user=None):
         else:
             err, strerror = e.args
         log.error('I/O error({0}): {1}'.format(err, strerror))
+        # Note: we don't really know what happened, so even though we return a
+        # generic message about the manifest, don't raise InvalidManifest. We
+        # want the validation to stop there.
         raise forms.ValidationError(ugettext(
             'Could not parse the manifest file.'))
     except Exception:
+        # As above, don't raise InvalidManifest here.
         log.error('XPI parse error', exc_info=True)
         raise forms.ValidationError(ugettext(
             'Could not parse the manifest file.'))
@@ -1329,9 +1340,9 @@ def get_background_images(file_obj, theme_data, header_only=False):
             # If we can't parse the existing manifest safely return.
             return {}
     images_dict = theme_data.get('images', {})
-    # Get the reference in the manifest.  theme_frame is the Chrome variant.
+    # Get the reference in the manifest.  headerURL is the deprecated variant.
     header_url = images_dict.get(
-        'headerURL', images_dict.get('theme_frame'))
+        'theme_frame', images_dict.get('headerURL'))
     # And any additional backgrounds too.
     additional_urls = (
         images_dict.get('additional_backgrounds', []) if not header_only

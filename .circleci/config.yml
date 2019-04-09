@@ -6,7 +6,7 @@ commands:
     parameters:
       dockerfile:
         type: string
-        default: "Dockerfile.python2.deploy"
+        default: "Dockerfile.deploy"
       image_tag:
         type: string
         default: "latest"
@@ -23,50 +23,35 @@ commands:
           name: Build docker image and push to repo
           command: |
             docker version
-            docker build -t app:build -f << parameters.dockerfile >> .
+            docker build -t app:build --build-arg DJANGO_VERSION -f << parameters.dockerfile >> .
             docker tag app:build "${DOCKERHUB_REPO}":<< parameters.image_tag >>
             docker login -u "${DOCKERHUB_USER}" -p "${DOCKERHUB_PASS}"
             docker push "${DOCKERHUB_REPO}":<< parameters.image_tag >>
 jobs:
-  build-py2:
+  build:
     machine: true
     working_directory: ~/addons-server
+    environment:
+        DJANGO_VERSION: "django22"
     steps:
       - checkout
       - build_and_push_container_image:
           image_tag: latest
-          dockerfile: "Dockerfile.python2.deploy"
+          dockerfile: "Dockerfile.deploy"
   
-  build-py3:
-    machine: true
-    working_directory: ~/addons-server
-    steps:
-      - checkout
-      - build_and_push_container_image:
-          image_tag: latest-py3
-          dockerfile: "Dockerfile.python3.deploy"
-  
-  build-py2-tag:
+  build-tag:
     machine: true
     working_directory: ~/addons-server
     steps:
       - checkout
       - build_and_push_container_image:
           image_tag: "${CIRCLE_TAG}"
-          dockerfile: "Dockerfile.python2.deploy"
-  
-  build-py3-tag:
-    machine: true
-    working_directory: ~/addons-server
-    steps:
-      - checkout
-      - build_and_push_container_image:
-          image_tag: "${CIRCLE_TAG}-py3"
-          dockerfile: "Dockerfile.python3.deploy"
+          dockerfile: "Dockerfile.deploy"
   
   integration_test:
     working_directory: ~/addons-server
-    machine: true
+    machine:
+      image: ubuntu-1604:201903-01
     steps:
       - run:
           name: Checkout git repository
@@ -95,7 +80,7 @@ jobs:
       - restore_cache:
           keys:
             - uitest-cache-{{ checksum "requirements/docs.txt" }}
-            - uitest-cache-{{ checksum "requirements/prod_py2.txt" }}
+            - uitest-cache-{{ checksum "requirements/prod_py3.txt" }}
             - uitest-cache-{{ checksum "requirements/tests.txt" }}
             - uitest-cache-{{ checksum "requirements/dev.txt" }}
             - uitest-cache-{{ checksum "requirements/dev_without_hash.txt" }}
@@ -119,7 +104,6 @@ jobs:
           name: Start container, verify it's running and start tests
           environment:
             MOZ_HEADLESS: 1
-            PYTEST_ADDOPTS: "--reruns 2"
           command: |
             set -x
             sudo sysctl -w vm.max_map_count=262144
@@ -147,6 +131,8 @@ jobs:
             docker-compose -f docker-compose.yml -f tests/ui/docker-compose.selenium.yml up -d
             sleep 10
             docker-compose -f docker-compose.yml -f tests/ui/docker-compose.selenium.yml exec selenium-firefox sudo chown -R seluser:seluser .
+            # Start auto approve script
+            docker-compose -f docker-compose.yml -f tests/ui/docker-compose.selenium.yml exec -T web make -f Makefile-docker run-auto-approve &
             # Start Test in Firefox docker container
             docker-compose -f docker-compose.yml -f tests/ui/docker-compose.selenium.yml exec selenium-firefox tox -r -e ui-tests
       - store_artifacts:
@@ -156,7 +142,7 @@ jobs:
           paths:
             - .tox
       - save_cache:
-          key: uitest-cache-{{ checksum "requirements/prod_py2.txt" }}
+          key: uitest-cache-{{ checksum "requirements/prod_py3.txt" }}
           paths:
             - .tox
       - save_cache:
@@ -184,21 +170,11 @@ workflows:
   version: 2
   build_test_deploy_release:
     jobs:
-      - build-py2:
+      - build:
           filters:
             branches:
               only: master
-      - build-py3:
-          filters:
-            branches:
-              only: master
-      - build-py2-tag:
-          filters:
-            tags:
-              only: /.*/
-            branches:
-              ignore: /.*/
-      - build-py3-tag:
+      - build-tag:
           filters:
             tags:
               only: /.*/

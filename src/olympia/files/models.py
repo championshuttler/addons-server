@@ -58,14 +58,11 @@ class File(OnChangeMixin, ModelBase):
     # The original hash of the file, before we sign it, or repackage it in
     # any other way.
     original_hash = models.CharField(max_length=255, default='')
-    jetpack_version = models.CharField(max_length=10, null=True, blank=True)
     status = models.PositiveSmallIntegerField(
         choices=STATUS_CHOICES.items(), default=amo.STATUS_AWAITING_REVIEW)
     datestatuschanged = models.DateTimeField(null=True, auto_now_add=True)
     is_restart_required = models.BooleanField(default=False)
     strict_compatibility = models.BooleanField(default=False)
-    # The XPI contains JS that calls require("chrome").
-    requires_chrome = models.BooleanField(default=False)
     reviewed = models.DateTimeField(null=True, blank=True)
     # The `binary` field is used to store the flags from amo-validator when it
     # finds files with binary extensions or files that may contain binary
@@ -79,9 +76,6 @@ class File(OnChangeMixin, ModelBase):
     cert_serial_num = models.TextField(blank=True)
     # Is the file signed by Mozilla?
     is_signed = models.BooleanField(default=False)
-    # Is the file a multi-package?
-    #     https://developer.mozilla.org/en-US/docs/Multiple_Item_Packaging
-    is_multi_package = models.BooleanField(default=False)
     # Is the file an experiment (see bug 1220097)?
     is_experiment = models.BooleanField(default=False)
     # Is the file a WebExtension?
@@ -165,7 +159,6 @@ class File(OnChangeMixin, ModelBase):
             'is_restart_required', False)
         file_.strict_compatibility = parsed_data.get(
             'strict_compatibility', False)
-        file_.is_multi_package = parsed_data.get('is_multi_package', False)
         file_.is_experiment = parsed_data.get('is_experiment', False)
         file_.is_webextension = parsed_data.get('is_webextension', False)
         file_.is_mozilla_signed_extension = parsed_data.get(
@@ -173,13 +166,8 @@ class File(OnChangeMixin, ModelBase):
 
         file_.hash = file_.generate_hash(upload_path)
         file_.original_hash = file_.hash
-
-        if upload.validation:
-            validation = json.loads(upload.validation)
-            if validation['metadata'].get('requires_chrome'):
-                file_.requires_chrome = True
-
         file_.save()
+
         if file_.is_webextension:
             permissions = list(parsed_data.get('permissions', []))
             # Add content_scripts host matches too.
@@ -195,6 +183,7 @@ class File(OnChangeMixin, ModelBase):
         copy_stored_file(upload_path, file_.current_file_path)
 
         if upload.validation:
+            validation = json.loads(upload.validation)
             FileValidation.from_json(file_, validation)
 
         return file_
@@ -253,9 +242,6 @@ class File(OnChangeMixin, ModelBase):
             kw['type'] = 'attachment'
         return os.path.join(reverse('downloads.latest', kwargs=kw),
                             'addon-%s-latest%s' % (addon.pk, self.extension))
-
-    def eula_url(self):
-        return reverse('addons.eula', args=[self.version.addon_id, self.id])
 
     @property
     def file_path(self):
@@ -499,12 +485,6 @@ def track_status_change(old_attr=None, new_attr=None, **kwargs):
 
 def track_file_status_change(file_):
     statsd.incr('file_status_change.all.status_{}'.format(file_.status))
-
-    if (file_.jetpack_version and
-            not file_.is_restart_required and
-            not file_.requires_chrome):
-        statsd.incr('file_status_change.jetpack_sdk_only.status_{}'
-                    .format(file_.status))
 
 
 @python_2_unicode_compatible

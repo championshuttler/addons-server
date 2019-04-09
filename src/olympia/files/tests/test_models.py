@@ -21,6 +21,7 @@ from mock import patch
 
 from olympia import amo
 from olympia.addons.models import Addon
+from olympia.amo.templatetags.jinja_helpers import absolutify
 from olympia.amo.tests import TestCase, user_factory
 from olympia.amo.utils import chunked
 from olympia.applications.models import AppVersion
@@ -77,8 +78,8 @@ class TestFile(TestCase, amo.tests.AMOPaths):
 
     def test_get_url_path(self):
         file_ = File.objects.get(id=67442)
-        assert file_.get_url_path('src') == \
-            file_.get_absolute_url(src='src')
+        assert absolutify(file_.get_url_path('src')) == (
+            file_.get_absolute_url(src='src'))
 
     def test_get_url_path_attachment(self):
         file_ = File.objects.get(id=67442)
@@ -193,10 +194,6 @@ class TestFile(TestCase, amo.tests.AMOPaths):
         assert actual == (
             '/firefox/downloads/latest/a3615/type:attachment/'
             'addon-3615-latest.xpi')
-
-    def test_eula_url(self):
-        f = File.objects.get(id=67442)
-        assert f.eula_url() == '/en-US/firefox/addon/3615/eula/67442'
 
     def test_generate_filename(self):
         f = File.objects.get(id=67442)
@@ -847,31 +844,6 @@ class TestFileUpload(UploadTest):
             parsed_data=parsed_data)
         assert file_.binary
 
-    def test_validator_sets_require_chrome(self):
-        validation = json.dumps({
-            "errors": 0,
-            "success": True,
-            "warnings": 0,
-            "notices": 0,
-            "message_tree": {},
-            "messages": [],
-            "metadata": {
-                "version": "1.0",
-                "name": "gK0Bes Bot",
-                "id": "gkobes@gkobes",
-                "requires_chrome": True
-            }
-        })
-        upload = self.get_upload(filename='extension.xpi',
-                                 validation=validation)
-        addon = Addon.objects.get(pk=3615)
-        addon.update(guid='guid@xpi')
-        parsed_data = parse_addon(upload, addon=addon, user=user_factory())
-        file_ = File.from_upload(
-            upload, addon.current_version, amo.PLATFORM_ALL.id,
-            parsed_data=parsed_data)
-        assert file_.requires_chrome
-
     @override_settings(VALIDATOR_MESSAGE_LIMIT=10)
     def test_limit_validator_warnings(self):
         data = {
@@ -1231,19 +1203,6 @@ class TestFileFromUpload(UploadTest):
             upload, self.version, self.platform, parsed_data={})
         assert file_.filename.endswith('.xml')
         assert not file_.is_restart_required
-
-    def test_multi_package(self):
-        upload = self.upload('multi-package')
-        file_ = File.from_upload(
-            upload, self.version, self.platform,
-            parsed_data={'is_multi_package': True})
-        assert file_.is_multi_package
-
-    def test_not_multi_package(self):
-        upload = self.upload('extension')
-        file_ = File.from_upload(
-            upload, self.version, self.platform, parsed_data={})
-        assert not file_.is_multi_package
 
     def test_experiment(self):
         upload = self.upload('experiment_inside_webextension')

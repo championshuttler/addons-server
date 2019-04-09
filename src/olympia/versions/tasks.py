@@ -35,7 +35,7 @@ def _build_static_theme_preview_context(theme_manifest, file_):
         for prop, color in theme_manifest.get('colors', {}).items()))
     images_dict = theme_manifest.get('images', {})
     header_url = images_dict.get(
-        'headerURL', images_dict.get('theme_frame', ''))
+        'theme_frame', images_dict.get('headerURL', ''))
     file_ext = os.path.splitext(header_url)[1]
     backgrounds = get_background_images(file_, theme_manifest)
     header_src, header_width, header_height = encode_header(
@@ -113,9 +113,11 @@ def delete_preview_files(pk, **kw):
 
 @task
 @use_primary_db
-def extract_version_to_git(version_id, author_id=None):
+def extract_version_to_git(version_id, author_id=None, note=None):
     """Extract a `File` into our git storage backend."""
-    version = Version.objects.get(pk=version_id)
+    # We extract deleted or disabled versions as well so we need to make sure
+    # we can access them.
+    version = Version.unfiltered.get(pk=version_id)
 
     if author_id is not None:
         author = UserProfile.objects.get(pk=author_id)
@@ -126,24 +128,19 @@ def extract_version_to_git(version_id, author_id=None):
         version_id=version_id))
 
     repo = AddonGitRepository.extract_and_commit_from_version(
-        version=version, author=author)
+        version=version, author=author, note=note)
 
     log.info('Extracted {version} into {git_path}'.format(
         version=version_id, git_path=repo.git_repository_path))
-
-    if version.source:
-        repo = AddonGitRepository.extract_and_commit_source_from_version(
-            version=version, author=author)
-
-        log.info(
-            'Extracted source files from {version} into {git_path}'.format(
-                version=version_id, git_path=repo.git_repository_path))
 
 
 @task
 @use_primary_db
 def extract_version_source_to_git(version_id, author_id=None):
-    version = Version.objects.get(pk=version_id)
+    # We extract deleted or disabled versions as well so we need to make sure
+    # we can access them.
+    version = Version.unfiltered.get(pk=version_id)
+
     if not version.source:
         log.info('Tried to extract sources of {version_id} but there none.')
         return

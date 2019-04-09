@@ -26,8 +26,7 @@ from olympia.files.models import File
 from olympia.files.tests.test_models import UploadTest
 from olympia.files.utils import parse_addon
 from olympia.lib.git import AddonGitRepository
-from olympia.reviewers.models import (
-    AutoApprovalSummary, ViewFullReviewQueue, ViewPendingQueue)
+from olympia.reviewers.models import AutoApprovalSummary
 from olympia.users.models import UserProfile
 from olympia.versions.compare import version_int
 from olympia.versions.models import (
@@ -452,20 +451,6 @@ class TestVersion(TestCase):
         version_factory(addon=addon)
         assert inv_mock.called
 
-    def test_current_queue(self):
-        queue_to_status = {
-            ViewFullReviewQueue: amo.STATUS_NOMINATED,
-            ViewPendingQueue: amo.STATUS_PUBLIC
-        }
-
-        for queue, status in six.iteritems(queue_to_status):  # Listed queues.
-            self.version.addon.update(status=status)
-            assert self.version.current_queue == queue
-
-        self.make_addon_unlisted(self.version.addon)  # Unlisted: no queue.
-        self.version.reload()
-        assert self.version.current_queue is None
-
     def test_get_url_path(self):
         assert self.version.get_url_path() == (
             '/en-US/firefox/addon/a3615/versions/')
@@ -790,25 +775,6 @@ class TestExtensionVersionFromUpload(TestVersionFromUpload):
 
         with storage.open(files[0].file_path) as f:
             assert uploaded_hash == hashlib.sha256(f.read()).hexdigest()
-
-    def test_file_multi_package(self):
-        self.upload = self.get_upload('multi-package.xpi')
-        parsed_data = parse_addon(self.upload, self.addon, user=mock.Mock())
-        version = Version.from_upload(
-            self.upload, self.addon, [self.selected_app],
-            amo.RELEASE_CHANNEL_LISTED,
-            parsed_data=parsed_data)
-        files = version.all_files
-        assert files[0].is_multi_package
-
-    def test_file_not_multi_package(self):
-        parsed_data = parse_addon(self.upload, self.addon, user=mock.Mock())
-        version = Version.from_upload(
-            self.upload, self.addon, [self.selected_app],
-            amo.RELEASE_CHANNEL_LISTED,
-            parsed_data=parsed_data)
-        files = version.all_files
-        assert not files[0].is_multi_package
 
     def test_track_upload_time(self):
         # Set created time back (just for sanity) otherwise the delta

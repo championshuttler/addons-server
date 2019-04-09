@@ -169,12 +169,10 @@ ADDON_ICONS = {
 # We use these slugs in browse page urls.
 ADDON_SLUGS = {
     ADDON_EXTENSION: 'extensions',
-    ADDON_THEME: 'themes',
     ADDON_DICT: 'language-tools',
     ADDON_LPAPP: 'language-tools',
-    ADDON_PERSONA: 'personas',
     ADDON_SEARCH: 'search-tools',
-    ADDON_STATICTHEME: 'static-themes',
+    ADDON_STATICTHEME: 'themes',
 }
 
 # These are used in the update API.
@@ -254,7 +252,7 @@ THEME_PREVIEW_SIZES = {
         'full': _size_tuple(720, 92),
         'position': 2},
 }
-THEME_ACCENTCOLOR_DEFAULT = 'rgba(229,230,232,1)'
+THEME_FRAME_COLOR_DEFAULT = 'rgba(229,230,232,1)'
 THEME_PREVIEW_TOOLBAR_HEIGHT = 92  # The template toolbar is this height.
 
 # Persona image sizes [preview, full]
@@ -329,7 +327,9 @@ VALIDATOR_SKELETON_RESULTS = {
     "notices": 0,
     "success": True,
     "compatibility_summary": {"notices": 0, "errors": 0, "warnings": 0},
-    "metadata": {"requires_chrome": False, "listed": True},
+    "metadata": {
+        "listed": True,
+    },
     "messages": [],
     "message_tree": {},
     "ending_tier": 5,
@@ -343,9 +343,8 @@ VALIDATOR_SKELETON_EXCEPTION_WEBEXT = {
     "success": False,
     "compatibility_summary": {"notices": 0, "errors": 0, "warnings": 0},
     "metadata": {
-        "requires_chrome": False,
         "listed": True,
-        "is_webextension": True
+        "is_webextension": True,
     },
     "messages": [
         {"id": ["validator", "unexpected_exception"],

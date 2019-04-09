@@ -1,8 +1,10 @@
 import os
+import zipfile
 from base64 import b64encode
 
 from django.conf import settings
 from django.core.files.storage import default_storage as storage
+from django.core.files import temp
 from django.utils.encoding import force_text
 
 import mock
@@ -11,8 +13,13 @@ import pytest
 from olympia import amo
 from olympia.amo.storage_utils import copy_stored_file
 from olympia.amo.tests import addon_factory
+from olympia.addons.cron import hide_disabled_files
+from olympia.files.utils import id_to_path
 from olympia.versions.models import VersionPreview
-from olympia.versions.tasks import generate_static_theme_preview
+from olympia.versions.tasks import (
+    generate_static_theme_preview, extract_version_to_git,
+    extract_version_source_to_git)
+from olympia.lib.git import AddonGitRepository
 
 
 HEADER_ROOT = os.path.join(
@@ -79,7 +86,7 @@ def check_preview(preview_instance, theme_size_constant, write_svg_mock_args,
         ('transparent.svg', 1, 'xMaxYMin meet', 'image/svg+xml', True),
         ('missing_file.png', 0, 'xMaxYMin meet', '', False),
         ('empty-no-ext', 0, 'xMaxYMin meet', '', False),
-        (None, 0, 'xMaxYMin meet', '', False),  # i.e. no headerURL entry
+        (None, 0, 'xMaxYMin meet', '', False),  # i.e. no theme_frame entry
     )
 )
 def test_generate_static_theme_preview(
@@ -94,9 +101,9 @@ def test_generate_static_theme_preview(
         "images": {
         },
         "colors": {
-            "accentcolor": "#918e43",
-            "textcolor": "#3deb60",
-            "toolbar_text": "#b5ba5b",
+            "frame": "#918e43",
+            "tab_background_text": "#3deb60",
+            "bookmark_text": "#b5ba5b",
             "toolbar_field": "#cc29cc",
             "toolbar_field_text": "#17747d",
             "tab_line": "#00db12",
@@ -104,7 +111,7 @@ def test_generate_static_theme_preview(
         }
     }
     if header_url is not None:
-        theme_manifest['images']['headerURL'] = header_url
+        theme_manifest['images']['theme_frame'] = header_url
     addon = addon_factory()
     destination = addon.current_version.all_files[0].current_file_path
     zip_file = os.path.join(HEADER_ROOT, 'theme_images.zip')
@@ -174,22 +181,62 @@ def test_generate_static_theme_preview(
 @mock.patch('olympia.versions.tasks.pngcrush_image')
 @mock.patch('olympia.versions.tasks.resize_image')
 @mock.patch('olympia.versions.tasks.write_svg_to_png')
-def test_generate_static_theme_preview_with_chrome_properties(
+@pytest.mark.parametrize(
+    'manifest_images, manifest_colors, svg_colors', (
+        (  # deprecated properties
+            {"headerURL": "transparent.gif"},
+            {
+                "accentcolor": "#918e43",  # frame
+                "textcolor": "#3deb60",  # tab_background_text
+                "toolbar_text": "#b5ba5b",  # bookmark_text
+            },
+            {
+                "frame": "#918e43",
+                "tab_background_text": "#3deb60",
+                "bookmark_text": "#b5ba5b",
+            }
+        ),
+        (  # defaults and fallbacks
+            {"theme_frame": "transparent.gif"},
+            {
+                "icons": "#348923",  # icons have class bookmark_text
+            },
+            {
+                "frame": amo.THEME_FRAME_COLOR_DEFAULT,
+                "toolbar": "rgba(255,255,255,0.6)",
+                "toolbar_field": "rgba(255,255,255,1)",
+                "tab_selected": "rgba(0,0,0,0)",
+                "tab_line": "rgba(0,0,0,0.25)",
+                "tab_background_text": "",
+                "bookmark_text": "#348923",  # icons have class bookmark_text
+            },
+        ),
+        (  # chrome colors
+            {"theme_frame": "transparent.gif"},
+            {
+                "frame": [123, 45, 67],
+                "tab_background_text": [9, 87, 65],
+                "bookmark_text": [0, 0, 0],
+            },
+            {
+                "frame": "rgb(123,45,67)",
+                "tab_background_text": "rgb(9,87,65)",
+                "bookmark_text": "rgb(0,0,0)",
+            },
+        ),
+    )
+)
+def test_generate_static_theme_preview_with_alternative_properties(
         write_svg_to_png_mock, resize_image_mock, pngcrush_image_mock,
-        extract_colors_from_image_mock, index_addons_mock):
+        extract_colors_from_image_mock, index_addons_mock,
+        manifest_images, manifest_colors, svg_colors):
     write_svg_to_png_mock.return_value = True
     extract_colors_from_image_mock.return_value = [
         {'h': 9, 's': 8, 'l': 7, 'ratio': 0.6}
     ]
     theme_manifest = {
-        "images": {
-            "theme_frame": "transparent.gif"
-        },
-        "colors": {
-            "frame": [123, 45, 67],  # 'accentcolor'
-            "tab_background_text": [9, 87, 65],  # 'textcolor'
-            "bookmark_text": [0, 0, 0],  # 'toolbar_text'
-        }
+        "images": manifest_images,
+        "colors": manifest_colors,
     }
     addon = addon_factory()
     destination = addon.current_version.all_files[0].current_file_path
@@ -231,17 +278,8 @@ def test_generate_static_theme_preview_with_chrome_properties(
         resize_image_mock.call_args_list[2][0],
         pngcrush_image_mock.call_args_list[2][0])
 
-    colors = []
-    # check each of our colors above was converted to css codes
-    chrome_colors = {
-        'bookmark_text': 'toolbar_text',
-        'frame': 'accentcolor',
-        'tab_background_text': 'textcolor',
-    }
-    for (chrome_prop, firefox_prop) in chrome_colors.items():
-        color_list = theme_manifest['colors'][chrome_prop]
-        color = 'rgb(%s,%s,%s)' % tuple(color_list)
-        colors.append('class="%s" fill="%s"' % (firefox_prop, color))
+    colors = ['class="%s" fill="%s"' % (key, color)
+              for (key, color) in svg_colors.items()]
 
     header_svg = write_svg_to_png_mock.call_args_list[0][0][0]
     list_svg = write_svg_to_png_mock.call_args_list[1][0][0]
@@ -299,7 +337,7 @@ def test_generate_preview_with_additional_backgrounds(
 
     theme_manifest = {
         "images": {
-            "headerURL": "empty.png",
+            "theme_frame": "empty.png",
             "additional_backgrounds": ["weta_for_tiling.png"],
         },
         "colors": {
@@ -355,9 +393,9 @@ def test_generate_preview_with_additional_backgrounds(
 
     # These defaults are mostly defined in the xml template
     default_colors = {
-        "accentcolor": "rgba(229,230,232,1)",  # amo.THEME_ACCENTCOLOR_DEFAULT
-        "textcolor": "#123456",     # the only one defined in the 'manifest'.
-        "toolbar_text": "#123456",  # should default to the value of textcolor
+        "frame": "rgba(229,230,232,1)",  # amo.THEME_FRAME_COLOR_DEFAULT
+        "tab_background_text": "#123456",  # the only one defined in 'manifest'
+        "bookmark_text": "#123456",  # should default to tab_background_text
         "toolbar_field": "rgba(255,255,255,1)",
         "toolbar_field_text": "",
         "tab_line": "rgba(0,0,0,0.25)",
@@ -374,3 +412,80 @@ def test_generate_preview_with_additional_backgrounds(
     check_render_additional(force_text(single_svg), 720, colors)
 
     index_addons_mock.assert_called_with([addon.id])
+
+
+@pytest.mark.django_db
+def test_extract_version_to_git():
+    addon = addon_factory(file_kw={'filename': 'webextension_no_id.xpi'})
+
+    extract_version_to_git(addon.current_version.pk)
+
+    repo = AddonGitRepository(addon.pk)
+
+    assert repo.git_repository_path == os.path.join(
+        settings.GIT_FILE_STORAGE_PATH, id_to_path(addon.id), 'addon')
+    assert os.listdir(repo.git_repository_path) == ['.git']
+
+
+@pytest.mark.django_db
+def test_extract_version_to_git_deleted_version():
+    addon = addon_factory(file_kw={'filename': 'webextension_no_id.xpi'})
+
+    version = addon.current_version
+    version.delete()
+
+    hide_disabled_files()
+
+    extract_version_to_git(version.pk)
+
+    repo = AddonGitRepository(addon.pk)
+
+    assert repo.git_repository_path == os.path.join(
+        settings.GIT_FILE_STORAGE_PATH, id_to_path(addon.id), 'addon')
+    assert os.listdir(repo.git_repository_path) == ['.git']
+
+
+@pytest.mark.django_db
+def test_extract_version_source_to_git():
+    addon = addon_factory(file_kw={'filename': 'webextension_no_id.xpi'})
+
+    # Generate source file
+    source = temp.NamedTemporaryFile(suffix='.zip', dir=settings.TMP_PATH)
+    with zipfile.ZipFile(source, 'w') as zip_file:
+        zip_file.writestr('manifest.json', '{}')
+    source.seek(0)
+
+    addon.current_version.update(source=source)
+
+    extract_version_source_to_git(addon.current_version.pk)
+
+    repo = AddonGitRepository(addon.pk, package_type='source')
+
+    assert repo.git_repository_path == os.path.join(
+        settings.GIT_FILE_STORAGE_PATH, id_to_path(addon.id), 'source')
+    assert os.listdir(repo.git_repository_path) == ['.git']
+
+
+@pytest.mark.django_db
+def test_extract_version_source_to_git_deleted_version():
+    addon = addon_factory(file_kw={'filename': 'webextension_no_id.xpi'})
+
+    version = addon.current_version
+    version.delete()
+
+    hide_disabled_files()
+
+    # Generate source file
+    source = temp.NamedTemporaryFile(suffix='.zip', dir=settings.TMP_PATH)
+    with zipfile.ZipFile(source, 'w') as zip_file:
+        zip_file.writestr('manifest.json', '{}')
+    source.seek(0)
+    version.update(source=source)
+
+    extract_version_source_to_git(version.pk)
+
+    repo = AddonGitRepository(addon.pk, package_type='source')
+
+    assert repo.git_repository_path == os.path.join(
+        settings.GIT_FILE_STORAGE_PATH, id_to_path(addon.id), 'source')
+    assert os.listdir(repo.git_repository_path) == ['.git']

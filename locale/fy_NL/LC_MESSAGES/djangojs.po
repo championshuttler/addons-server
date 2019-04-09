@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: AMO-JS 0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-03-18 07:57+0000\n"
-"PO-Revision-Date: 2017-09-05 10:08+0000\n"
+"POT-Creation-Date: 2019-04-08 08:39+0000\n"
+"PO-Revision-Date: 2019-04-04 17:27+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fy_NL\n"
@@ -146,15 +146,6 @@ msgstr "Ofbyldingen moatte fan it type PNG of JPG wêze."
 
 msgid "Videos must be in WebM."
 msgstr "Fideo’s moatte yn WebM wêze."
-
-msgid "Follow this Collection"
-msgstr "Dizze kolleksje folgje"
-
-msgid "Stop Following"
-msgstr "Folgjen stopje"
-
-msgid "Following"
-msgstr "Wurdt folge"
 
 #. L10n: {0} is an app name.
 msgid "This theme is incompatible with your version of {0}"
@@ -706,45 +697,6 @@ msgstr "Allinnich by Firefox – Download Firefox no!"
 msgid "Sorry, you need a Mozilla-based browser (such as Firefox) to install a search plugin."
 msgstr "Sorry, jo hawwe in op Mozilla basearre browser (lykas Firefox) nedich om in sykynstekker ynstallearje te kinnen."
 
-msgid "Adding to Favorites&hellip;"
-msgstr "Wurdt tafoege oan Favoriten…"
-
-msgid "Removing Favorite&hellip;"
-msgstr "Favoryt wurdt fuortsmiten…"
-
-msgid "Add to Favorites"
-msgstr "Tafoegje oan Favoriten"
-
-msgid "Remove from Favorites"
-msgstr "Fuortsmite út Favoriten"
-
-msgid "Pending"
-msgstr "Yn behanneling"
-
-msgid "Add a comment"
-msgstr "Opmerking tafoegje"
-
-msgid "Comment"
-msgstr "Opmerking"
-
-msgid "Remove this add-on from the collection"
-msgstr "Dizze add-on út de kolleksje fuortsmite"
-
-msgid "Remove"
-msgstr "Fuortsmite"
-
-msgid "Add to favorites"
-msgstr "Tafoegje oan favoriten"
-
-msgid "Remove from favorites"
-msgstr "Fuortsmite út favoriten"
-
-msgid "Stop following"
-msgstr "Folgjen stopje"
-
-msgid "Your browser does not support the video tag"
-msgstr "Jo browser stipet it fideolabel net"
-
 msgid "Changes Saved"
 msgstr "Wizigingen bewarje"
 
@@ -830,7 +782,7 @@ msgid "Number of Reviews"
 msgstr "Oantal beoardielingen"
 
 msgid "Maximum upload size is {0} - choose a smaller background image."
-msgstr ""
+msgstr "De maksimale oplaadgrutte is {0} - kies in lytsere eftergrûnôfbylding."
 
 msgid "Requested Info"
 msgstr "Oanfrege ynformaasje"

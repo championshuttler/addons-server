@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: REMORA 0.1\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-03-18 07:57+0000\n"
-"PO-Revision-Date: 2018-06-29 16:27+0000\n"
+"POT-Creation-Date: 2019-04-08 08:39+0000\n"
+"PO-Revision-Date: 2019-03-21 16:17+0000\n"
 "Last-Translator: Rhoslyn Prys <rprys@posteo.net>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: cy\n"
@@ -22,6 +22,9 @@ msgid "No links are allowed."
 msgstr ""
 
 msgid "This display name cannot be used."
+msgstr ""
+
+msgid "This reviewer name cannot be used."
 msgstr ""
 
 msgid "The homepage field can only be used to link to external websites."
@@ -60,7 +63,7 @@ msgid "Notification [%s] does not exist"
 msgstr ""
 
 msgid "Review"
-msgstr "Review"
+msgstr "Adolygiad"
 
 msgid "Version {0}"
 msgstr ""
@@ -80,276 +83,15 @@ msgstr ""
 msgid "- Add-on not on AMO -"
 msgstr ""
 
-msgid "Download Now"
-msgstr ""
-
-msgid "Download"
-msgstr ""
-
-msgid "Featured"
-msgstr ""
-
-msgctxt "install_button"
-msgid "Not Reviewed"
-msgstr "Heb eu Hadolygu"
-
-msgctxt "install_button"
-msgid "Experimental"
-msgstr ""
-
-msgid "Add to {0}"
-msgstr ""
-
-msgid "This slug is already in use. Please choose another."
-msgstr ""
-
-#, python-format
-msgid "The slug cannot be \"%(slug)s\". Please choose another."
-msgstr ""
-
-#. L10n: {0} is a single tag or a comma-separated list of tags.
-msgid "Invalid tag: {0}"
-msgid_plural "Invalid tags: {0}"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
-
-#. L10n: {0} is a single tag or a comma-separated list of tags.
-msgid "\"{0}\" is a reserved tag and cannot be used."
-msgid_plural "\"{0}\" are reserved tags and cannot be used."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
-
-msgid "You have {0} too many tags."
-msgid_plural "You have {0} too many tags."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
-
-#, python-format
-msgid "All tags must be %s characters or less after invalid characters are removed."
-msgstr ""
-
-msgid "All tags must be at least {0} character."
-msgid_plural "All tags must be at least {0} characters."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
-
-msgid "The text entered has been flagged as spam."
-msgstr ""
-
-msgid "Categories cannot be changed while your add-on is featured for this application."
-msgstr ""
-
-#. L10n: {0} is the number of categories.
-msgid "You can have only {0} category."
-msgid_plural "You can have only {0} categories."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
-
-msgid "The miscellaneous category cannot be combined with additional categories."
-msgstr ""
-
-#, python-format
-msgid "URL domain must be one of [%s], or a subdomain."
-msgstr ""
-
-#, python-format
-msgid "Before changing your default locale you must have a name, summary, and description in that locale. You are missing %s."
-msgstr ""
-
 # Column name in a table.
 msgid "Listed"
-msgstr "Listed"
+msgstr "Rhestrwyd"
 
 msgid "Addon and collection paths need to end with \"/\""
 msgstr ""
 
 msgid "Add-on names cannot contain the Mozilla or Firefox trademarks."
 msgstr ""
-
-msgid "Abuse reported."
-msgstr ""
-
-msgid "My add-on doesn't fit into any of the categories"
-msgstr ""
-
-msgid "No compatible versions"
-msgstr ""
-
-#. {0} is a platform name like Windows or Mac OS X.
-msgid "for {0}"
-msgstr ""
-
-msgid "View privacy policy"
-msgstr "View privacy policy"
-
-msgid "View End-User License Agreement"
-msgstr ""
-
-msgid "This add-on has not been reviewed by Mozilla."
-msgstr ""
-
-msgid "This add-on has been marked as experimental by its developers."
-msgstr ""
-
-#. {0} is the name of the add-on.
-msgid "End-User License Agreement for {0}"
-msgstr ""
-
-msgid "End-User License Agreement"
-msgstr "End-User License Agreement"
-
-#, python-format
-msgid "%(addon_name)s requires that you accept the following End-User License Agreement before installation can proceed:"
-msgstr ""
-
-msgid "Back to {0}…"
-msgstr ""
-
-# {0} is the application the user is browsing.  Examples:  Thunderbird,
-# Firefox,
-# Sunbird
-msgid "Add-ons for {0}"
-msgstr "{0} Ychwanegyn"
-
-msgid "Featured Extensions"
-msgstr ""
-
-msgid "Popular Extensions"
-msgstr ""
-
-msgid "Most Popular"
-msgstr ""
-
-msgid "All »"
-msgstr ""
-
-msgid "See all »"
-msgstr ""
-
-msgid "Up &amp; Coming Extensions"
-msgstr ""
-
-msgid "Featured Themes"
-msgstr ""
-
-msgid "Featured Collections"
-msgstr ""
-
-msgid "Sort by:"
-msgstr "Trefnu yn ôl"
-
-#. {0} is a date.
-#. {0} is a date
-msgid "Updated {0}"
-msgstr ""
-
-#. {0} is a date.
-msgid "Added {0}"
-msgstr ""
-
-#, python-format
-msgid "%(num)s weekly download"
-msgid_plural "%(num)s weekly downloads"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
-
-#, python-format
-msgid "%(num)s user"
-msgid_plural "%(num)s users"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
-
-msgid "Requires Restart"
-msgstr ""
-
-msgid "This add-on is built with new technology that is compatible with Firefox 57 and beyond."
-msgstr ""
-
-msgid "Compatible with Firefox 57+"
-msgstr ""
-
-#. {0} is the number of downloads.
-msgid "{0} weekly download"
-msgid_plural "{0} weekly downloads"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
-
-#. {0} is the number of users.
-msgid "{0} user"
-msgid_plural "{0} users"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
-
-msgid "by"
-msgstr "gan"
-
-#. {0} is a category name, such as Nature
-msgid "More {0} Themes"
-msgstr ""
-
-#. {0} is a category name, such as Nature
-msgid "See all {0} Themes"
-msgstr ""
-
-msgid "More by this Artist"
-msgstr ""
-
-msgid "See all Themes by this Artist"
-msgstr ""
-
-msgid "Categories"
-msgstr ""
-
-msgid "Updated"
-msgstr "Updated"
-
-msgid "Artist"
-msgstr ""
-
-msgid "Rating"
-msgstr "Graddio"
-
-msgid "Daily Users"
-msgstr ""
-
-msgid "License"
-msgstr "License"
 
 msgid "Awaiting Review"
 msgstr ""
@@ -358,6 +100,9 @@ msgid "Rejected"
 msgstr ""
 
 msgid "Approved"
+msgstr ""
+
+msgid "Added {0}"
 msgstr ""
 
 #. {0} is the number of users.
@@ -382,13 +127,16 @@ msgstr ""
 #. For datetime formatting, see the table on
 #. http://docs.python.org/library/datetime.html#strftime-and-strptime-behavior
 msgid "by {0} on {1}"
-msgstr "gan {0} ynghylch {1}"
+msgstr "gan {0} ar {1}"
 
 msgid "Not yet rated"
 msgstr "Heb ei raddio eto"
 
 msgid "<b>{0}</b> users"
 msgstr ""
+
+msgid "by"
+msgstr "gan"
 
 #. {0} is the number of users.
 msgid "{0} Daily User"
@@ -400,274 +148,10 @@ msgstr[3] ""
 msgstr[4] ""
 msgstr[5] ""
 
-#. {0} is the name of the add-on.
-msgid "Privacy Policy for {0}"
-msgstr ""
-
-#. The Privacy Policy for this add-on.
-msgid "Privacy Policy"
-msgstr ""
-
-msgid "Report Abuse"
-msgstr ""
-
-#, python-format
-msgid ""
-"If you suspect this add-on violates %(amo_policy_link_open)sour policies%(link_close)s or has security or privacy issues, please use the form below to describe your concerns. Please do not use this "
-"form for any other reason."
-msgstr ""
-
-msgid "Send Report"
-msgstr ""
-
-# This is a separator between the graphical [contribute] button and the
-# graphical [download now] button
-msgid "or"
-msgstr "or"
-
-msgid "Cancel"
-msgstr ""
-
-msgid "What do you think?"
-msgstr "Beth wyt ti'n feddwl?"
-
-#, python-format
-msgid "Please <a href=\"%(login)s\">log in</a> to submit a review"
-msgstr ""
-
-msgid "Review:"
-msgstr "Adolygiad:"
-
-msgid "Rating:"
-msgstr "Graddio:"
-
-msgid "Submit review"
-msgstr ""
-
-#, fuzzy
-msgid "Please do not post bug reports here. We do not make your email address available to add-on developers, so they can't contact you to resolve your issue."
-msgstr "Paid cofnodi gwallau mewn adolygiadau. Nid ydym yn rhoi dy gyfeiriad e-bost i ddatblygwyr ychwanegion a gall fod angen iddyn gysylltu a thi."
-
-#, python-format
-msgid ""
-"See this add-on's <a href=\"%(support)s\">support section</a> to find out if assistance is available. You can also try asking the <a href=\"https://discourse.mozilla-community.org/c/add-ons/add-on-"
-"support\">add-on community</a> for help."
-msgstr ""
-
-msgid "Review Guidelines"
-msgstr "Review Guidelines"
-
-msgid "Reviews"
-msgstr "Adolygiadau"
-
-#, python-format
-msgid "by %(user)s on %(date)s"
-msgstr ""
-
-msgid "Show the developer's reply to this review"
-msgstr ""
-
-#, python-format
-msgid "See all reviews of this add-on"
-msgid_plural "See all %(cnt)s reviews of this add-on"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
-
-msgid "Tags"
-msgstr "Tagiau"
-
-msgid "Icon for {0}"
-msgstr ""
-
-#, python-format
-msgid "by %(users)s"
-msgstr ""
-
-msgid "Download Anyway"
-msgstr ""
-
-# {0} is a number
-#, fuzzy
-msgid "[Warning]"
-msgstr "{0} warning"
-
-#, fuzzy
-msgid "Permissions"
-msgstr "Fersiynnau"
-
-msgid "This add-on has been marked as experimental by its developers"
-msgstr ""
-
-msgid "Average"
-msgstr ""
-
-msgid "Write a review"
-msgstr ""
-
-msgid "Related Categories"
-msgstr ""
-
-msgid "Part of these Collections"
-msgstr ""
-
-#, python-format
-msgid "Other add-ons by %(author)s"
-msgid_plural "Other add-ons by these authors"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
-
-#, python-format
-msgid "<span itemprop=\"ratingCount\">%(num)s</span> user review"
-msgid_plural "<span itemprop=\"ratingCount\">%(num)s</span> user reviews"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
-
-msgid "View statistics"
-msgstr ""
-
-msgid "Manage"
-msgstr ""
-
-#, fuzzy
-msgid "Add-on Review"
-msgstr "Review"
-
-#, fuzzy
-msgid "Admin Manage"
-msgstr "Admin Settings"
-
-#. {0} is an add-on name.
-msgid "Icon of {0}"
-msgstr ""
-
-msgid "Contribute"
-msgstr "Contribute"
-
-msgid "Enjoy this add-on?"
-msgstr ""
-
-msgid "The developer of this add-on asks that you help support its continued development by making a small contribution."
-msgstr "The developer of this add-on asks that you help support its continued development by making a small contribution."
-
-#. {0} is an index.
-msgid "Add-on screenshot #{0}"
-msgstr ""
-
-msgid "Add-on home page"
-msgstr ""
-
-msgid "Support site"
-msgstr ""
-
-msgid "Support E-mail"
-msgstr ""
-
-msgid "Info"
-msgstr ""
-
-#. {0} is a date. dennis-ignore: E201,E202,W202
-msgid "Last Updated:"
-msgstr ""
-
-#, python-format
-msgid "Released under <a href=\"%(url)s\">%(name)s</a>"
-msgstr ""
-
-msgid "Custom License"
-msgstr "Custom License"
-
-msgid "About this Add-on"
-msgstr ""
-
-msgid "Developer’s Comments"
-msgstr ""
-
-msgid "Version Information"
-msgstr ""
-
-msgid "See complete version history"
-msgstr ""
-
-msgid "close"
-msgstr ""
-
-msgid "Some add-ons ask for permission to perform certain functions (example: a tab management add-on will ask permission to access your browser’s tab system)."
-msgstr ""
-
-msgid ""
-"Since you’re in control of your Firefox, the choice to grant or deny these requests is yours. Accepting permissions does not inherently compromise your browser’s performance or security, but in "
-"some rare cases risk may be involved."
-msgstr ""
-
-#. This is a header of a list of things the add-on can do.
-msgid "This add-on can:"
-msgstr ""
-
-msgid "Some add-ons ask for permission to perform certain functions. Since you’re in control of your Firefox, the choice to grant or deny these requests is yours."
-msgstr ""
-
-msgid "Please note this add-on uses legacy technology, which gives it access to all browser functions and data without requesting your permission."
-msgstr ""
-
-msgid "This add-on has been removed by its author."
-msgstr ""
-
-msgid "This add-on has been disabled by an administrator."
-msgstr ""
-
-msgid "Source Code License for {addon}"
-msgstr ""
-
-#. The License for this add-on.
-msgid "Source Code License"
-msgstr "Source Code License"
-
-#, fuzzy
-msgid "support section"
-msgstr "Cefnogaeth"
-
-#, fuzzy
-msgid "support email"
-msgstr "Cefnogaeth"
-
-msgid "permalink"
-msgstr ""
-
-#, python-format
-msgid "See all user reviews"
-msgid_plural "See all %(cnt)s user reviews"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
-
-msgid "This add-on has not yet been reviewed."
-msgstr ""
-
-msgid "Be the first!"
-msgstr ""
-
-msgid "{0} users"
-msgstr ""
+msgid "Sort by:"
+msgstr "Trefnu yn ôl:"
 
 msgid "More"
-msgstr ""
-
-msgid "Add to collection"
 msgstr ""
 
 msgid "My Add-ons"
@@ -676,43 +160,8 @@ msgstr "Fy Ychwanegion"
 msgid "My Themes"
 msgstr ""
 
-#. This is a caption for a table. {0} is an add-on name.
-msgid "Add-on Information for {0}"
-msgstr ""
-
-msgid "Edit Theme"
-msgstr ""
-
-msgid "Approve / Reject"
-msgstr ""
-
-msgid "Review History"
-msgstr ""
-
-msgid "Sorry, this theme is pending. Please come back later."
-msgstr ""
-
-msgid "This theme is pending. It is invisible to everyone but you."
-msgstr ""
-
-msgid "Collector's Note"
-msgstr ""
-
-#. {0} is the number of downloads.
-msgid "<strong>{0}</strong> weekly download"
-msgid_plural "<strong>{0}</strong> weekly downloads"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
-
-msgid "Not Reviewed"
-msgstr ""
-
 msgid "Tools"
-msgstr "Tools"
+msgstr "Offer"
 
 msgid "My Profile"
 msgstr ""
@@ -721,10 +170,10 @@ msgid "Account Settings"
 msgstr ""
 
 msgid "My Collections"
-msgstr "My Collections"
+msgstr "Fy Nghasgliadau"
 
 msgid "My Favorites"
-msgstr "My Favorites"
+msgstr "Fy Ffefrynnau"
 
 msgid "Log out"
 msgstr "Allgofnodi"
@@ -744,9 +193,8 @@ msgstr ""
 msgid "Manage API Keys"
 msgstr ""
 
-#, fuzzy
 msgid "Reviewer Tools"
-msgstr "Developer"
+msgstr "Offer Adolygwyr"
 
 msgid "Admin Tools"
 msgstr ""
@@ -798,9 +246,8 @@ msgstr ""
 msgid "Page Not Found"
 msgstr ""
 
-#, fuzzy
 msgid "Firefox Add-ons"
-msgstr "Fy Ychwanegion"
+msgstr "Ychwanegion Firefox"
 
 msgid "Sorry, but we can't find anything at the address you entered. If you followed a link to an add-on, it's possible that add-on has been removed by its author."
 msgstr ""
@@ -817,9 +264,8 @@ msgstr ""
 # {0} is the application the user is browsing.  Examples:  Thunderbird,
 # Firefox,
 # Sunbird
-#, fuzzy
 msgid "Add-ons Home Page"
-msgstr "{0} Ychwanegyn"
+msgstr "Tudalen Gartref Ychwanegion"
 
 #, python-format
 msgid "If you followed a link from somewhere, please %(open_bug_link)sfile an issue %(close_bug_link)s. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
@@ -852,10 +298,10 @@ msgstr ""
 
 #. abbreviation of 'previous'
 msgid "Prev"
-msgstr "Prev"
+msgstr "Blaenorol"
 
 msgid "Next"
-msgstr "Next"
+msgstr "Nesaf"
 
 #, python-format
 msgid "Results <strong>%(begin)s</strong>&ndash;<strong>%(end)s</strong> of <strong>%(count)s</strong>"
@@ -871,7 +317,7 @@ msgid "Some features on this page are temporarily disabled while we perform webs
 msgstr ""
 
 msgid "Are you human?"
-msgstr "Are you human?"
+msgstr "Ydych chi'n berson?"
 
 msgid "What's this?"
 msgstr "Beth yw hwn?"
@@ -881,42 +327,22 @@ msgid ""
 "different words</a> or <a href=\"#\" id=\"recaptcha_audio\">try a different type of challenge</a> instead. </p>"
 msgstr ""
 
+msgid "Most Popular"
+msgstr ""
+
 msgid "Top Rated"
-msgstr "Top Rated"
+msgstr "Gorau Oll"
 
 msgid "Newest"
+msgstr ""
+
+msgid "Featured"
 msgstr ""
 
 msgid "Explore"
 msgstr ""
 
-# Plural in this context means many of the add-on type
-msgid "Extensions"
-msgstr "Extensions"
-
-#. {0} is a category name. Ex: "Sports"
-msgid "Themes"
-msgstr ""
-
-msgid "Want more customization? Try <b>Complete Themes</b>"
-msgstr ""
-
-msgid "Collections"
-msgstr "Collections"
-
-msgid "Collections I've Made"
-msgstr ""
-
-msgid "More&hellip;"
-msgstr ""
-
-msgid "Add-ons for Mobile"
-msgstr ""
-
-msgid "Dictionaries & Language Packs"
-msgstr ""
-
-msgid "Search Tools"
+msgid "Categories"
 msgstr ""
 
 #. This is a page range (e.g., Page 1 of 50).
@@ -939,8 +365,17 @@ msgstr ""
 msgid "Showing <b>%(begin)s</b>&ndash;<b>%(end)s</b> of <b>%(count)s</b>"
 msgstr ""
 
+# {0} is the application the user is browsing.  Examples:  Thunderbird,
+# Firefox,
+# Sunbird
+msgid "Add-ons for {0}"
+msgstr "Ychwanegion {0}"
+
 msgid "Add-ons"
 msgstr ""
+
+msgid "Custom License"
+msgstr "Trwydded Cyfaddas"
 
 #. L10n: relative time in the past, like '4 days ago'
 msgid "{0} ago"
@@ -996,7 +431,7 @@ msgid "Invalid pk or slug \"%s\" - object does not exist."
 msgstr ""
 
 msgid "Application Versions"
-msgstr "Application Versions"
+msgstr "Fersiwn y Rhaglen"
 
 msgid "Acceptable versions for all applications on AMO."
 msgstr ""
@@ -1015,7 +450,7 @@ msgid "GUID"
 msgstr "GUID"
 
 msgid "Versions"
-msgstr "Fersiynnau"
+msgstr "Fersiynau"
 
 #, python-format
 msgid ""
@@ -1023,37 +458,16 @@ msgid ""
 "%(amo_manifests_mdn_link_close)s."
 msgstr ""
 
-msgid "Only I can view this collection."
-msgstr ""
-
-msgid "Anybody can view this collection."
-msgstr ""
-
-msgid "Give your collection a name."
-msgstr ""
-
-msgid "URL:"
-msgstr ""
-
-msgid "Describe your collection (no links allowed)."
-msgstr ""
-
-msgid "Privacy:"
-msgstr ""
-
-msgid "Please don't fill out this field, it's used to catch bots"
-msgstr ""
-
-msgid "This name cannot be used."
-msgstr ""
-
-msgid "This url is already in use by another collection"
+msgid "The text entered has been flagged as spam."
 msgstr ""
 
 msgid "This custom URL is already in use by another one of your collections."
 msgstr ""
 
 msgid "Name cannot be empty."
+msgstr ""
+
+msgid "This name cannot be used."
 msgstr ""
 
 msgid "The custom URL must consist of letters, numbers, underscores or hyphens."
@@ -1063,483 +477,6 @@ msgid "This custom URL cannot be used."
 msgstr ""
 
 msgid "This add-on already belongs to the collection"
-msgstr ""
-
-msgid "Added"
-msgstr ""
-
-msgid "Popularity"
-msgstr ""
-
-msgid "Name"
-msgstr ""
-
-msgid "Collection created!"
-msgstr ""
-
-#, python-format
-msgid "Your new collection is shown below. You can <a href=\"%(url)s\">edit additional settings</a> if you'd like."
-msgstr ""
-
-msgid "Collection updated!"
-msgstr ""
-
-#, python-format
-msgid "<a href=\"%(url)s\">View your collection</a> to see the changes."
-msgstr ""
-
-msgid "Create a New Collection"
-msgstr ""
-
-#, python-format
-msgid "As noted in our <a href=\"%(legal)s\">Legal Notices</a>, individual collection arrangements are governed by the Creative Commons Attribution Share-Alike License"
-msgstr ""
-
-msgid "Create Collection"
-msgstr "Create Collection"
-
-msgid "View this collection"
-msgstr ""
-
-msgid "Start a new collection..."
-msgstr ""
-
-msgid "Start a New Collection"
-msgstr ""
-
-msgid "Name:"
-msgstr ""
-
-msgid "(optional)"
-msgstr ""
-
-msgid "or <a id=\"collections-new-cancel\" href=\"#\">Cancel</a>"
-msgstr ""
-
-msgid "{0} :: Collections"
-msgstr ""
-
-msgid "private"
-msgstr ""
-
-msgid "About this Collection"
-msgstr ""
-
-msgid "Add-ons synced to my Mobile Firefox"
-msgstr ""
-
-msgid "Make this Collection Private"
-msgstr ""
-
-msgid "Make this Collection Public"
-msgstr ""
-
-msgid "More Options:"
-msgstr ""
-
-msgid "Edit Collection"
-msgstr ""
-
-msgid "Delete Collection"
-msgstr ""
-
-#, python-format
-msgid "%(num)s Theme in this Collection"
-msgid_plural "%(num)s Themes in this Collection"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
-
-#, python-format
-msgid "%(num)s Add-on in this Collection"
-msgid_plural "%(num)s Add-ons in this Collection"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
-
-msgid "Go"
-msgstr ""
-
-msgid "What are Collections?"
-msgstr "What are Collections?"
-
-msgid "Collections are groups of related add-ons that anyone can create and share."
-msgstr ""
-
-msgid "Explore Collections"
-msgstr ""
-
-msgid ""
-"Add-ons that you mark as favorites using the <b>Add to Favorites</b> feature appear below. This collection is currently <b>public</b>, which means everyone can see it. If you would like to hide it "
-"from public view, click the button below to make it private."
-msgstr ""
-
-msgid ""
-"Add-ons that you mark as favorites using the <b>Add to Favorites</b> feature appear below. This collection is currently <b>private</b>, which means only you can see it. If you would like everyone "
-"to be able to see your favorites, click the button below to make it public."
-msgstr ""
-
-msgid "My favorite add-ons"
-msgstr ""
-
-#, python-format
-msgid "<span>%(addons)s</span> add-on"
-msgid_plural "<span>%(addons)s</span> add-ons"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
-
-msgid "by {0}"
-msgstr ""
-
-msgid "Edit this Collection"
-msgstr ""
-
-#. %s is the name of the collection.
-msgid "Delete {0}"
-msgstr ""
-
-msgid "Are you sure?"
-msgstr "Are you sure?"
-
-msgid "Yes"
-msgstr ""
-
-msgid "No"
-msgstr ""
-
-#. {0} is the name of the collection.
-msgid "Edit {0}"
-msgstr ""
-
-msgid "Description"
-msgstr "Disgrifiad"
-
-msgid "Save Changes"
-msgstr ""
-
-msgid "Remove from favorites"
-msgstr ""
-
-msgid "Add to favorites"
-msgstr ""
-
-#. {0} is a the user's name.
-msgid "Collections by {0}"
-msgstr ""
-
-msgid "No collections found."
-msgstr "No files found."
-
-#, python-format
-msgid "Collections are groups of related add-ons that anyone can create and share. Explore collections created by other users or <a href=\"%(url)s\">create your own</a>."
-msgstr ""
-
-#, python-format
-msgid "by %(author_link)s"
-msgstr ""
-
-msgid "My Favorite Add-ons"
-msgstr ""
-
-msgid "Create a Collection"
-msgstr ""
-
-msgid "Collections make it easy to keep track of favorite add-ons and share your perfectly customized browser with others."
-msgstr ""
-
-msgid "There are errors in this form.  Please correct them below."
-msgstr ""
-
-msgid "Add-ons in Your Collection"
-msgstr ""
-
-msgid "To include an add-on in this collection, enter its name in the box below and hit enter."
-msgstr ""
-
-msgid "Add-on"
-msgstr ""
-
-msgid "Comment"
-msgstr ""
-
-msgid "Remove"
-msgstr ""
-
-msgid "Enter the name of the add-on to include"
-msgstr ""
-
-msgid "Add to Collection"
-msgstr "Add to Collection"
-
-msgid "Pending"
-msgstr ""
-
-msgid "Add a comment"
-msgstr ""
-
-msgid "Remove this add-on from the collection"
-msgstr ""
-
-msgid "Favorite"
-msgstr ""
-
-#. L10n: %s is a category name.
-#, python-format
-msgid "%s Add-ons"
-msgstr "%s Ychanegyn"
-
-#. L10n: %s is a category name.
-#, python-format
-msgid "%s Themes"
-msgstr ""
-
-#, python-format
-msgid "Featured Add-ons :: %s"
-msgstr ""
-
-#. L10n: %s is an app name.
-#, python-format
-msgid "Here's a few of our favorite add-ons to help you get started customizing %s."
-msgstr ""
-
-#. L10n: %s is a category name.
-#, python-format
-msgid "Search tools relating to %s"
-msgstr ""
-
-msgid "Search tools and search-related extensions"
-msgstr ""
-
-msgid "Search tools"
-msgstr ""
-
-msgid "Most Users"
-msgstr ""
-
-msgid "Weekly Downloads"
-msgstr ""
-
-msgid "Recently Updated"
-msgstr ""
-
-msgid "Up & Coming"
-msgstr ""
-
-msgid "Recently Added"
-msgstr "Recently Added"
-
-msgid "Created"
-msgstr "Created"
-
-msgid "Downloads"
-msgstr "Llwythi"
-
-#. {0} is the category name. Ex: Sports
-msgid "{0}: Featured Add-ons"
-msgstr ""
-
-#. {0} is a category name. Ex: Sports
-msgid "No featured add-ons in {0}."
-msgstr ""
-
-msgid "Subscribe"
-msgstr ""
-
-msgid "Featured Add-ons"
-msgstr ""
-
-#, python-format
-msgid "Here's a few of our favorite add-ons to help you get started customizing %(app)s."
-msgstr ""
-
-msgid "Install Dictionary"
-msgstr "Gosod Geiriadur"
-
-msgid "Install Language Pack"
-msgstr "Gosod Pecyn Iaith"
-
-#, python-format
-msgid ""
-"Installing a dictionary add-on will add a new language option to your %(app_name)s spell-checker, which checks your spelling when you fill out Web forms. Language pack add-ons change the language "
-"of the entire application."
-msgstr ""
-
-msgid "Available in your locale"
-msgstr ""
-
-msgid "List of language packs and dictionaries available in your locale."
-msgstr ""
-
-msgid "Language"
-msgstr "Iaith"
-
-msgid "Dictionary"
-msgstr ""
-
-msgid "Language Pack"
-msgstr "Pecyn Iaith"
-
-msgid "All locales"
-msgstr ""
-
-msgid "List of language packs and dictionaries."
-msgstr "Rhestr o becynnau iaith a geiriaduron."
-
-#. {0} is a category name, like "Music".
-msgid "{0} :: Search Tools"
-msgstr ""
-
-#. {0} is an integer.
-msgid "<b>{0}</b> add-on"
-msgid_plural "<b>{0}</b> add-ons"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
-
-msgid "Search Extensions"
-msgstr ""
-
-msgid "Add search-related functionality to Firefox"
-msgstr ""
-
-msgid "Search Providers"
-msgstr ""
-
-msgid "Find new providers for your search bar"
-msgstr ""
-
-msgid "Additional Resources"
-msgstr "Adnoddau Ychwanegol"
-
-#. {0} is an app name, like Firefox.
-msgid "Learn more about the <a href=\"https://support.mozilla.org/kb/use-search-bar-firefox\">search bar</a> in {0}"
-msgstr ""
-
-msgid "Browse through even more search providers at <a href=\"http://mycroftproject.com/\">mycroftproject.com</a>"
-msgstr ""
-
-#, python-format
-msgid "%(amo_mdn_link_open)sMake your own%(amo_mdn_link_close)s search tool"
-msgstr ""
-
-msgid "Most Popular Extensions"
-msgstr ""
-
-msgid "Top-Rated Extensions"
-msgstr ""
-
-msgid "Newest Extensions"
-msgstr ""
-
-msgid "Extensions by Name"
-msgstr ""
-
-msgid "Extensions by Weekly Downloads"
-msgstr ""
-
-msgid "Recently Updated Extensions"
-msgstr ""
-
-msgid "Up & Coming Extensions"
-msgstr ""
-
-#. "Complete" is used as an adjective. "Complete Theme" means a full-featured
-#. theme.
-msgid "Featured Complete Themes"
-msgstr ""
-
-msgid "Most Popular Complete Themes"
-msgstr ""
-
-msgid "Top-Rated Complete Themes"
-msgstr ""
-
-msgid "Newest Complete Themes"
-msgstr ""
-
-msgid "Complete Themes by Name"
-msgstr ""
-
-msgid "Complete Themes by Weekly Downloads"
-msgstr ""
-
-msgid "Recently Updated Complete Themes"
-msgstr ""
-
-msgid "Up & Coming Complete Themes"
-msgstr ""
-
-#, python-format
-msgid "See the %(cnt)s extension in %(name)s &raquo;"
-msgid_plural "See all %(cnt)s extensions in %(name)s &raquo;"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
-
-msgid "{0} Themes"
-msgstr ""
-
-#. {0} is a user's name.
-msgid "{0}'s Themes"
-msgstr ""
-
-msgid "View Profile"
-msgstr ""
-
-msgid "Create Your Own Theme"
-msgstr ""
-
-msgid "Your browser, your style! Dress it up with a design of your own!"
-msgstr ""
-
-msgid "Learn more"
-msgstr "Dysgu mwy"
-
-msgid "View All Recently Added"
-msgstr ""
-
-msgid "View All Most Popular"
-msgstr ""
-
-msgid "View All Top Rated"
-msgstr ""
-
-#, python-format
-msgid "Over 300,000 designs to personalize your browser! Move your mouse over a Background Theme to try it on. <a href=\"%(url)s\" class=\"more-info\">Start exploring</a>"
-msgstr ""
-
-msgid "Want more personalization?"
-msgstr ""
-
-#. "Complete" is used as an adjective. "Complete Theme" means a full-featured
-#. theme.
-#, python-format
-msgid "Complete Themes transform the look of your browser with styles for the window frame, address bar, buttons, tabs, and menus. <a href=\"%(url)s\" class=\"more-info\">Start exploring</a>"
-msgstr ""
-
-msgid "Up & Coming Themes"
-msgstr ""
-
-msgid "View All Up & Coming"
-msgstr ""
-
-msgid "No themes found"
 msgstr ""
 
 msgid "{addon} was created."
@@ -1772,16 +709,14 @@ msgstr ""
 msgid "Reply by developer on {addon} {version}."
 msgstr ""
 
-#, fuzzy
 msgid "Developer Reply"
-msgstr "Developer"
+msgstr "Ateb Datblygwyr"
 
 msgid "Reply by reviewer on {addon} {version}."
 msgstr ""
 
-#, fuzzy
 msgid "Reviewer Reply"
-msgstr "Developer"
+msgstr "Ateb Adolygwyr"
 
 msgid "Approval notes changed for {addon} {version}."
 msgstr ""
@@ -1792,16 +727,14 @@ msgstr ""
 msgid "Source code uploaded for {addon} {version}."
 msgstr ""
 
-#, fuzzy
 msgid "Source code uploaded"
-msgstr "Source Code License"
+msgstr "Cod ffynhonnell wedi'i lwytho"
 
 msgid "Auto-Approval confirmed for {addon} {version}."
 msgstr ""
 
-#, fuzzy
 msgid "Auto-Approval confirmed"
-msgstr "Last Updated"
+msgstr "Cadarnhau Cymeradwyaeth Awtomatig"
 
 msgid "{addon} {version} re-enabled."
 msgstr ""
@@ -1821,41 +754,35 @@ msgstr ""
 msgid "Content rejected"
 msgstr ""
 
-#, fuzzy
 msgid "{addon} information request altered or removed by admin."
-msgstr "Review"
+msgstr "Cais am wybodaeth am {addon} wedi'i newid neu ei ddileu gan y gweinyddwr."
 
-#, fuzzy
 msgid "Information request altered"
-msgstr "Review"
+msgstr "Cais am wybodaeth wedi'i newid"
 
 msgid "Information request cleared by developer on {addon} {version}."
 msgstr ""
 
-#, fuzzy
 msgid "Information request removed"
-msgstr "Review"
+msgstr "Cais am wybodaeth wedi'i dynnu"
 
 msgid "{addon} {version} admin add-on-review requested."
 msgstr ""
 
-#, fuzzy
 msgid "Admin add-on-review requested"
-msgstr "Review"
+msgstr "Gofyn am adolygiad ychwanegyn gan y gweinyddwr"
 
 msgid "{addon} {version} admin content-review requested."
 msgstr ""
 
-#, fuzzy
 msgid "Admin content-review requested"
-msgstr "Review"
+msgstr "Gofyn am adolygiad cynnwys gan y gweinyddwr"
 
 msgid "{addon} {version} admin theme-review requested."
 msgstr ""
 
-#, fuzzy
 msgid "Admin theme-review requested"
-msgstr "Review"
+msgstr "Cais am adolygiad thema gan ygweinyddwr"
 
 msgid "{addon} was migrated from a lightweight theme."
 msgstr ""
@@ -1904,28 +831,31 @@ msgstr ""
 
 # <option> text in a <select> for Author role in an add-on.
 msgid "Owner"
-msgstr "Owner"
+msgstr "Perchennog"
 
 msgid "Developer"
-msgstr "Developer"
+msgstr "Datblygwr"
 
 msgid "Extension"
-msgstr "Extension"
+msgstr "Estyniad"
 
 msgid "Complete Theme"
 msgstr ""
 
+msgid "Dictionary"
+msgstr ""
+
 msgid "Search Engine"
-msgstr "Search Engine"
+msgstr "Peiriant Chwilio"
 
 msgid "Language Pack (Application)"
-msgstr "Language Pack (Application)"
+msgstr "Pecyn Iaith (Ap)"
 
 msgid "Language Pack (Add-on)"
 msgstr ""
 
 msgid "Plugin"
-msgstr "Plugin"
+msgstr "Ategyn"
 
 msgid "Theme"
 msgstr ""
@@ -1933,21 +863,31 @@ msgstr ""
 msgid "Theme (Static)"
 msgstr ""
 
+# Plural in this context means many of the add-on type
+msgid "Extensions"
+msgstr "Estyniadau"
+
 msgid "Complete Themes"
 msgstr ""
 
 # Plural in this context means many of the add-on type
 msgid "Dictionaries"
-msgstr "Dictionaries"
+msgstr "Geiriaduron"
+
+msgid "Search Tools"
+msgstr ""
 
 # Plural in this context means many of the add-on type
 msgid "Language Packs (Application)"
-msgstr "Language Packs (Application)"
+msgstr "Pecyn Iaith (Ap)"
 
 msgid "Language Packs (Add-on)"
 msgstr ""
 
 msgid "Plugins"
+msgstr ""
+
+msgid "Themes"
 msgstr ""
 
 msgid "Themes (Static)"
@@ -1971,9 +911,8 @@ msgstr ""
 msgid "Download extensions that enhance bookmarks by password-protecting them, searching for duplicates, finding broken bookmarks, and more."
 msgstr ""
 
-#, fuzzy
 msgid "Download Management"
-msgstr "Llwytho Pecyn Iaith i Lawr"
+msgstr "Rheoli Llwytho"
 
 msgid "Download Firefox extensions that can help download web, music and video content. You can also find extensions to manage downloads, share files, and more."
 msgstr ""
@@ -1990,9 +929,8 @@ msgstr ""
 msgid "Download Firefox extensions to boost your entertainment experience. This category includes extensions that can enhance gaming, control video playback, and more."
 msgstr ""
 
-#, fuzzy
 msgid "Language Support"
-msgstr "Iaith"
+msgstr "Cefnogaeth Iaith"
 
 msgid "Download Firefox extensions that offer language support like grammar check, look-up words, translate text, provide text-to-speech, and more."
 msgstr ""
@@ -2030,16 +968,15 @@ msgstr ""
 msgid "Download Firefox extension to customize tabs and the new tab page. Discover extensions that can control tabs, change the way you interact with them, and more."
 msgstr ""
 
-#, fuzzy
 msgid "Web Development"
-msgstr "Developer"
+msgstr "Datblygiad Gwe"
 
 msgid "Download Firefox extensions that feature web development tools. This category includes extensions for GitHub, user agent switching, cookie management, and more."
 msgstr ""
 
 #. Review points sources other than add-ons and themes.
 msgid "Other"
-msgstr "Other"
+msgstr "Arall"
 
 msgid "Download Firefox extensions that can be unpredictable and creative, yet useful for those odd tasks."
 msgstr ""
@@ -2057,7 +994,7 @@ msgid "Download Firefox extensions that are regularly updated and ready for publ
 msgstr ""
 
 msgid "Performance"
-msgstr "Performance"
+msgstr "Perfformiad"
 
 msgid "Download extensions that give Firefox a performance boost. Find extensions that help you be more productive and efficient by blocking annoying ads and more."
 msgstr ""
@@ -2086,9 +1023,8 @@ msgstr ""
 msgid "Download Firefox extensions to give your entertainment experience a boost with live stream enhancers, sports updates, and more."
 msgstr ""
 
-#, fuzzy
 msgid "User Interface"
-msgstr "User since"
+msgstr "Rhyngwyneb Defnyddiwr"
 
 msgid "Download user interface Firefox extensions to alter web pages for easier reading, searching, browsing, and more."
 msgstr ""
@@ -2117,9 +1053,8 @@ msgstr ""
 msgid "Retro"
 msgstr ""
 
-#, fuzzy
 msgid "Sports"
-msgstr "Cefnogaeth"
+msgstr "Chwaraeon"
 
 msgid "Abstract"
 msgstr ""
@@ -2206,9 +1141,8 @@ msgid "Business"
 msgstr ""
 
 # Plural in this context means many of the add-on type
-#, fuzzy
 msgid "Dictionaries & Encyclopedias"
-msgstr "Dictionaries"
+msgstr "Geiriaduron a Gwyddoniaduron"
 
 msgid "Kids"
 msgstr ""
@@ -2279,17 +1213,18 @@ msgstr ""
 msgid "Android"
 msgstr ""
 
+msgid "Add-on"
+msgstr ""
+
 # "Me" in this context is the user shown on the User Info page
-#, fuzzy
 msgid "Static Theme"
-msgstr "Created by Me"
+msgstr "Thema Sefydlog"
 
 msgid "Persona"
 msgstr ""
 
-#, fuzzy
 msgid "No Reputation"
-msgstr "Notifications"
+msgstr "Dim Enw Da"
 
 msgid "Good (1)"
 msgstr ""
@@ -2303,21 +1238,18 @@ msgstr ""
 msgid "Manual Reviewer Points"
 msgstr ""
 
-#, fuzzy
 msgid "New Legacy Add-on Review"
-msgstr "Review"
+msgstr "Adolygiad Newydd Hen Ychwanegyn"
 
 msgid "Preliminary Add-on Review"
 msgstr ""
 
-#, fuzzy
 msgid "Updated Legacy Add-on Review"
-msgstr "Review"
+msgstr "Adolygiad Hen Ychwanegyn wedi'i Ddiweddaru"
 
 # Plural in this context means many of the add-on type
-#, fuzzy
 msgid "New Dictionary Review"
-msgstr "Dictionaries"
+msgstr "Adolygiad Geiriadur Newydd"
 
 msgid "Preliminary Dictionary Review"
 msgstr ""
@@ -2325,9 +1257,8 @@ msgstr ""
 msgid "Updated Dictionary Review"
 msgstr ""
 
-#, fuzzy
 msgid "New Language Pack Review"
-msgstr "Pecyn Iaith"
+msgstr "Adolygiad o'r Pecyn Iaith Newydd"
 
 msgid "Preliminary Language Pack Review"
 msgstr ""
@@ -2338,9 +1269,8 @@ msgstr ""
 msgid "Theme Review"
 msgstr ""
 
-#, fuzzy
 msgid "Theme (Static) Review"
-msgstr "Delete review"
+msgstr "Adolygiad Thema (Sefydlog)"
 
 msgid "New Search Provider Review"
 msgstr ""
@@ -2360,32 +1290,26 @@ msgstr ""
 msgid "Updated Complete Theme Review"
 msgstr ""
 
-#, fuzzy
 msgid "Moderated Add-on Review"
-msgstr "Review"
+msgstr "Adolygiad Ychwanegiad wedi'i Safoni"
 
 msgid "Add-on Review Moderation Reverted"
 msgstr ""
 
-#, fuzzy
 msgid "Add-on Content Review"
-msgstr "Review"
+msgstr "Adolygiad Cynnwys Ychwanegion"
 
-#, fuzzy
 msgid "Add-on Review (Highest Risk)"
-msgstr "Review"
+msgstr "Adolygiad Ychwanegion (Risg Uchaf)"
 
-#, fuzzy
 msgid "Add-on Review (High Risk)"
-msgstr "Review"
+msgstr "Adolygiad Ychwanegion (Risg Uchel)"
 
-#, fuzzy
 msgid "Add-on Review (Medium Risk)"
-msgstr "Review"
+msgstr "Adolygiad Ychwanegion (Risg Canolig)"
 
-#, fuzzy
 msgid "Add-on Review (Low Risk)"
-msgstr "Review"
+msgstr "Adolygiad Ychwanegion (Risg Isel)"
 
 msgid "Level 1"
 msgstr ""
@@ -2478,6 +1402,79 @@ msgstr ""
 msgid "[{field}] The text in the \"{field}\" field has been flagged as spam."
 msgstr ""
 
+msgid "This slug is already in use. Please choose another."
+msgstr ""
+
+#, python-format
+msgid "The slug cannot be \"%(slug)s\". Please choose another."
+msgstr ""
+
+#. L10n: {0} is a single tag or a comma-separated list of tags.
+msgid "Invalid tag: {0}"
+msgid_plural "Invalid tags: {0}"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#. L10n: {0} is a single tag or a comma-separated list of tags.
+msgid "\"{0}\" is a reserved tag and cannot be used."
+msgid_plural "\"{0}\" are reserved tags and cannot be used."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+msgid "You have {0} too many tags."
+msgid_plural "You have {0} too many tags."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+#, python-format
+msgid "All tags must be %s characters or less after invalid characters are removed."
+msgstr ""
+
+msgid "All tags must be at least {0} character."
+msgid_plural "All tags must be at least {0} characters."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+msgid "Categories cannot be changed while your add-on is featured for this application."
+msgstr ""
+
+#. L10n: {0} is the number of categories.
+msgid "You can have only {0} category."
+msgid_plural "You can have only {0} categories."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+msgid "The miscellaneous category cannot be combined with additional categories."
+msgstr ""
+
+#, python-format
+msgid "URL domain must be one of [%s], or a subdomain."
+msgstr ""
+
+#, python-format
+msgid "Before changing your default locale you must have a name, summary, and description in that locale. You are missing %s."
+msgstr ""
+
 msgid "Must have at least one owner."
 msgstr ""
 
@@ -2491,7 +1488,7 @@ msgid "Slug incorrect."
 msgstr ""
 
 msgid "Details"
-msgstr "Details"
+msgstr "Manylion"
 
 msgid "What is your license's name?"
 msgstr ""
@@ -2547,6 +1544,12 @@ msgstr ""
 msgid "Continue with existing upload instead?"
 msgstr ""
 
+msgid "Yes"
+msgstr ""
+
+msgid "No"
+msgstr ""
+
 msgid "You have not uploaded a source file."
 msgstr ""
 
@@ -2568,6 +1571,9 @@ msgstr ""
 msgid "Categories cannot be changed while your add-on is featured."
 msgstr ""
 
+msgid "Invalid or corrupt add-on file."
+msgstr ""
+
 msgid "Your developer API key was found in the submitted file. To protect your account, the key will be revoked."
 msgstr ""
 
@@ -2580,6 +1586,21 @@ msgstr ""
 #, python-format
 msgid "Validation generated too many errors/warnings so %s messages were truncated. After addressing the visible messages, you'll be able to see the others."
 msgstr ""
+
+msgid "Updated"
+msgstr "Diweddarwyd"
+
+msgid "Name"
+msgstr ""
+
+msgid "Created"
+msgstr "Crëwyd"
+
+msgid "Downloads"
+msgstr "Llwythi"
+
+msgid "Rating"
+msgstr "Graddio"
 
 msgid "All My Add-ons"
 msgstr ""
@@ -2676,13 +1697,13 @@ msgstr ""
 msgid "Header area background"
 msgstr ""
 
-msgid "The color of the header area background, displayed in the part of the header not covered or visible through the header image. Manifest field:  accentcolor."
+msgid "The color of the header area background, displayed in the part of the header not covered or visible through the header image. Manifest field:  frame."
 msgstr ""
 
 msgid "Header area text and icons"
 msgstr ""
 
-msgid "The color of the text and icons in the header area, except the active tab. Manifest field:  textcolor."
+msgid "The color of the text and icons in the header area, except the active tab. Manifest field:  tab_background_text."
 msgstr ""
 
 msgid "Toolbar area background"
@@ -2694,7 +1715,7 @@ msgstr ""
 msgid "Toolbar area text and icons"
 msgstr ""
 
-msgid "The color of the text and icons in the toolbar and the active tab. Manifest field:  toolbar_text."
+msgid "The color of the text and icons in the toolbar and the active tab. Manifest field:  bookmark_text."
 msgstr ""
 
 msgid "Toolbar field area background"
@@ -2709,9 +1730,8 @@ msgstr ""
 msgid "The color of text in fields in the toolbar, such as the URL bar. Manifest field:  toolbar_field_text."
 msgstr ""
 
-#, fuzzy
 msgid "Review requested."
-msgstr "Review"
+msgstr "Angen adolygiad."
 
 msgid "You must provide further details to proceed."
 msgstr ""
@@ -2728,6 +1748,9 @@ msgstr ""
 msgid "API key revoked"
 msgstr ""
 
+msgid "My add-on doesn't fit into any of the categories"
+msgstr ""
+
 msgid ""
 "Before starting, please read and accept our Firefox Add-on Distribution Agreement as well as our Review Policies and Rules. The Firefox Add-on Distribution Agreement also links to our Privacy "
 "Notice which explains how we handle your information."
@@ -2736,9 +1759,8 @@ msgstr ""
 msgid "Firefox Add-on Distribution Agreement"
 msgstr ""
 
-#, fuzzy
 msgid "Review Policies and Rules"
-msgstr "Review"
+msgstr "Polisïau a Rheolau Adolygu"
 
 msgid "I have read and accept this Agreement and the Rules and Policies"
 msgstr ""
@@ -2747,9 +1769,6 @@ msgid "Accept"
 msgstr ""
 
 msgid "or <a href=\"{0}\">Cancel</a>"
-msgstr ""
-
-msgid "Back to Add-ons"
 msgstr ""
 
 #. {0} is an application, like Firefox.
@@ -2766,18 +1785,19 @@ msgstr ""
 msgid "more add-ons..."
 msgstr ""
 
+# Plural in this context means many of the add-on type
+#, fuzzy
+msgid "Extension Workshop"
+msgstr "Estyniadau"
+
 msgid "Documentation"
 msgstr ""
 
 msgid "Extension Development"
 msgstr ""
 
-msgid "Lightweight Themes"
-msgstr ""
-
-#, fuzzy
 msgid "Developer Policies"
-msgstr "Sylwadau'r Datblygwr"
+msgstr "Polisïau Datblygwyr"
 
 msgid "Add-on Validator"
 msgstr ""
@@ -2801,7 +1821,7 @@ msgid "Search Developer Docs"
 msgstr ""
 
 msgid "Search"
-msgstr "Search"
+msgstr "Chwilio"
 
 msgid "Use the field below to upload your add-on package."
 msgstr ""
@@ -2834,7 +1854,7 @@ msgid "<time datetime=\"%(iso)s\" title=\"%(pretty)s\">%(ago)s</time> by %(user)
 msgstr ""
 
 msgid "No results found."
-msgstr "Heb ganfod canlyniad"
+msgstr "Heb ganfod canlyniad."
 
 msgid "Refine Activity"
 msgstr ""
@@ -2875,11 +1895,35 @@ msgstr ""
 msgid "Supported Versions"
 msgstr ""
 
+msgid "Remove"
+msgstr ""
+
 msgid "Add Another Application&hellip;"
+msgstr ""
+
+msgid "Save Changes"
+msgstr ""
+
+# This is a separator between the graphical [contribute] button and the
+# graphical [download now] button
+msgid "or"
+msgstr "neu"
+
+msgid "Cancel"
 msgstr ""
 
 msgid "Close"
 msgstr ""
+
+#. {0} is an integer.
+msgid "<b>{0}</b> add-on"
+msgid_plural "<b>{0}</b> add-ons"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
 
 msgid "Recent Activity"
 msgstr ""
@@ -2910,9 +1954,8 @@ msgstr ""
 msgid "Preview"
 msgstr ""
 
-#, fuzzy
 msgid "Preview of listed version"
-msgstr "New Version"
+msgstr "Rhagolwg o'r fersiwn ar y rhestr"
 
 msgid "Preview still being generated - come back later or refresh the page."
 msgstr ""
@@ -2921,7 +1964,7 @@ msgid "Manage Authors & License"
 msgstr ""
 
 msgid "Authors"
-msgstr "Authors"
+msgstr "Awduron"
 
 msgid "About author roles"
 msgstr ""
@@ -2931,16 +1974,17 @@ msgid ""
 "<li><b>Developer:</b> Can manage all aspects of the add-on's listing, except for adding and removing other authors</li> </ul>"
 msgstr ""
 
-#, fuzzy
 msgid "Additional Details"
-msgstr "Adnoddau Ychwanegol"
+msgstr "Manylion Ychwanegol"
 
 # {0} is the application the user is browsing.  Examples:  Thunderbird,
 # Firefox,
 # Sunbird
-#, fuzzy
 msgid "Additional Details for {0}"
-msgstr "{0} Ychwanegyn"
+msgstr "Manylion Ychwanegol {0}"
+
+msgid "Tags"
+msgstr "Tagiau"
 
 msgid "Tags help users find your add-on and should be short descriptors such as tabs, toolbar, or twitter. You may have a maximum of {0} tags."
 msgstr ""
@@ -2966,15 +2010,14 @@ msgstr[3] ""
 msgstr[4] ""
 msgstr[5] ""
 
-#, fuzzy
 msgid "Contributions URL"
-msgstr "Contributions"
+msgstr "URL Cyfraniadau"
 
 msgid "If you would like to request monetary contributions from your users, set this to a page where they can do so."
 msgstr ""
 
 msgid "Default Locale"
-msgstr "Default Locale"
+msgstr "Locale Rhagosodedig"
 
 msgid "Information about your add-on is displayed in this locale unless you override it with a locale-specific translation. It is only relevant for listed add-ons."
 msgstr ""
@@ -2987,14 +2030,12 @@ msgid ""
 "ons."
 msgstr ""
 
-#, fuzzy
 msgid "Describe Add-on"
-msgstr "%s Ychanegyn"
+msgstr "Disgrifiwch yr Ychwanegyn"
 
 #. {0} is the addon name
-#, fuzzy
 msgid "Describe {0}"
-msgstr "%s Ychanegyn"
+msgstr "Disgrifio {0}"
 
 msgid "Name and Summary"
 msgstr ""
@@ -3014,13 +2055,16 @@ msgid "Choose a short, unique URL slug for your add-on."
 msgstr ""
 
 msgid "View Listing"
-msgstr "View Listing"
+msgstr "Gweld Rhestr"
 
 msgid "View Product Page"
 msgstr ""
 
 msgid "This summary should clearly explain what your add-on does. It will be shown in listings and searches, and it will be used by reviewers to test your add-on."
 msgstr ""
+
+msgid "Description"
+msgstr "Disgrifiad"
 
 msgid "Experimental?"
 msgstr ""
@@ -3085,7 +2129,7 @@ msgid "Technical Details for {0}"
 msgstr ""
 
 msgid "Developer Comments"
-msgstr "Sylwadau'r Datblygwr"
+msgstr "Sylwadau Datblygwyr"
 
 msgid ""
 "Any information end users may want to know that isn't necessarily applicable to the add-on summary or description. Common uses include listing known major bugs, information on how to report bugs, "
@@ -3202,7 +2246,7 @@ msgid "Having screenshots in your product page greatly increases its chances of 
 msgstr ""
 
 msgid "Continue"
-msgstr "Contribute"
+msgstr "Parhau"
 
 msgid "Can others share your Add-on, as long as you're given credit?"
 msgstr ""
@@ -3297,13 +2341,13 @@ msgid "Upload a new version of this add-on"
 msgstr ""
 
 msgid "New Version"
-msgstr "New Version"
+msgstr "Fersiwn Newydd"
 
 msgid "Daily statistics on downloads and users"
 msgstr ""
 
 msgid "Statistics"
-msgstr "Statistics"
+msgstr "Ystadegau"
 
 msgid "Manage Status & Versions"
 msgstr ""
@@ -3318,7 +2362,7 @@ msgid "View the popularity of this theme over time"
 msgstr ""
 
 msgid "View Statistics"
-msgstr "Gweld yr Ystadegau"
+msgstr "Gweld Ystadegau"
 
 msgid "Change the owner of this theme"
 msgstr ""
@@ -3326,9 +2370,8 @@ msgstr ""
 msgid "Transfer Ownership"
 msgstr ""
 
-#, fuzzy
 msgid "Delete this theme"
-msgstr "Delete review"
+msgstr "Dileu'r thema"
 
 msgid "This add-on is missing some required information before it can be submitted for publication."
 msgstr ""
@@ -3340,11 +2383,21 @@ msgid "Status:"
 msgstr ""
 
 msgid "Disabled"
-msgstr "Disabled"
+msgstr "Analluogwyd"
 
 #, python-format
 msgid "<b>Queue position:</b> %(pos)s of %(total)s"
 msgstr ""
+
+#. {0} is the number of downloads.
+msgid "<strong>{0}</strong> weekly download"
+msgid_plural "<strong>{0}</strong> weekly downloads"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
 
 #. {0} is the number of active users.
 msgid "<strong>{0}</strong> active user"
@@ -3356,9 +2409,8 @@ msgstr[3] ""
 msgstr[4] ""
 msgstr[5] ""
 
-#, fuzzy
 msgid "Submit a New Version"
-msgstr "New Version"
+msgstr "Cyflwyno Fersiwn Newydd"
 
 msgid "Name and Summary:"
 msgstr ""
@@ -3378,15 +2430,17 @@ msgstr ""
 msgid "Please use only letters, numbers, underscores, and dashes in your URL."
 msgstr ""
 
+msgid "Name:"
+msgstr ""
+
 msgid "Name on listing on this site. May be different to the name inside the add-on, which is shown inside Firefox"
 msgstr ""
 
 msgid "Summary:"
 msgstr ""
 
-#, fuzzy
 msgid "Description:"
-msgstr "Disgrifiad"
+msgstr "Disgrifiad:"
 
 msgid "This add-on is experimental"
 msgstr ""
@@ -3397,17 +2451,14 @@ msgstr ""
 msgid "Select a category for this add-on:"
 msgstr ""
 
-#, fuzzy
 msgid "Support email:"
-msgstr "Cefnogaeth"
+msgstr "E-bost cefnogi:"
 
-#, fuzzy
 msgid "Support website:"
-msgstr "Cefnogaeth"
+msgstr "Gwefan cefnogi:"
 
-#, fuzzy
 msgid "License:"
-msgstr "License"
+msgstr "Trwydded:"
 
 msgid "Please choose a license appropriate for the rights you grant."
 msgstr ""
@@ -3415,9 +2466,8 @@ msgstr ""
 msgid "If your add-on transmits any data from the user's computer, a privacy policy is required that explains what data is sent and how it is used."
 msgstr ""
 
-#, fuzzy
 msgid "Notes to Reviewer:"
-msgstr "Review"
+msgstr "Nodiadau'r Adolygydd:"
 
 msgid "Is there anything our reviewers should bear in mind when reviewing this add-on?"
 msgstr ""
@@ -3434,17 +2484,14 @@ msgstr ""
 msgid "These notes will only be visible to you and our reviewers."
 msgstr ""
 
-#, fuzzy
 msgid "Submit Version"
-msgstr "New Version"
+msgstr "Cyflwyno'r Fersiwn"
 
-#, fuzzy
 msgid "Cancel and Disable Version"
-msgstr "Diddymu'r Gosod"
+msgstr "Diddymu ac Analluogi'r Fersiwn"
 
-#, fuzzy
 msgid "Describe Version"
-msgstr "%s Ychanegyn"
+msgstr "Disgrifio'r Fersiwn"
 
 msgid "Release Notes:"
 msgstr ""
@@ -3467,16 +2514,14 @@ msgstr ""
 msgid "Version Submitted for Review"
 msgstr ""
 
-#, fuzzy
 msgid "Preview of the version submitted"
-msgstr "Version"
+msgstr "Rhagolwg o'r fersiwn a gyflwynwyd"
 
 msgid "You’re done! This version will be available after it passes review. You will be notified when it is reviewed."
 msgstr ""
 
-#, fuzzy
 msgid "Version Submitted"
-msgstr "Version"
+msgstr "Fersiwn a Gyflwynwyd"
 
 msgid "You’re done! This version will be available on our site shortly."
 msgstr ""
@@ -3490,9 +2535,8 @@ msgstr ""
 msgid "Your listing will be more successful by adding a detailed description and screenshots. Get your listing ready for publication:"
 msgstr ""
 
-#, fuzzy
 msgid "Manage Listing"
-msgstr "View Listing"
+msgstr "Rheoli'r Cofnod"
 
 msgid "You can also edit this version to add version notes, or source code if your submission includes minified, obfuscated or compiled code."
 msgstr ""
@@ -3500,9 +2544,8 @@ msgstr ""
 msgid "Edit version {0}"
 msgstr ""
 
-#, fuzzy
 msgid "Version Signed"
-msgstr "Version"
+msgstr "Fersiwn wedi'i Lofnodi"
 
 msgid "You’re done! This version is signed and ready to for self-distribution. You can download it by clicking the button below."
 msgstr ""
@@ -3513,9 +2556,8 @@ msgstr ""
 msgid "Go to My Submissions"
 msgstr ""
 
-#, fuzzy
 msgid "Source Code Upload"
-msgstr "Source Code License"
+msgstr "Llwytho Cod Ffynhonnell"
 
 msgid "Do You Need to Submit Source Code?"
 msgstr ""
@@ -3584,9 +2626,8 @@ msgstr ""
 msgid "Add-on Distribution Agreement"
 msgstr ""
 
-#, fuzzy
 msgid "Upload Add-on"
-msgstr "Fy Ychwanegion"
+msgstr "Llwytho'r Ategyn"
 
 msgid "Where to Host Version"
 msgstr ""
@@ -3594,9 +2635,8 @@ msgstr ""
 msgid "Change"
 msgstr ""
 
-#, fuzzy
 msgid "Upload Version"
-msgstr "Application Versions"
+msgstr "Fersiwn Llwytho i Fyny"
 
 msgid "Use the fields below to upload your add-on package. After upload, a series of automated validation tests will be run on your file."
 msgstr ""
@@ -3608,18 +2648,15 @@ msgid "Administrative overrides"
 msgstr ""
 
 # "Me" in this context is the user shown on the User Info page
-#, fuzzy
 msgid "Create a Theme Version"
-msgstr "Created by Me"
+msgstr "Creu Fersiwn Thema"
 
 # "Me" in this context is the user shown on the User Info page
-#, fuzzy
 msgid "Create a Theme"
-msgstr "Created by Me"
+msgstr "Creu Thema"
 
-#, fuzzy
 msgid "Sign Add-on"
-msgstr "Fy Ychwanegion"
+msgstr "Llofnodi'r Ychwanegyn"
 
 msgid "Theme generate"
 msgstr ""
@@ -3726,19 +2763,21 @@ msgid "Created:"
 msgstr ""
 
 #. {0} is a date. dennis-ignore: E201,E202,W202
+msgid "Last Updated:"
+msgstr ""
+
+#. {0} is a date. dennis-ignore: E201,E202,W202
 msgid "Listed on this site after passing code review. Automatic updates are handled by this site"
 msgstr ""
 
-#, fuzzy
 msgid "Listed Version:"
-msgstr "New Version"
+msgstr "Fersiwn ar y Rhestr:"
 
 msgid "This is the version of your add-on that will be installed if someone clicks the Install button on addons.mozilla.org"
 msgstr ""
 
-#, fuzzy
 msgid "Next Listed Version:"
-msgstr "New Version"
+msgstr "Fersiwn ar y Rhestr Nesaf:"
 
 msgid "This is the newest uploaded version, however it isn’t live on the site yet"
 msgstr ""
@@ -3774,6 +2813,9 @@ msgstr ""
 msgid "Unlisted Review Page"
 msgstr ""
 
+msgid "Admin Manage"
+msgstr "Rheoli Gweinyddol"
+
 msgid "View Statistics Dashboard"
 msgstr ""
 
@@ -3788,6 +2830,9 @@ msgstr ""
 
 msgid "This request for information has been resolved"
 msgstr ""
+
+msgid "License"
+msgstr "Trwydded"
 
 msgid "Please choose a license appropriate for the rights you grant on your source code. It is only relevant for listed add-ons."
 msgstr ""
@@ -3814,9 +2859,15 @@ msgstr[3] ""
 msgstr[4] ""
 msgstr[5] ""
 
+msgid "End-User License Agreement"
+msgstr "Cytundeb Trwydded Defnyddiwr Terfynol"
+
 msgid ""
 "Users will be required to accept the following End-User License Agreement (EULA) prior to installing your add-on. The presence of a EULA significantly affects the number of downloads an add-on "
 "receives. Please note that a EULA is not the same as a code license, such as the GPL or MPL.It is only relevant for listed add-ons."
+msgstr ""
+
+msgid "Privacy Policy"
 msgstr ""
 
 msgid "If your add-on transmits any data from the user's computer, a privacy policy is required that explains what data is sent and how it is used. It is only relevant for listed add-ons."
@@ -3837,9 +2888,8 @@ msgstr ""
 msgid "Read more in our Blog"
 msgstr ""
 
-#, fuzzy
 msgid "Resources"
-msgstr "Adnoddau Ychwanegol"
+msgstr "Adnoddau"
 
 msgid "Porting"
 msgstr ""
@@ -3888,11 +2938,13 @@ msgid "Report Trademark Abuse"
 msgstr ""
 
 msgid "Legal Notices"
-msgstr "Hysbysiad Cyfreithiol"
+msgstr "Hysbysiadau Cyfreithiol"
 
-#, fuzzy
+msgid "Contribute"
+msgstr "Cyfrannu"
+
 msgid "Review Add-ons"
-msgstr "Fy Ychwanegion"
+msgstr "Adolygu Ychwanegiadau"
 
 msgid "Volunteer reviewers help keep add-ons safe and reliable to use. They enjoy great perks too!"
 msgstr ""
@@ -3943,7 +2995,7 @@ msgid "Want your extension to be featured on %(amo_link_open)saddons.mozilla.org
 msgstr ""
 
 msgid "Learn More"
-msgstr "Learn More"
+msgstr "Dysgu Rhagor"
 
 msgid "You can help users gain confidence and trust in your extension by following our best practices for onboarding users."
 msgstr ""
@@ -3968,16 +3020,14 @@ msgid "Submit Your First Theme"
 msgstr ""
 
 # The title for a user if they are a developer
-#, fuzzy
 msgid "Add-on Developer Hub"
-msgstr "Add-ons Developer"
+msgstr "Hwb Datblygwyr Ychwanegion"
 
 msgid "Docs"
 msgstr ""
 
-#, fuzzy
 msgid "Sign Out"
-msgstr "Fy Ychwanegion"
+msgstr "Allgofnodi"
 
 msgid "No Photo"
 msgstr ""
@@ -4008,9 +3058,8 @@ msgid ""
 "Firefox supports WebExtension APIs, which in most cases are compatible with the extension APIs supported by Chrome, Opera and Edge, so your extensions will run in Firefox with just a few changes."
 msgstr ""
 
-#, fuzzy
 msgid "Learn How"
-msgstr "Learn More"
+msgstr "Sut mae gwneud"
 
 msgid "Publish Your Add-on"
 msgstr ""
@@ -4018,9 +3067,8 @@ msgstr ""
 msgid "Have an add-on ready? Submit your extension or theme to be listed on addons.mozilla.org or sign and distribute your extension on your own."
 msgstr ""
 
-#, fuzzy
 msgid "Sign In"
-msgstr "Fy Ychwanegion"
+msgstr "Mewngofnodi"
 
 msgid "Web-Ext"
 msgstr ""
@@ -4037,16 +3085,14 @@ msgstr ""
 msgid "Check to see if your extension is compatible with Firefox."
 msgstr ""
 
-#, fuzzy
 msgid "Live Testing"
-msgstr "View Listing"
+msgstr "Profi Byw"
 
 msgid "Temporarily install your extension in Firefox for live testing and debugging."
 msgstr ""
 
-#, fuzzy
 msgid "Lightweight Theme editing has been disabled."
-msgstr "Delete review"
+msgstr "Mae golygu Thema Ysgafn wedi'i analluogi."
 
 msgid "Manage Version {0}"
 msgstr ""
@@ -4054,7 +3100,7 @@ msgstr ""
 # {0} is the name of the collection
 #. {0} is an add-on name.
 msgid "Manage {0}"
-msgstr "Manage {0}"
+msgstr "Rheoli {0}"
 
 msgid "Files"
 msgstr ""
@@ -4105,6 +3151,9 @@ msgstr ""
 msgid "Re-enable Version"
 msgstr ""
 
+msgid "Review History"
+msgstr ""
+
 msgid "Close Review History"
 msgstr ""
 
@@ -4114,9 +3163,8 @@ msgstr ""
 msgid "Validate now."
 msgstr ""
 
-#, fuzzy
 msgid "Request Review"
-msgstr "Delete review"
+msgstr "Cais am Adolygiad"
 
 msgid "Cancel Review Request"
 msgstr ""
@@ -4146,16 +3194,15 @@ msgid ""
 "{label_open}Invisible:{label_close} Won't be included in search results, and its product page will indicate you disabled it. New version submissions for product won't be accepted in this state."
 msgstr ""
 
-#, fuzzy
 msgid "Listed versions"
-msgstr "New Version"
+msgstr "Fersiynau ar y rhestr"
 
 msgid "Currently on AMO"
 msgstr ""
 
 # Header for a column in a table
 msgid "Validation"
-msgstr "Validation"
+msgstr "Dilysu"
 
 msgid "Delete/Disable"
 msgstr ""
@@ -4163,11 +3210,9 @@ msgstr ""
 msgid "Next version of this add-on"
 msgstr ""
 
-#, fuzzy
 msgid "Other versions"
-msgstr "New Version"
+msgstr "Fersiynau eraill"
 
-#, fuzzy
 msgid "All versions"
 msgstr "Fersiynnau"
 
@@ -4175,7 +3220,7 @@ msgid "Upload a New Version"
 msgstr ""
 
 msgid "Version"
-msgstr "Version"
+msgstr "Fersiwn"
 
 msgid "Delete Version {version}"
 msgstr ""
@@ -4224,7 +3269,7 @@ msgstr ""
 #. L10n: first parameter is the number of errors
 msgid "{0} error"
 msgid_plural "{0} errors"
-msgstr[0] "{0} gwall"
+msgstr[0] "{0} gwallau"
 msgstr[1] "{0} gwall"
 msgstr[2] "{0} gwall"
 msgstr[3] "{0} gwall"
@@ -5542,10 +4587,16 @@ msgstr ""
 msgid "Cannot diff a version against itself"
 msgstr ""
 
+msgid "Could not parse the manifest file."
+msgstr ""
+
 msgid "GUID is required for Firefox 47 and below."
 msgstr ""
 
 msgid "Lowest supported \"strict_min_version\" is 42.0."
+msgstr ""
+
+msgid "Unknown \"strict_min_version\" {appver} for {app}"
 msgstr ""
 
 #, python-format
@@ -5576,9 +4627,6 @@ msgid "File exceeding size limit in archive: {0}"
 msgstr ""
 
 msgid "Invalid archive."
-msgstr ""
-
-msgid "Could not parse the manifest file."
 msgstr ""
 
 msgid "Could not find an add-on ID."
@@ -5623,9 +4671,8 @@ msgstr ""
 msgid "Back to review"
 msgstr ""
 
-#, fuzzy
 msgid "Back to add-on"
-msgstr "chwilio am ychwanegion"
+msgstr "Nôl i'r ychwanegyn"
 
 #, python-format
 msgid "Version: %(version)s &bull; Size: %(size)s &bull; SHA256 hash: %(sha256)s &bull; Mimetype: %(mimetype)s"
@@ -5647,6 +4694,12 @@ msgstr ""
 msgid "The output can be broken, please be careful and %(link_start)sreport an issue%(link_end)s immediately!"
 msgstr ""
 
+msgid "close"
+msgstr ""
+
+msgid "Go"
+msgstr ""
+
 msgid "Add-on file being processed, please wait."
 msgstr ""
 
@@ -5660,9 +4713,6 @@ msgid "Deleted files:"
 msgstr ""
 
 msgid "Hide known files"
-msgstr ""
-
-msgid "Add-on SDK Version:"
 msgstr ""
 
 msgid "Tab stops:"
@@ -5701,102 +4751,6 @@ msgstr ""
 msgid "Fetching file."
 msgstr ""
 
-msgid "Shopping Made Easy"
-msgstr ""
-
-msgid "Save on your favorite items from the comfort of your browser."
-msgstr ""
-
-msgid "Build the perfect website"
-msgstr ""
-
-msgid "First time with Add-ons?"
-msgstr ""
-
-msgid "Not to worry, here are three to get started."
-msgstr ""
-
-msgid "Translate content on the web from and into over 40 languages."
-msgstr ""
-
-msgid "Easily connect to your social networks, and share or comment on the page you're visiting."
-msgstr ""
-
-msgid "A quick view to compare prices when you shop online or search for flights."
-msgstr ""
-
-msgid "St. Patrick&rsquo;s Day Themes"
-msgstr ""
-
-msgid "Decorate your browser to celebrate St. Patrick&rsquo;s Day."
-msgstr ""
-
-msgid "A+ add-ons for School"
-msgstr ""
-
-msgid "Add-ons for teachers, parents, and students heading back to school."
-msgstr ""
-
-msgid "Would you like to know which websites you can trust?"
-msgstr ""
-
-msgid "Xmarks is the #1 bookmarking add-on."
-msgstr ""
-
-msgid "Web page and text translator, dictionary, and more!"
-msgstr ""
-
-msgid "Love is in the Air"
-msgstr ""
-
-msgid "Add some romance to your Firefox."
-msgstr ""
-
-msgid "Get up and move!"
-msgstr ""
-
-msgid "Install these fitness add-ons to keep you active and healthy."
-msgstr ""
-
-msgid "New &amp; Now"
-msgstr ""
-
-msgid "Get the latest, must-have add-ons of the moment."
-msgstr ""
-
-msgid "Worry-free browsing"
-msgstr ""
-
-msgid "Protect your privacy online with the add-ons in this collection."
-msgstr ""
-
-msgid "Great add-ons for work, fun, privacy, productivity&hellip; just about anything!"
-msgstr ""
-
-msgid "Games!"
-msgstr ""
-
-msgid "Add more fun to your Firefox. Play dozens of games right from your browser—puzzles, classic arcade, action games, and more!"
-msgstr ""
-
-msgid "Must-Have Media"
-msgstr ""
-
-msgid "Take better screenshots, improve your online video experience, finally learn how to make a GIF, and other great media tools."
-msgstr ""
-
-msgid "Mozilla&rsquo;s Pick of the Month!"
-msgstr ""
-
-msgid "Become a Test Pilot"
-msgstr ""
-
-msgid "Unlock early access to experimental browser features."
-msgstr ""
-
-msgid "Get Started"
-msgstr ""
-
 msgid "Reported Status"
 msgstr ""
 
@@ -5807,25 +4761,21 @@ msgstr ""
 msgid "Reported Ham"
 msgstr ""
 
-#, fuzzy
 msgid "Not Reported"
-msgstr "Heb ei raddio eto"
+msgstr "Heb ei Adrodd"
 
-#, fuzzy
 msgid "Content Submitted"
-msgstr "Version"
+msgstr "Cynnwys wedi'i Gyflwyno"
 
 msgid "View Rating on site"
 msgstr ""
 
 #. L10n: 'Ham' is the opposite of 'Spam' - i.e. not spam.
-#, fuzzy
 msgid "Submit Ham to Akismet"
-msgstr "New Version"
+msgstr "Cyflwyno Ham i Akismet"
 
-#, fuzzy
 msgid "Submit Spam to Akismet"
-msgstr "New Version"
+msgstr "Cyflwyno Sbam i Akismet"
 
 #. L10n: 'Ham' is the opposite of 'Spam' - i.e. not spam.
 #, python-format
@@ -5924,6 +4874,9 @@ msgstr ""
 
 msgid "Over the years, many people have contributed to this website, including both volunteers from the community and a dedicated AMO team."
 msgstr ""
+
+msgid "Review Guidelines"
+msgstr "Canllawiau Adolygu"
 
 msgid "Sections"
 msgstr ""
@@ -6048,16 +5001,16 @@ msgid "A short explanation must be provided when selecting \"Other\" as a flag r
 msgstr ""
 
 msgid "Spam or otherwise non-review content"
-msgstr "Spam or otherwise non-review content"
+msgstr "Sbam neu gynnwys nad yw'n adolygiad"
 
 msgid "Inappropriate language/dialog"
-msgstr "Inappropriate language/dialog"
+msgstr "Iaith/deialog anaddas"
 
 msgid "Misplaced bug report or support request"
-msgstr "Misplaced bug report or support request"
+msgstr "Cais adroddiad gwall neu gefnogaeth coll"
 
 msgid "Other (please specify)"
-msgstr "Other (please specify)"
+msgstr "Arall (nodwch)"
 
 msgid "This field is required."
 msgstr ""
@@ -6083,9 +5036,8 @@ msgstr ""
 msgid "This rating can't be flagged because it has no review text."
 msgstr ""
 
-#, fuzzy
 msgid "Thanks; this review has been flagged for reviewer approval."
-msgstr "Thanks; this review has been flagged for editor approval."
+msgstr "Diolch; mae'r adolygiad hwn wedi ei nodi ar gyfer cymeradwyaeth adolygydd."
 
 msgid "Add a review for {0}"
 msgstr ""
@@ -6098,6 +5050,9 @@ msgid ""
 "\">support section</a> to find out if assistance is available. You can also try asking the <a href=\"https://discourse.mozilla-community.org/c/add-ons/add-on-support\">add-on community</a> for "
 "help. </li> <li>Please keep reviews clean, avoid the use of improper language and do not post any personal information. </li> </ul> <p>Please read the <a href=\"%(guide)s\">Review Guidelines</a> "
 "for more detail about user add-on reviews.</p>"
+msgstr ""
+
+msgid "Submit review"
 msgstr ""
 
 msgid "Reply to review by {0}"
@@ -6119,6 +5074,13 @@ msgstr ""
 
 #, python-format
 msgid "by %(user)s <b>(Developer)</b> on %(date)s"
+msgstr ""
+
+#, python-format
+msgid "by %(user)s on %(date)s"
+msgstr ""
+
+msgid "permalink"
 msgstr ""
 
 #. {0} is a version number (like 1.01)
@@ -6143,7 +5105,7 @@ msgid "Flagged for review"
 msgstr ""
 
 msgid "Report this review"
-msgstr "Report this review"
+msgstr "Adroddwch am yr adolygiad hwn"
 
 msgid "Reply to review"
 msgstr ""
@@ -6158,7 +5120,7 @@ msgid "Delete reply"
 msgstr ""
 
 msgid "Delete review"
-msgstr "Delete review"
+msgstr "Dileu adolygiad"
 
 #. {0} is an add-on name.
 msgid "{0} :: Reviews"
@@ -6202,6 +5164,9 @@ msgid "Write a New Review"
 msgstr ""
 
 msgid "Be the first to write a review."
+msgstr ""
+
+msgid "This add-on has not yet been reviewed."
 msgstr ""
 
 msgid "{num} review"
@@ -6251,9 +5216,8 @@ msgstr ""
 msgid "Search by add-on name / author email"
 msgstr ""
 
-#, fuzzy
 msgid "Needs Admin Code Review"
-msgstr "Review"
+msgstr "Mae Angen Adolygiad o'r Cod Gweinyddol"
 
 msgid "yes"
 msgstr ""
@@ -6300,28 +5264,28 @@ msgstr ""
 msgid "Skip for now"
 msgstr ""
 
-#, fuzzy
 msgid "Needs Admin Content Review"
-msgstr "Review"
+msgstr "Mae Angen Adolygiad o'r Cynnyws Gweinyddol"
 
-#, fuzzy
 msgid "Needs Admin Static Theme Review"
-msgstr "Review"
+msgstr "Mae Angen Adolygiad o'r Thema Gweinyddol"
 
-msgid "Jetpack Add-on"
+msgid "Requires Restart"
 msgstr ""
 
 msgid "More Information Requested"
 msgstr ""
 
-#, fuzzy
 msgid "Expired Information Request"
-msgstr "Developer Information"
+msgstr "Cais am Wybodaeth sydd Wedi Dod i Ben"
 
 msgid "Sources provided"
 msgstr ""
 
 msgid "WebExtension"
+msgstr ""
+
+msgid "Risk breakdown not available."
 msgstr ""
 
 msgid "Is locked by a reviewer."
@@ -6402,16 +5366,14 @@ msgstr ""
 msgid "The latest public version of this add-on was automatically approved. This records your confirmation of the approval of that version, without notifying the developer."
 msgstr ""
 
-#, fuzzy
 msgid "Reject Multiple Versions"
-msgstr "%s Ychanegyn"
+msgstr "Gwrthod Fersiynau Lluosog"
 
 msgid "This will reject the selected public versions. The comments will be sent to the developer."
 msgstr ""
 
-#, fuzzy
 msgid "Reviewer reply"
-msgstr "Developer"
+msgstr "Ateb adolygwyr"
 
 msgid "This will send a message to the developer. You will be notified when they reply."
 msgstr ""
@@ -6420,6 +5382,9 @@ msgid "Request super-review"
 msgstr ""
 
 msgid "If you have concerns about this add-on that an admin reviewer should look into, enter your comments in the area below. They will not be sent to the developer."
+msgstr ""
+
+msgid "Comment"
 msgstr ""
 
 msgid "Make a comment on this version. The developer won't be able to see this."
@@ -6432,61 +5397,41 @@ msgid "This records your approbation of the content of the latest public version
 msgstr ""
 
 #, fuzzy
-msgid "Static Themes and Legacy Add-ons"
-msgstr "Fy Ychwanegion"
-
-#, fuzzy
-msgid "Static Themes"
-msgstr "Statistics"
-
-#, fuzzy
-msgid "Legacy Add-ons"
-msgstr "Fy Ychwanegion"
+msgid "Pre-Approval Add-ons"
+msgstr "Ychwanegiadau wedi'u Cymeradwyo'n Awtomatig"
 
 # {0} is the application the user is browsing.  Examples:  Thunderbird,
 # Firefox,
 # Sunbird
-#, fuzzy
 msgid "New ({0})"
-msgstr "{0} Ychwanegyn"
+msgstr "Newydd ({0})"
 
-#, fuzzy
 msgid "Updates ({0})"
-msgstr "({0}) Diweddariad"
+msgstr "Diweddariadau ({0})"
 
-#, fuzzy
 msgid "Review Log"
-msgstr "Review"
+msgstr "Cofnod Adolygiadau"
 
-#, fuzzy
 msgid "Add-on Review Guide"
-msgstr "Review"
+msgstr "Canllaw Adolygu Ychwanegion"
 
-#, fuzzy
-msgid "Theme Review Guide"
-msgstr "Review Guidelines"
-
-#, fuzzy
 msgid "Auto-Approved Add-ons"
-msgstr "What are Add-ons?"
+msgstr "Ychwanegiadau wedi'u Cymeradwyo'n Awtomatig"
 
 # {0} is the application the user is browsing.  Examples:  Thunderbird,
 # Firefox,
 # Sunbird
-#, fuzzy
 msgid "Auto Approved Add-ons ({0})"
-msgstr "{0} Ychwanegyn"
+msgstr "Ychwanegiadau wedi'u Cymeradwyo'n Awtomatig ({0})"
 
 msgid "Add-on Review Log"
 msgstr ""
 
-#, fuzzy
 msgid "Review Guide"
-msgstr "Review Guidelines"
+msgstr "Canllawiau Adolygu"
 
-#, fuzzy
 msgid "Content Review"
-msgstr "Review"
+msgstr "Adolygiad Cynnwys"
 
 msgid "Content Review ({0})"
 msgid_plural "Content Review ({0})"
@@ -6497,6 +5442,9 @@ msgstr[3] ""
 msgstr[4] ""
 msgstr[5] ""
 
+msgid "Theme Review Guide"
+msgstr "Review Guidelines"
+
 msgid "User Ratings Moderation"
 msgstr ""
 
@@ -6506,13 +5454,11 @@ msgstr ""
 msgid "Moderated Review Log"
 msgstr ""
 
-#, fuzzy
 msgid "Moderation Guide"
-msgstr "Review"
+msgstr "Canllaw Cymedroli"
 
-#, fuzzy
 msgid "Unlisted Add-ons"
-msgstr "%s Ychanegyn"
+msgstr "Ychwanegiadau Heb eu Rhestru"
 
 msgid "All Unlisted Add-ons"
 msgstr ""
@@ -6523,9 +5469,8 @@ msgstr ""
 msgid "Update message of the day"
 msgstr ""
 
-#, fuzzy
 msgid "Expired Information Requests ({0})"
-msgstr "Developer Information"
+msgstr "Ceisiadau Gwybodaeth wedi Dod i Ben ({0})"
 
 msgid "An unknown error occurred"
 msgstr ""
@@ -6551,16 +5496,18 @@ msgstr ""
 msgid "Abuse Reports for {addon} and its developers ({num})"
 msgstr ""
 
-#, fuzzy
+#. This is a caption for a table. {0} is an add-on name.
+msgid "Add-on Information for {0}"
+msgstr ""
+
 msgid "Add-on ID"
-msgstr "Review"
+msgstr "Enw'r Ychwanegyn"
 
 msgid "Internal AMO ID"
 msgstr ""
 
-#. This refers to this version's compatible applications, such as Firefox 8.0
 msgid "Works with"
-msgstr "Works with"
+msgstr "Yn gweithio gyda"
 
 msgid "Visibility"
 msgstr ""
@@ -6583,9 +5530,11 @@ msgstr ""
 msgid "EULA"
 msgstr "EULA"
 
-#, fuzzy
+msgid "View End-User License Agreement"
+msgstr ""
+
 msgid "Last Approval Date"
-msgstr "Last Updated"
+msgstr "Dyddiad Cymeradwyo Diwethaf"
 
 msgid "Abuse Reports ({num})"
 msgstr ""
@@ -6596,23 +5545,21 @@ msgstr ""
 msgid "Theme Images"
 msgstr ""
 
-#, fuzzy
 msgid "Rendered Preview"
-msgstr "Delete review"
+msgstr "Rhagolwg wedi'i Rendro"
 
 msgid "More about this add-on"
-msgstr "More about this add-on"
+msgstr "Mwy am yr ychwanegyn hwn"
 
 msgid "Image Gallery"
-msgstr "Image Gallery"
+msgstr "Oriel Lluniau"
 
 msgid "Nothing to see here!  The developer did not include any details."
 msgstr ""
 
 # {0} is the application name.  Example:  Firefox
-#, fuzzy
 msgid "Return to the Reviewer Tools dashboard"
-msgstr "Dychwelyd i dudalen cartref Ychwanegion {0}"
+msgstr "Dychwelyd i fwrdd gwaith yr Adolygwr"
 
 msgid "Reviewer Leaderboard"
 msgstr ""
@@ -6645,9 +5592,8 @@ msgstr ""
 msgid "Log details"
 msgstr ""
 
-#, fuzzy
 msgid "Review Author"
-msgstr "Fy Ychwanegion"
+msgstr "Awdur yr Adolygiad"
 
 #, python-format
 msgid "<dd>%(review_author)s</dd>"
@@ -6745,14 +5691,12 @@ msgstr ""
 msgid "Add-on Policy"
 msgstr ""
 
-#, fuzzy
 msgid "Reviewer's Guide"
-msgstr "Review Guidelines"
+msgstr "Canllawiau Adolygu"
 
 #. "Content Review [add-on name]"
-#, fuzzy
 msgid "Content Review {0}"
-msgstr "Review"
+msgstr "Adolygiad Cynnwys {0}"
 
 #. "Review [add-on name]"
 msgid "Review {0}"
@@ -6786,9 +5730,11 @@ msgstr ""
 msgid "Weight:"
 msgstr ""
 
-#, fuzzy
+msgid "Download"
+msgstr ""
+
 msgid "Not Auto Approved Because"
-msgstr "What are Add-ons?"
+msgstr "Heb ei Gymeradwyo'n Awtomatig Oherwydd"
 
 msgid "Auto-Approval script has not run yet on this version."
 msgstr ""
@@ -6820,9 +5766,8 @@ msgstr ""
 msgid "Update whiteboards"
 msgstr ""
 
-#, fuzzy
 msgid "More Actions"
-msgstr "Collections"
+msgstr "Rhagor o Weithredoedd"
 
 msgid "Notify me about new listed versions"
 msgstr ""
@@ -6836,24 +5781,20 @@ msgstr ""
 msgid "Disable Auto-Approval"
 msgstr ""
 
-#, fuzzy
 msgid "Enable Auto-Approval"
-msgstr "Last Updated"
+msgstr "Galluogi Auto-Cymeradwyo"
 
-#, fuzzy
 msgid "Clear information request"
-msgstr "Developer Information"
+msgstr "Clirio cais am wybodaeth"
 
 msgid "Clear Admin Code Review Flag"
 msgstr ""
 
-#, fuzzy
 msgid "Clear Admin Content Review Flag"
-msgstr "Review"
+msgstr "Clirio Baner Adolygu Cynnwys Gweinyddol"
 
-#, fuzzy
 msgid "Clear Admin Static Theme Review Flag"
-msgstr "Review"
+msgstr "Clirio Baner Adolygu Thema Sefydlog Gweinyddol"
 
 msgid "(admin)"
 msgstr ""
@@ -6901,9 +5842,8 @@ msgstr ""
 msgid "Compare"
 msgstr ""
 
-#, fuzzy
 msgid "Permissions:"
-msgstr "Fersiynnau"
+msgstr "Caniatâd:"
 
 #, python-format
 msgid "<div>By %(user)s on %(date)s</div>"
@@ -7011,101 +5951,6 @@ msgstr ""
 msgid "Maximum query length exceeded."
 msgstr ""
 
-msgid "search for add-ons"
-msgstr "chwilio am ychwanegion"
-
-msgid "search for themes"
-msgstr ""
-
-msgid "search for apps"
-msgstr ""
-
-msgid "Relevance"
-msgstr ""
-
-msgid "All Add-ons"
-msgstr ""
-
-msgid "Any {0}"
-msgstr ""
-
-#. L10n: "All Systems" means show everything regardless of platform.
-msgid "All Systems"
-msgstr ""
-
-msgid "All Tags"
-msgstr ""
-
-#. {0} is the string the user was searching for
-msgid "Collection Search Results for {0}"
-msgstr ""
-
-msgid "Collection Search Results"
-msgstr ""
-
-msgid "Search Results"
-msgstr ""
-
-msgid "Search Unavailable"
-msgstr ""
-
-msgid "Search is temporarily unavailable. Please try again in a few minutes."
-msgstr ""
-
-#. {0} is the string the user was searching for
-msgid "Themes Search Results for {0}"
-msgstr ""
-
-msgid "Themes Search Results"
-msgstr ""
-
-#. {0} is a search term, such as Firebug.
-msgid "{0} :: Search"
-msgstr ""
-
-#. {0} is a search term, such as Firebug.
-msgid "Search Results for \"{0}\""
-msgstr ""
-
-#. {0} is a tag, such as jetpack.
-msgid "{0} :: Tag"
-msgstr ""
-
-#. {0} is a tag, such as jetpack.
-msgid "Search Results for tag \"{0}\""
-msgstr ""
-
-msgid "<b>{0}</b> matching result"
-msgid_plural "<b>{0}</b> matching results"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
-
-msgid "Filter Results"
-msgstr ""
-
-msgid "Category"
-msgstr "Category"
-
-msgid "Tag"
-msgstr ""
-
-# {0} is a number
-# {1} is a number
-# {2} is a number
-# {3} is the word the person is searching for
-msgid "Showing {0} - {1} of {2} results for <strong>{3}</strong>"
-msgstr "Showing {0} - {1} of {2} results for <strong>{3}</strong>"
-
-# {0} is a number
-# {1} is a number
-# {2} is a number
-msgid "Showing {0} - {1} of {2} results"
-msgstr "Showing {0} - {1} of {2} results"
-
 msgid "Could not find add-on with guid \"{}\"."
 msgstr ""
 
@@ -7147,6 +5992,9 @@ msgstr ""
 msgid "by Source"
 msgstr ""
 
+msgid "Daily Users"
+msgstr ""
+
 msgid "by Add-on Version"
 msgstr ""
 
@@ -7160,33 +6008,6 @@ msgid "by Platform"
 msgstr ""
 
 msgid "by Add-on Status"
-msgstr ""
-
-msgid "Add-on Statistics"
-msgstr ""
-
-msgid "Add-ons in Use"
-msgstr ""
-
-msgid "Add-ons Created"
-msgstr ""
-
-msgid "Add-ons Downloaded"
-msgstr ""
-
-msgid "Add-ons Updated"
-msgstr ""
-
-msgid "Collections Created"
-msgstr ""
-
-msgid "Reviews Written"
-msgstr ""
-
-msgid "User Signups"
-msgstr ""
-
-msgid "Archived Data"
 msgstr ""
 
 msgid "Custom Date Range"
@@ -7216,7 +6037,7 @@ msgstr ""
 
 #. {0} is an add-on name
 msgid "Statistics for {0}"
-msgstr "Ystadegau {0}"
+msgstr "Ystadegau ar gyfer {0}"
 
 msgid "Statistics Dashboard"
 msgstr ""
@@ -7275,22 +6096,7 @@ msgstr ""
 msgid "Change settings."
 msgstr ""
 
-msgid "Add-ons Created by Date"
-msgstr ""
-
-msgid "Add-ons Downloaded by Date"
-msgstr ""
-
-msgid "Add-ons in Use by Date"
-msgstr ""
-
-msgid "Add-ons Updated by Date"
-msgstr ""
-
 msgid "Application usage by Date"
-msgstr ""
-
-msgid "Collections Created by Date"
 msgstr ""
 
 msgid "Downloaded by Date"
@@ -7337,12 +6143,6 @@ msgstr ""
 msgid "See more platforms&hellip;"
 msgstr ""
 
-msgid "Ratings by Date"
-msgstr ""
-
-msgid "Reviews Created by Date"
-msgstr ""
-
 msgid "Download sources by Date"
 msgstr ""
 
@@ -7361,9 +6161,6 @@ msgstr ""
 msgid "Add-on Status by Date"
 msgstr ""
 
-msgid "Subscribers by Date"
-msgstr ""
-
 msgid "Daily Users by Date"
 msgstr ""
 
@@ -7380,42 +6177,17 @@ msgid ""
 "down by add-on version, operating system, add-on status, application, and locale. </p>"
 msgstr ""
 
-msgid "User Signups by Date"
-msgstr ""
-
 msgid "Application versions by Date"
 msgstr ""
 
 msgid "Mozilla Add-ons"
 msgstr ""
 
-msgid "Find add-ons for other applications"
-msgstr "Find add-ons for other applications"
-
-msgid "Other Applications"
-msgstr "Rhaglenni Eraill"
-
-msgid "AMO is getting a new look. Would you like to see it?"
-msgstr ""
-
-msgid "Visit the new site"
-msgstr ""
-
-msgid "To create your own collections, you must have a Mozilla Add-ons account."
-msgstr ""
-
-msgid "Create an Add-ons Account"
-msgstr ""
-
-#, python-format
-msgid "or <a href=\"%(login)s\">log in to your current account</a>"
+msgid "Back to Add-ons"
 msgstr ""
 
 msgid "Footer logo"
 msgstr ""
-
-msgid "Choose a category"
-msgstr "Dewis categori"
 
 msgid "The new website supports mobile and desktop clients"
 msgstr ""
@@ -7434,9 +6206,8 @@ msgstr ""
 msgid "get to know <b>add-ons</b>"
 msgstr ""
 
-#, fuzzy
 msgid "Download Firefox"
-msgstr "Llwytho Geiriadur i Lawr"
+msgstr "Llwytho Firefox i Lawr"
 
 msgid "Android Browser"
 msgstr ""
@@ -7467,7 +6238,7 @@ msgid "<img alt=\"\" src=\"{0}\"> Add-ons"
 msgstr ""
 
 msgid "My Account"
-msgstr "Cyfrif"
+msgstr "Fy Nghyfrif"
 
 msgid "Welcome, {0}"
 msgstr ""
@@ -7476,31 +6247,13 @@ msgstr ""
 msgid "<a href=\"%(reg)s\">Register</a> or <a href=\"%(login)s\">Log in</a>"
 msgstr ""
 
-#, python-format
-msgid "To try the thousands of add-ons available here, download <a href=\"%(url)s\">Mozilla Firefox</a>, a fast, free way to surf the Web!"
-msgstr ""
-
-#. {0} is an application, such as Firefox.
-msgid "Welcome to {0} Add-ons."
-msgstr ""
-
-msgid "Choose from thousands of extra features and styles to make Firefox your own."
-msgstr ""
-
-#, python-format
-msgid "Add extra features and styles to make %(app)s your own."
-msgstr ""
-
-msgid "On the go?"
-msgstr ""
-
-msgid "Check out our <a class=\"mobile-link\" href=\"#\">Mobile Add-ons site</a>."
-msgstr ""
-
 msgid "Android Add-ons"
 msgstr ""
 
 msgid "Required fields"
+msgstr ""
+
+msgid "(optional)"
 msgstr ""
 
 #. {0} is a language name, like 'French'
@@ -7550,6 +6303,9 @@ msgstr ""
 msgid "Profile Photo"
 msgstr ""
 
+msgid "Collections"
+msgstr "Casgliadau"
+
 msgid "Addons"
 msgstr ""
 
@@ -7563,6 +6319,9 @@ msgid "Firefox user {id}"
 msgstr ""
 
 msgid "My Mobile Add-ons"
+msgstr ""
+
+msgid "My Favorite Add-ons"
 msgstr ""
 
 msgid "an add-on developer replies to my review"
@@ -7595,9 +6354,8 @@ msgstr ""
 msgid "Ban"
 msgstr ""
 
-#, fuzzy
 msgid "Delete picture"
-msgstr "Delete review"
+msgstr "Dileu llun"
 
 msgid "Unsubscribe"
 msgstr ""
@@ -7625,51 +6383,15 @@ msgstr ""
 msgid "Unfortunately, we weren't able to unsubscribe you. The link you clicked is invalid. However, you can still unsubscribe on your <a href=\"%(edit_url)s\">edit profile page</a>."
 msgstr ""
 
+#, python-format
+msgid "by %(users)s"
+msgstr ""
+
 msgctxt "user_list_others"
 msgid "others"
 msgstr ""
 
-#, python-format
-msgid "%s Version History"
-msgstr ""
-
-msgid "Version History with Changelogs"
-msgstr "Hanes y Fersiwn a'r Cofnodion Newid"
-
 msgid "{app} {min} and later"
-msgstr ""
-
-msgid "Permanent link to this version"
-msgstr "Permanent link to this version"
-
-#. {0} is a timestamp, such as September 28, 2011.
-msgid "Released {0}"
-msgstr ""
-
-#, python-format
-msgid "Source code released under <a href=\"%(url)s\">%(name)s</a>"
-msgstr ""
-
-# {0} is the add-on name
-#. {0} is an add-on name.
-msgid "{0} Version History"
-msgstr "Hanes Fersiwn {0}"
-
-#. {0} is a number.
-msgid "<b>{0}</b> version"
-msgid_plural "<b>{0}</b> versions"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
-
-msgid "Be careful with old versions!"
-msgstr ""
-
-#, python-format
-msgid "These versions are displayed for reference and testing purposes. You should always use the <a href=\"%(url)s\">latest version</a> of an add-on."
 msgstr ""
 
 msgid "Deleted versions can`t be changed."

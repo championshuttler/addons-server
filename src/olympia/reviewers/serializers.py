@@ -9,13 +9,13 @@ import magic
 
 from rest_framework import serializers
 from rest_framework.exceptions import NotFound
-from rest_framework.reverse import reverse as drf_reverse
 
 from django.utils.functional import cached_property
 from django.utils.encoding import force_text
 from django.utils.timezone import FixedOffset
 
 from olympia.amo.urlresolvers import reverse
+from olympia.amo.templatetags.jinja_helpers import absolutify
 from olympia.addons.serializers import (
     VersionSerializer, FileSerializer, SimpleAddonSerializer)
 from olympia.addons.models import AddonReviewerFlags
@@ -173,13 +173,15 @@ class FileEntriesSerializer(FileSerializer):
         if requested_file is None:
             files = self.get_entries(obj)
 
-            for manifest in ('manifest.json', 'install.rdf', 'package.json'):
+            default_files = ('manifest.json', 'install.rdf', 'package.json')
+
+            for manifest in default_files:
                 if manifest in files:
                     requested_file = manifest
                     break
             else:
                 # This could be a search engine
-                requested_file = files.keys()[0]
+                requested_file = list(files.keys())[0]
 
         return requested_file
 
@@ -196,8 +198,6 @@ class FileEntriesSerializer(FileSerializer):
                 self.git_repo[blob_or_tree.oid].read_raw())
 
     def get_download_url(self, obj):
-        request = self.context.get('request')
-
         commit = self._get_commit(obj)
         tree = self.repo.get_root_tree(commit)
         selected_file = self.get_selected_file(obj)
@@ -206,15 +206,13 @@ class FileEntriesSerializer(FileSerializer):
         if blob_or_tree.type == 'tree':
             return None
 
-        return drf_reverse(
-            'reviewers-versions-download',
-            request=request,
+        return absolutify(reverse(
+            'reviewers.download_git_file',
             kwargs={
-                'addon_pk': self.get_instance().version.addon.pk,
-                'pk': self.get_instance().version.pk,
+                'version_id': self.get_instance().version.pk,
                 'filename': selected_file
             }
-        )
+        ))
 
 
 class AddonBrowseVersionSerializer(VersionSerializer):
@@ -235,14 +233,14 @@ class AddonBrowseVersionSerializer(VersionSerializer):
                   'has_been_validated', 'addon')
 
     def get_validation_url_json(self, obj):
-        return reverse('devhub.json_file_validation', args=[
+        return absolutify(reverse('devhub.json_file_validation', args=[
             obj.addon.slug, obj.current_file.id
-        ])
+        ]))
 
     def get_validation_url(self, obj):
-        return reverse('devhub.file_validation', args=[
+        return absolutify(reverse('devhub.file_validation', args=[
             obj.addon.slug, obj.current_file.id
-        ])
+        ]))
 
     def get_has_been_validated(self, obj):
         return obj.current_file.has_been_validated

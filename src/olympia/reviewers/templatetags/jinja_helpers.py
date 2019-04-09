@@ -77,20 +77,25 @@ def queue_tabnav(context):
 
     if listed:
         tabnav = []
-        got_extension_review = acl.action_allowed(
-            request, amo.permissions.ADDONS_REVIEW)
-        got_theme_review = acl.action_allowed(
-            request, amo.permissions.STATIC_THEMES_REVIEW)
-        if got_extension_review or got_theme_review:
+        if acl.action_allowed(request, amo.permissions.ADDONS_REVIEW):
+            new_text = ugettext('New ({0})')
+            update_text = ungettext(
+                'Update ({0})', 'Updates ({0})', counts['extension_pending'])
             tabnav.extend((
-                ('nominated', 'queue_nominated',
-                 (ugettext('New ({0})')
-                  .format(counts['nominated']))),
-                ('pending', 'queue_pending',
-                 (ungettext('Update ({0})',
-                            'Updates ({0})',
-                            counts['pending'])
-                  .format(counts['pending']))),
+                ('extension_nominated', 'queue_extension_nominated',
+                 '🛠️ ' + new_text.format(counts['extension_nominated'])),
+                ('extension_pending', 'queue_extension_pending',
+                 '🛠️ ' + update_text.format(counts['extension_pending'])),
+            ))
+        if acl.action_allowed(request, amo.permissions.STATIC_THEMES_REVIEW):
+            new_text = ugettext('New ({0})')
+            update_text = ungettext(
+                'Update ({0})', 'Updates ({0})', counts['theme_pending'])
+            tabnav.extend((
+                ('theme_nominated', 'queue_theme_nominated',
+                 '🎨 ' + new_text.format(counts['theme_nominated'])),
+                ('theme_pending', 'queue_theme_pending',
+                 '🎨 ' + update_text.format(counts['theme_pending'])),
             ))
         if acl.action_allowed(request, amo.permissions.RATINGS_MODERATE):
             tabnav.append(
@@ -166,10 +171,14 @@ def all_distinct_files(context, version):
         else:
             hashes_to_file[file_.original_hash] = [file_, display_name]
     return new_context(dict(
+        # This allows the template to call static().
+        BUILD_ID_IMG=context.get('BUILD_ID_IMG'),
         # We don't need the hashes in the template.
         distinct_files=hashes_to_file.values(),
         amo=context.get('amo'),
         addon=context.get('addon'),
+        # This allows the template to call waffle.flag().
+        request=context.get('request'),
         show_diff=context.get('show_diff'),
         version=version))
 
@@ -216,3 +225,13 @@ def get_position(addon):
 @jinja2.contextfunction
 def is_expired_lock(context, lock):
     return lock.expiry < datetime.datetime.now()
+
+
+@library.global_function
+def code_manager_url(path):
+    if not path.startswith('/'):
+        raise ValueError(
+            'Expected a relative path; got: "{}"'.format(path)
+        )
+    # Always return URLs in en-US because the Code Manager is not localized.
+    return '{}/en-US{}'.format(settings.CODE_MANAGER_URL, path)

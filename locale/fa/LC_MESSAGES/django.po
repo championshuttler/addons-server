@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: addons.mozilla.org\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-03-18 07:57+0000\n"
+"POT-Creation-Date: 2019-04-08 08:39+0000\n"
 "PO-Revision-Date: 2017-03-21 23:23+0000\n"
 "Last-Translator: Ramin.Najarbashi <Ramin.Najarbashi@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,6 +19,10 @@ msgid "No links are allowed."
 msgstr "به هیچ پیوندی اجازه داده نمی‌شود."
 
 msgid "This display name cannot be used."
+msgstr "نام انتخاب شده قابل استفاده نیست."
+
+#, fuzzy
+msgid "This reviewer name cannot be used."
 msgstr "نام انتخاب شده قابل استفاده نیست."
 
 msgid "The homepage field can only be used to link to external websites."
@@ -78,83 +82,6 @@ msgstr ""
 msgid "- Add-on not on AMO -"
 msgstr ""
 
-msgid "Download Now"
-msgstr "هم‌اکنون بارگیری کن"
-
-msgid "Download"
-msgstr "بارگیری‌"
-
-msgid "Featured"
-msgstr "ویژه"
-
-msgctxt "install_button"
-msgid "Not Reviewed"
-msgstr "بازبینی نشده"
-
-msgctxt "install_button"
-msgid "Experimental"
-msgstr "آزمایشی"
-
-msgid "Add to {0}"
-msgstr "افزودن به {0}"
-
-#, fuzzy
-msgid "This slug is already in use. Please choose another."
-msgstr "این نام در حال استفاده است. لطفاْ یکی دیگیر انتخاب کنید."
-
-#, fuzzy, python-format
-msgid "The slug cannot be \"%(slug)s\". Please choose another."
-msgstr "این نام در حال استفاده است. لطفاْ یکی دیگیر انتخاب کنید."
-
-#. L10n: {0} is a single tag or a comma-separated list of tags.
-msgid "Invalid tag: {0}"
-msgid_plural "Invalid tags: {0}"
-msgstr[0] ""
-msgstr[1] "برچسب‌های نامعتبر: {0}"
-
-#. L10n: {0} is a single tag or a comma-separated list of tags.
-msgid "\"{0}\" is a reserved tag and cannot be used."
-msgid_plural "\"{0}\" are reserved tags and cannot be used."
-msgstr[0] ""
-msgstr[1] ""
-
-msgid "You have {0} too many tags."
-msgid_plural "You have {0} too many tags."
-msgstr[0] ""
-msgstr[1] ""
-
-#, python-format
-msgid "All tags must be %s characters or less after invalid characters are removed."
-msgstr "بعد از حذف کاراکترهای ممنوع، برچسب ها هر کدام باید دارای %s یا کمتر کاراکتر باشند."
-
-msgid "All tags must be at least {0} character."
-msgid_plural "All tags must be at least {0} characters."
-msgstr[0] ""
-msgstr[1] ""
-
-msgid "The text entered has been flagged as spam."
-msgstr ""
-
-msgid "Categories cannot be changed while your add-on is featured for this application."
-msgstr ""
-
-#. L10n: {0} is the number of categories.
-msgid "You can have only {0} category."
-msgid_plural "You can have only {0} categories."
-msgstr[0] ""
-msgstr[1] ""
-
-msgid "The miscellaneous category cannot be combined with additional categories."
-msgstr ""
-
-#, python-format
-msgid "URL domain must be one of [%s], or a subdomain."
-msgstr ""
-
-#, python-format
-msgid "Before changing your default locale you must have a name, summary, and description in that locale. You are missing %s."
-msgstr ""
-
 # Column name in a table.
 msgid "Listed"
 msgstr "فهرست شده"
@@ -165,159 +92,6 @@ msgstr ""
 msgid "Add-on names cannot contain the Mozilla or Firefox trademarks."
 msgstr ""
 
-msgid "Abuse reported."
-msgstr "سوء استفاده گزارش شد."
-
-msgid "My add-on doesn't fit into any of the categories"
-msgstr ""
-
-msgid "No compatible versions"
-msgstr ""
-
-#. {0} is a platform name like Windows or Mac OS X.
-msgid "for {0}"
-msgstr "برای {0}"
-
-msgid "View privacy policy"
-msgstr "مشاهدهٔ سیاست حریم خصوصی"
-
-#, fuzzy
-msgid "View End-User License Agreement"
-msgstr "توافق‌نامهٔ مجوز کاربر نهایی"
-
-msgid "This add-on has not been reviewed by Mozilla."
-msgstr ""
-
-msgid "This add-on has been marked as experimental by its developers."
-msgstr ""
-
-#. {0} is the name of the add-on.
-#, fuzzy
-msgid "End-User License Agreement for {0}"
-msgstr "توافق‌نامهٔ مجوز کاربر نهایی"
-
-msgid "End-User License Agreement"
-msgstr "توافق‌نامهٔ مجوز کاربر نهایی"
-
-#, python-format
-msgid "%(addon_name)s requires that you accept the following End-User License Agreement before installation can proceed:"
-msgstr ""
-
-msgid "Back to {0}…"
-msgstr "بازگشت به {0}…"
-
-# {0} is the application the user is browsing.  Examples:  Thunderbird,
-# Firefox,
-# Sunbird
-msgid "Add-ons for {0}"
-msgstr "افزودنی‌های {0}"
-
-msgid "Featured Extensions"
-msgstr "ضمیمه‌های ویژه"
-
-#, fuzzy
-msgid "Popular Extensions"
-msgstr "محبوب‌ترین ضمیمه‌ها"
-
-msgid "Most Popular"
-msgstr "محبوب‌ترین"
-
-msgid "All »"
-msgstr ""
-
-msgid "See all »"
-msgstr "مشاهده همه »"
-
-msgid "Up &amp; Coming Extensions"
-msgstr ""
-
-msgid "Featured Themes"
-msgstr "مضامین ویژه"
-
-msgid "Featured Collections"
-msgstr "مجموعه‌های ویژه"
-
-msgid "Sort by:"
-msgstr "مرتب‌سازی بر حسب:"
-
-#. {0} is a date.
-#. {0} is a date
-msgid "Updated {0}"
-msgstr ""
-
-#. {0} is a date.
-msgid "Added {0}"
-msgstr ""
-
-#, python-format
-msgid "%(num)s weekly download"
-msgid_plural "%(num)s weekly downloads"
-msgstr[0] ""
-msgstr[1] "%(num)s بارگیری هفگی"
-
-#, python-format
-msgid "%(num)s user"
-msgid_plural "%(num)s users"
-msgstr[0] ""
-msgstr[1] ""
-
-msgid "Requires Restart"
-msgstr ""
-
-msgid "This add-on is built with new technology that is compatible with Firefox 57 and beyond."
-msgstr ""
-
-msgid "Compatible with Firefox 57+"
-msgstr ""
-
-#. {0} is the number of downloads.
-msgid "{0} weekly download"
-msgid_plural "{0} weekly downloads"
-msgstr[0] ""
-msgstr[1] "{0} بارگیری هفتگی"
-
-#. {0} is the number of users.
-msgid "{0} user"
-msgid_plural "{0} users"
-msgstr[0] ""
-msgstr[1] ""
-
-msgid "by"
-msgstr "توسط"
-
-#. {0} is a category name, such as Nature
-msgid "More {0} Themes"
-msgstr ""
-
-#. {0} is a category name, such as Nature
-msgid "See all {0} Themes"
-msgstr "مشاهده‌ی همه‌ی {0} مضمون"
-
-msgid "More by this Artist"
-msgstr "بشتر توسط این هنرمند"
-
-msgid "See all Themes by this Artist"
-msgstr "مشاهده‌ی همه‌ی مضمون‌های این هنرمند"
-
-msgid "Categories"
-msgstr "دسته بندی‌ها"
-
-msgid "Updated"
-msgstr "به‌هنگام شده"
-
-msgid "Artist"
-msgstr "هنرمند"
-
-# 100%
-msgid "Rating"
-msgstr "رتبه"
-
-msgid "Daily Users"
-msgstr ""
-
-msgid "License"
-msgstr "مجوز"
-
 msgid "Awaiting Review"
 msgstr ""
 
@@ -325,6 +99,9 @@ msgid "Rejected"
 msgstr ""
 
 msgid "Approved"
+msgstr ""
+
+msgid "Added {0}"
 msgstr ""
 
 #. {0} is the number of users.
@@ -353,307 +130,26 @@ msgstr "هنوز رتبه‌دهی نشده است"
 msgid "<b>{0}</b> users"
 msgstr ""
 
+msgid "by"
+msgstr "توسط"
+
 #. {0} is the number of users.
 msgid "{0} Daily User"
 msgid_plural "{0} Daily Users"
 msgstr[0] ""
 msgstr[1] ""
 
-#. {0} is the name of the add-on.
-msgid "Privacy Policy for {0}"
-msgstr ""
-
-#. The Privacy Policy for this add-on.
-msgid "Privacy Policy"
-msgstr ""
-
-msgid "Report Abuse"
-msgstr "گزارش سوء استفاده"
-
-#, python-format
-msgid ""
-"If you suspect this add-on violates %(amo_policy_link_open)sour policies%(link_close)s or has security or privacy issues, please use the form below to describe your concerns. Please do not use this "
-"form for any other reason."
-msgstr ""
-
-msgid "Send Report"
-msgstr ""
-
-# This is a separator between the graphical [contribute] button and the
-# graphical [download now] button
-msgid "or"
-msgstr "یا"
-
-msgid "Cancel"
-msgstr ""
-
-msgid "What do you think?"
-msgstr "شما چه فکر می‌کنید؟"
-
-#, python-format
-msgid "Please <a href=\"%(login)s\">log in</a> to submit a review"
-msgstr ""
-
-msgid "Review:"
-msgstr "بررسی:"
-
-msgid "Rating:"
-msgstr "رتبه:"
-
-msgid "Submit review"
-msgstr ""
-
-#, fuzzy
-msgid "Please do not post bug reports here. We do not make your email address available to add-on developers, so they can't contact you to resolve your issue."
-msgstr ""
-"لطفاً گزارش مشکلات را در بررسی‌ها ارسال نکنید. ما نشانی پست الکترونیکی شما را در اختیار توسعه‌دهندگان افزودنی قرار نمی‌دهیم و ممکن است آنها نیاز داشته باشند با شما تماس بگیرند تا به رفع مشکلتان کمک "
-"کنند."
-
-#, python-format
-msgid ""
-"See this add-on's <a href=\"%(support)s\">support section</a> to find out if assistance is available. You can also try asking the <a href=\"https://discourse.mozilla-community.org/c/add-ons/add-on-"
-"support\">add-on community</a> for help."
-msgstr ""
-
-msgid "Review Guidelines"
-msgstr "رهنمون‌های بررسی"
-
-msgid "Reviews"
-msgstr "بررسی‌ها"
-
-#, python-format
-msgid "by %(user)s on %(date)s"
-msgstr ""
-
-msgid "Show the developer's reply to this review"
-msgstr ""
-
-#, python-format
-msgid "See all reviews of this add-on"
-msgid_plural "See all %(cnt)s reviews of this add-on"
-msgstr[0] ""
-msgstr[1] ""
-
-# 100%
-msgid "Tags"
-msgstr "برچسب‌ها"
-
-msgid "Icon for {0}"
-msgstr ""
-
-#, python-format
-msgid "by %(users)s"
-msgstr ""
-
-msgid "Download Anyway"
-msgstr ""
-
-# {0} is a number
-#, fuzzy
-msgid "[Warning]"
-msgstr "{0} هشدار"
-
-#, fuzzy
-msgid "Permissions"
-msgstr "نسخه‌ها"
-
-msgid "This add-on has been marked as experimental by its developers"
-msgstr ""
-
-msgid "Average"
-msgstr "میانگین"
-
-msgid "Write a review"
-msgstr "یک بررسی بنویسید"
-
-msgid "Related Categories"
-msgstr "دسته‌های مرتبط"
-
-msgid "Part of these Collections"
-msgstr "بخشی از این مجموعه‌ها"
-
-#, fuzzy, python-format
-msgid "Other add-ons by %(author)s"
-msgid_plural "Other add-ons by these authors"
-msgstr[0] "سایر افزودنی‌ها توسط %(author)s"
-msgstr[1] ""
-
-#, python-format
-msgid "<span itemprop=\"ratingCount\">%(num)s</span> user review"
-msgid_plural "<span itemprop=\"ratingCount\">%(num)s</span> user reviews"
-msgstr[0] ""
-msgstr[1] ""
-
-#, fuzzy
-msgid "View statistics"
-msgstr "آمار مشاهده"
-
-msgid "Manage"
-msgstr "مدیریت"
-
-#, fuzzy
-msgid "Add-on Review"
-msgstr "بازبینی نشده"
-
-#, fuzzy
-msgid "Admin Manage"
-msgstr "تنظیمات مدیریتی"
-
-#. {0} is an add-on name.
-msgid "Icon of {0}"
-msgstr ""
-
-msgid "Contribute"
-msgstr "مشارکت"
-
-msgid "Enjoy this add-on?"
-msgstr "از این افزودنی لذت بردید؟"
-
-msgid "The developer of this add-on asks that you help support its continued development by making a small contribution."
-msgstr "توسعه دهنده این افزودنی از شما درخواست می‌کند که به ادامه یافتن توسعه‌ی آن با یک مشارکت کوچک کمک کنید."
-
-#. {0} is an index.
-msgid "Add-on screenshot #{0}"
-msgstr ""
-
-msgid "Add-on home page"
-msgstr "صفحه خانگی افزودنی"
-
-msgid "Support site"
-msgstr "تارنمای پشتیبانی"
-
-msgid "Support E-mail"
-msgstr "رایانامه پشتیبانی"
-
-msgid "Info"
-msgstr "اطلاعات"
-
-#. {0} is a date. dennis-ignore: E201,E202,W202
-#, fuzzy
-msgid "Last Updated:"
-msgstr "آخرین به‌هنگام‌سازی"
-
-#, python-format
-msgid "Released under <a href=\"%(url)s\">%(name)s</a>"
-msgstr "منتشر شده تحت <a href=\"%(url)s\">%(name)s</a>"
-
-msgid "Custom License"
-msgstr "مجوز خاص"
-
-msgid "About this Add-on"
-msgstr "درباره‌ی این افزودنی"
-
-msgid "Developer’s Comments"
-msgstr "توضیحات توسعه دهنده"
-
-msgid "Version Information"
-msgstr "اطّلاعات نسخه"
-
-msgid "See complete version history"
-msgstr "مشاهده‌ی تاریخچه‌ی کامل نسخه‌ها"
-
-msgid "close"
-msgstr "بستن"
-
-msgid "Some add-ons ask for permission to perform certain functions (example: a tab management add-on will ask permission to access your browser’s tab system)."
-msgstr ""
-
-msgid ""
-"Since you’re in control of your Firefox, the choice to grant or deny these requests is yours. Accepting permissions does not inherently compromise your browser’s performance or security, but in "
-"some rare cases risk may be involved."
-msgstr ""
-
-#. This is a header of a list of things the add-on can do.
-msgid "This add-on can:"
-msgstr ""
-
-msgid "Some add-ons ask for permission to perform certain functions. Since you’re in control of your Firefox, the choice to grant or deny these requests is yours."
-msgstr ""
-
-msgid "Please note this add-on uses legacy technology, which gives it access to all browser functions and data without requesting your permission."
-msgstr ""
-
-msgid "This add-on has been removed by its author."
-msgstr ""
-
-msgid "This add-on has been disabled by an administrator."
-msgstr ""
-
-msgid "Source Code License for {addon}"
-msgstr "مجوّز کد منبع برای {addon}"
-
-#. The License for this add-on.
-msgid "Source Code License"
-msgstr "مجوز کد منبع"
-
-#, fuzzy
-msgid "support section"
-msgstr "تارنمای پشتیبانی"
-
-#, fuzzy
-msgid "support email"
-msgstr "رایانامه پشتیبانی"
-
-msgid "permalink"
-msgstr ""
-
-#, python-format
-msgid "See all user reviews"
-msgid_plural "See all %(cnt)s user reviews"
-msgstr[0] ""
-msgstr[1] ""
-
-msgid "This add-on has not yet been reviewed."
-msgstr ""
-
-msgid "Be the first!"
-msgstr ""
-
-msgid "{0} users"
-msgstr ""
+msgid "Sort by:"
+msgstr "مرتب‌سازی بر حسب:"
 
 msgid "More"
 msgstr "بیشتر"
-
-msgid "Add to collection"
-msgstr "افزودن به مجموعه"
 
 msgid "My Add-ons"
 msgstr "افزودنی‌های من"
 
 msgid "My Themes"
 msgstr "مضمون‌های من"
-
-#. This is a caption for a table. {0} is an add-on name.
-msgid "Add-on Information for {0}"
-msgstr ""
-
-msgid "Edit Theme"
-msgstr "ویرایش تم"
-
-msgid "Approve / Reject"
-msgstr ""
-
-msgid "Review History"
-msgstr ""
-
-msgid "Sorry, this theme is pending. Please come back later."
-msgstr ""
-
-msgid "This theme is pending. It is invisible to everyone but you."
-msgstr ""
-
-msgid "Collector's Note"
-msgstr ""
-
-#. {0} is the number of downloads.
-msgid "<strong>{0}</strong> weekly download"
-msgid_plural "<strong>{0}</strong> weekly downloads"
-msgstr[0] ""
-msgstr[1] ""
-
-msgid "Not Reviewed"
-msgstr "بازبینی نشده"
 
 msgid "Tools"
 msgstr "ابزارها"
@@ -827,6 +323,9 @@ msgid ""
 "different words</a> or <a href=\"#\" id=\"recaptcha_audio\">try a different type of challenge</a> instead. </p>"
 msgstr ""
 
+msgid "Most Popular"
+msgstr "محبوب‌ترین"
+
 msgid "Top Rated"
 msgstr "بالاترین رتبه"
 
@@ -834,42 +333,14 @@ msgstr "بالاترین رتبه"
 msgid "Newest"
 msgstr "جدیدترین"
 
+msgid "Featured"
+msgstr "ویژه"
+
 msgid "Explore"
 msgstr "مرور"
 
-# Plural in this context means many of the add-on type
-msgid "Extensions"
-msgstr "ضمیمه‌ها"
-
-#. {0} is a category name. Ex: "Sports"
-msgid "Themes"
-msgstr "مضامین"
-
-msgid "Want more customization? Try <b>Complete Themes</b>"
-msgstr ""
-
-msgid "Collections"
-msgstr "مجموعه‌ها"
-
-msgid "Collections I've Made"
-msgstr "مجموعه‌هایی که من ساخته‌ام"
-
-msgid "More&hellip;"
-msgstr ""
-
-msgid "Add-ons for Mobile"
-msgstr "افزودنی‌های برای تلفن همراه"
-
-msgid "Dictionaries & Language Packs"
-msgstr "واژه‌نامه‌ها و بسته‌های زبان"
-
-#, fuzzy
-msgid "Search Tools"
-msgstr ""
-"#-#-#-#-#  django.po (addons.mozilla.org)  #-#-#-#-#\n"
-"ابزارهای جستجو\n"
-"#-#-#-#-#  django.po (addons.mozilla.org)  #-#-#-#-#\n"
-"ابزارهای جست‌وجو"
+msgid "Categories"
+msgstr "دسته بندی‌ها"
 
 #. This is a page range (e.g., Page 1 of 50).
 #, python-format
@@ -891,8 +362,17 @@ msgstr ""
 msgid "Showing <b>%(begin)s</b>&ndash;<b>%(end)s</b> of <b>%(count)s</b>"
 msgstr ""
 
+# {0} is the application the user is browsing.  Examples:  Thunderbird,
+# Firefox,
+# Sunbird
+msgid "Add-ons for {0}"
+msgstr "افزودنی‌های {0}"
+
 msgid "Add-ons"
 msgstr ""
+
+msgid "Custom License"
+msgstr "مجوز خاص"
 
 #. L10n: relative time in the past, like '4 days ago'
 msgid "{0} ago"
@@ -976,31 +456,7 @@ msgid ""
 "%(amo_manifests_mdn_link_close)s."
 msgstr ""
 
-msgid "Only I can view this collection."
-msgstr ""
-
-msgid "Anybody can view this collection."
-msgstr ""
-
-msgid "Give your collection a name."
-msgstr ""
-
-msgid "URL:"
-msgstr ""
-
-msgid "Describe your collection (no links allowed)."
-msgstr ""
-
-msgid "Privacy:"
-msgstr ""
-
-msgid "Please don't fill out this field, it's used to catch bots"
-msgstr ""
-
-msgid "This name cannot be used."
-msgstr ""
-
-msgid "This url is already in use by another collection"
+msgid "The text entered has been flagged as spam."
 msgstr ""
 
 #, fuzzy
@@ -1010,6 +466,9 @@ msgstr "این نام در حال استفاده است. لطفاْ یکی دی�
 #, fuzzy
 msgid "Name cannot be empty."
 msgstr "این نام کاربری قابل استفاده نیست."
+
+msgid "This name cannot be used."
+msgstr ""
 
 #, fuzzy
 msgid "The custom URL must consist of letters, numbers, underscores or hyphens."
@@ -1022,477 +481,6 @@ msgstr "این نام کاربری قابل استفاده نیست."
 #, fuzzy
 msgid "This add-on already belongs to the collection"
 msgstr "{addon} به مجموعه‌ی {collection} افزوده شد."
-
-msgid "Added"
-msgstr ""
-
-# 100%
-msgid "Popularity"
-msgstr "محبوبیت"
-
-msgid "Name"
-msgstr ""
-
-msgid "Collection created!"
-msgstr ""
-
-#, python-format
-msgid "Your new collection is shown below. You can <a href=\"%(url)s\">edit additional settings</a> if you'd like."
-msgstr ""
-
-msgid "Collection updated!"
-msgstr ""
-
-#, python-format
-msgid "<a href=\"%(url)s\">View your collection</a> to see the changes."
-msgstr ""
-
-#, fuzzy
-msgid "Create a New Collection"
-msgstr "ایجاد مجموعه"
-
-#, python-format
-msgid "As noted in our <a href=\"%(legal)s\">Legal Notices</a>, individual collection arrangements are governed by the Creative Commons Attribution Share-Alike License"
-msgstr ""
-
-msgid "Create Collection"
-msgstr "ایجاد مجموعه"
-
-msgid "View this collection"
-msgstr ""
-
-msgid "Start a new collection..."
-msgstr ""
-
-msgid "Start a New Collection"
-msgstr ""
-
-msgid "Name:"
-msgstr ""
-
-msgid "(optional)"
-msgstr "(اختیاری)"
-
-msgid "or <a id=\"collections-new-cancel\" href=\"#\">Cancel</a>"
-msgstr ""
-
-msgid "{0} :: Collections"
-msgstr ""
-
-msgid "private"
-msgstr ""
-
-msgid "About this Collection"
-msgstr ""
-
-msgid "Add-ons synced to my Mobile Firefox"
-msgstr "افزودنی‌های همگام شده با فایرفاکس تلفن همراه من"
-
-msgid "Make this Collection Private"
-msgstr ""
-
-msgid "Make this Collection Public"
-msgstr ""
-
-msgid "More Options:"
-msgstr ""
-
-#, fuzzy
-msgid "Edit Collection"
-msgstr "افزودن به مجموعه"
-
-#, fuzzy
-msgid "Delete Collection"
-msgstr "ایجاد مجموعه"
-
-#, python-format
-msgid "%(num)s Theme in this Collection"
-msgid_plural "%(num)s Themes in this Collection"
-msgstr[0] ""
-msgstr[1] "%(num)s مضمون در این مجموعه"
-
-#, python-format
-msgid "%(num)s Add-on in this Collection"
-msgid_plural "%(num)s Add-ons in this Collection"
-msgstr[0] ""
-msgstr[1] ""
-
-# 100%
-msgid "Go"
-msgstr "برو"
-
-msgid "What are Collections?"
-msgstr "مجموعه‌ها چیستند؟"
-
-msgid "Collections are groups of related add-ons that anyone can create and share."
-msgstr "مجموعه‌ها گروه‌هایی از افزودنی‌های مرتبط هستند که هرکس میتواند ایجاد کند و به اشتراک بگذارد."
-
-msgid "Explore Collections"
-msgstr "مرور مجموعه‌ها"
-
-msgid ""
-"Add-ons that you mark as favorites using the <b>Add to Favorites</b> feature appear below. This collection is currently <b>public</b>, which means everyone can see it. If you would like to hide it "
-"from public view, click the button below to make it private."
-msgstr ""
-
-msgid ""
-"Add-ons that you mark as favorites using the <b>Add to Favorites</b> feature appear below. This collection is currently <b>private</b>, which means only you can see it. If you would like everyone "
-"to be able to see your favorites, click the button below to make it public."
-msgstr ""
-
-#, fuzzy
-msgid "My favorite add-ons"
-msgstr "افزودنی‌های مورد علاقه من"
-
-#, python-format
-msgid "<span>%(addons)s</span> add-on"
-msgid_plural "<span>%(addons)s</span> add-ons"
-msgstr[0] ""
-msgstr[1] ""
-
-msgid "by {0}"
-msgstr ""
-
-#, fuzzy
-msgid "Edit this Collection"
-msgstr "افزودن به مجموعه"
-
-#. %s is the name of the collection.
-msgid "Delete {0}"
-msgstr ""
-
-msgid "Are you sure?"
-msgstr "آیا مطمئن هستید؟"
-
-msgid "Yes"
-msgstr ""
-
-msgid "No"
-msgstr ""
-
-#. {0} is the name of the collection.
-msgid "Edit {0}"
-msgstr ""
-
-msgid "Description"
-msgstr "شرح"
-
-msgid "Save Changes"
-msgstr ""
-
-#, fuzzy
-msgid "Remove from favorites"
-msgstr "حذف از افزودنی‌های محبوب"
-
-#, fuzzy
-msgid "Add to favorites"
-msgstr "افزودن به افزودنی‌های محبوب"
-
-#. {0} is a the user's name.
-msgid "Collections by {0}"
-msgstr ""
-
-msgid "No collections found."
-msgstr ""
-
-#, python-format
-msgid "Collections are groups of related add-ons that anyone can create and share. Explore collections created by other users or <a href=\"%(url)s\">create your own</a>."
-msgstr ""
-
-#, python-format
-msgid "by %(author_link)s"
-msgstr ""
-
-msgid "My Favorite Add-ons"
-msgstr "افزودنی‌های مورد علاقه من"
-
-#, fuzzy
-msgid "Create a Collection"
-msgstr "ایجاد مجموعه"
-
-msgid "Collections make it easy to keep track of favorite add-ons and share your perfectly customized browser with others."
-msgstr ""
-
-msgid "There are errors in this form.  Please correct them below."
-msgstr ""
-
-msgid "Add-ons in Your Collection"
-msgstr ""
-
-msgid "To include an add-on in this collection, enter its name in the box below and hit enter."
-msgstr ""
-
-msgid "Add-on"
-msgstr ""
-
-msgid "Comment"
-msgstr ""
-
-msgid "Remove"
-msgstr ""
-
-msgid "Enter the name of the add-on to include"
-msgstr ""
-
-msgid "Add to Collection"
-msgstr "افزودن به مجموعه"
-
-msgid "Pending"
-msgstr ""
-
-msgid "Add a comment"
-msgstr ""
-
-msgid "Remove this add-on from the collection"
-msgstr ""
-
-msgid "Favorite"
-msgstr ""
-
-#. L10n: %s is a category name.
-#, python-format
-msgid "%s Add-ons"
-msgstr "افزودنی‌های %s"
-
-#. L10n: %s is a category name.
-#, python-format
-msgid "%s Themes"
-msgstr "مضمون‌های %s"
-
-#, python-format
-msgid "Featured Add-ons :: %s"
-msgstr ""
-
-#. L10n: %s is an app name.
-#, python-format
-msgid "Here's a few of our favorite add-ons to help you get started customizing %s."
-msgstr ""
-
-#. L10n: %s is a category name.
-#, python-format
-msgid "Search tools relating to %s"
-msgstr ""
-
-msgid "Search tools and search-related extensions"
-msgstr "ابزارهای جستجو و ضمیمه‌های مرتبط با جستجو"
-
-msgid "Search tools"
-msgstr "ابزارهای جستجو"
-
-msgid "Most Users"
-msgstr "بیشتر کاربران"
-
-msgid "Weekly Downloads"
-msgstr "بارگیری‌های هفتگی"
-
-msgid "Recently Updated"
-msgstr "به تازگی به روز رسانی شده"
-
-msgid "Up & Coming"
-msgstr ""
-
-msgid "Recently Added"
-msgstr "به تازگی افزوده شده"
-
-msgid "Created"
-msgstr "ایجاد شده در تاریخ"
-
-# 100%
-msgid "Downloads"
-msgstr "بارگیری‌ها"
-
-#. {0} is the category name. Ex: Sports
-msgid "{0}: Featured Add-ons"
-msgstr ""
-
-#. {0} is a category name. Ex: Sports
-msgid "No featured add-ons in {0}."
-msgstr ""
-
-# 100%
-msgid "Subscribe"
-msgstr "مشترک شدن"
-
-msgid "Featured Add-ons"
-msgstr ""
-
-#, python-format
-msgid "Here's a few of our favorite add-ons to help you get started customizing %(app)s."
-msgstr ""
-
-msgid "Install Dictionary"
-msgstr "نصب واژه‌نامه"
-
-msgid "Install Language Pack"
-msgstr "نصب بستهٔ زبان"
-
-#, python-format
-msgid ""
-"Installing a dictionary add-on will add a new language option to your %(app_name)s spell-checker, which checks your spelling when you fill out Web forms. Language pack add-ons change the language "
-"of the entire application."
-msgstr ""
-
-msgid "Available in your locale"
-msgstr ""
-
-msgid "List of language packs and dictionaries available in your locale."
-msgstr "فهرست بسته‌های زبان و واژه‌نامه‌های موجود در منطقه شما."
-
-msgid "Language"
-msgstr "زبان"
-
-# Plural in this context means many of the add-on type
-#, fuzzy
-msgid "Dictionary"
-msgstr "واژه‌نامه‌ها"
-
-msgid "Language Pack"
-msgstr "بستهٔ زبان"
-
-msgid "All locales"
-msgstr ""
-
-msgid "List of language packs and dictionaries."
-msgstr "فهرست بسته‌های زبان و واژه‌نامه‌ها."
-
-#. {0} is a category name, like "Music".
-msgid "{0} :: Search Tools"
-msgstr ""
-
-#. {0} is an integer.
-msgid "<b>{0}</b> add-on"
-msgid_plural "<b>{0}</b> add-ons"
-msgstr[0] ""
-msgstr[1] ""
-
-msgid "Search Extensions"
-msgstr ""
-
-msgid "Add search-related functionality to Firefox"
-msgstr ""
-
-msgid "Search Providers"
-msgstr ""
-
-msgid "Find new providers for your search bar"
-msgstr ""
-
-msgid "Additional Resources"
-msgstr "منابع دیگر"
-
-#. {0} is an app name, like Firefox.
-msgid "Learn more about the <a href=\"https://support.mozilla.org/kb/use-search-bar-firefox\">search bar</a> in {0}"
-msgstr ""
-
-msgid "Browse through even more search providers at <a href=\"http://mycroftproject.com/\">mycroftproject.com</a>"
-msgstr ""
-
-#, python-format
-msgid "%(amo_mdn_link_open)sMake your own%(amo_mdn_link_close)s search tool"
-msgstr ""
-
-msgid "Most Popular Extensions"
-msgstr "محبوب‌ترین ضمیمه‌ها"
-
-msgid "Top-Rated Extensions"
-msgstr ""
-
-msgid "Newest Extensions"
-msgstr ""
-
-msgid "Extensions by Name"
-msgstr ""
-
-msgid "Extensions by Weekly Downloads"
-msgstr "ضمیمه‌ها بر اساس بارگیری‌های هفتگی"
-
-msgid "Recently Updated Extensions"
-msgstr ""
-
-msgid "Up & Coming Extensions"
-msgstr ""
-
-#. "Complete" is used as an adjective. "Complete Theme" means a full-featured
-#. theme.
-msgid "Featured Complete Themes"
-msgstr "مضمون‌های کامل ویژه"
-
-msgid "Most Popular Complete Themes"
-msgstr "محبوب‌ترین مضمون‌های کامل"
-
-msgid "Top-Rated Complete Themes"
-msgstr ""
-
-msgid "Newest Complete Themes"
-msgstr ""
-
-msgid "Complete Themes by Name"
-msgstr ""
-
-msgid "Complete Themes by Weekly Downloads"
-msgstr "مضمون‌های کامل بر اساس بارگیری‌های هفتگی"
-
-msgid "Recently Updated Complete Themes"
-msgstr ""
-
-msgid "Up & Coming Complete Themes"
-msgstr ""
-
-#, python-format
-msgid "See the %(cnt)s extension in %(name)s &raquo;"
-msgid_plural "See all %(cnt)s extensions in %(name)s &raquo;"
-msgstr[0] ""
-msgstr[1] ""
-
-msgid "{0} Themes"
-msgstr ""
-
-#. {0} is a user's name.
-msgid "{0}'s Themes"
-msgstr ""
-
-msgid "View Profile"
-msgstr ""
-
-msgid "Create Your Own Theme"
-msgstr ""
-
-msgid "Your browser, your style! Dress it up with a design of your own!"
-msgstr ""
-
-msgid "Learn more"
-msgstr "بیشتر بدانید"
-
-msgid "View All Recently Added"
-msgstr ""
-
-msgid "View All Most Popular"
-msgstr "نمایش همه‌ی محبوب‌ترین‌ها"
-
-msgid "View All Top Rated"
-msgstr ""
-
-#, python-format
-msgid "Over 300,000 designs to personalize your browser! Move your mouse over a Background Theme to try it on. <a href=\"%(url)s\" class=\"more-info\">Start exploring</a>"
-msgstr ""
-
-msgid "Want more personalization?"
-msgstr ""
-
-#. "Complete" is used as an adjective. "Complete Theme" means a full-featured
-#. theme.
-#, python-format
-msgid "Complete Themes transform the look of your browser with styles for the window frame, address bar, buttons, tabs, and menus. <a href=\"%(url)s\" class=\"more-info\">Start exploring</a>"
-msgstr ""
-
-msgid "Up & Coming Themes"
-msgstr ""
-
-msgid "View All Up & Coming"
-msgstr ""
-
-msgid "No themes found"
-msgstr "هیچ مضمونی یافت نشد"
 
 msgid "{addon} was created."
 msgstr ""
@@ -1881,6 +869,11 @@ msgstr "ضمیمه"
 msgid "Complete Theme"
 msgstr ""
 
+# Plural in this context means many of the add-on type
+#, fuzzy
+msgid "Dictionary"
+msgstr "واژه‌نامه‌ها"
+
 msgid "Search Engine"
 msgstr "موتور جست‌وجو"
 
@@ -1899,12 +892,24 @@ msgstr ""
 msgid "Theme (Static)"
 msgstr ""
 
+# Plural in this context means many of the add-on type
+msgid "Extensions"
+msgstr "ضمیمه‌ها"
+
 msgid "Complete Themes"
 msgstr "مضمون‌های کامل"
 
 # Plural in this context means many of the add-on type
 msgid "Dictionaries"
 msgstr "واژه‌نامه‌ها"
+
+#, fuzzy
+msgid "Search Tools"
+msgstr ""
+"#-#-#-#-#  django.po (addons.mozilla.org)  #-#-#-#-#\n"
+"ابزارهای جستجو\n"
+"#-#-#-#-#  django.po (addons.mozilla.org)  #-#-#-#-#\n"
+"ابزارهای جست‌وجو"
 
 # Plural in this context means many of the add-on type
 msgid "Language Packs (Application)"
@@ -1916,6 +921,9 @@ msgstr ""
 #, fuzzy
 msgid "Plugins"
 msgstr "متصل‌شونده"
+
+msgid "Themes"
+msgstr "مضامین"
 
 #, fuzzy
 msgid "Themes (Static)"
@@ -2246,6 +1254,9 @@ msgstr ""
 msgid "Android"
 msgstr ""
 
+msgid "Add-on"
+msgstr ""
+
 #, fuzzy
 msgid "Static Theme"
 msgstr "ویرایش تم"
@@ -2445,6 +1456,60 @@ msgstr ""
 msgid "[{field}] The text in the \"{field}\" field has been flagged as spam."
 msgstr ""
 
+#, fuzzy
+msgid "This slug is already in use. Please choose another."
+msgstr "این نام در حال استفاده است. لطفاْ یکی دیگیر انتخاب کنید."
+
+#, fuzzy, python-format
+msgid "The slug cannot be \"%(slug)s\". Please choose another."
+msgstr "این نام در حال استفاده است. لطفاْ یکی دیگیر انتخاب کنید."
+
+#. L10n: {0} is a single tag or a comma-separated list of tags.
+msgid "Invalid tag: {0}"
+msgid_plural "Invalid tags: {0}"
+msgstr[0] ""
+msgstr[1] "برچسب‌های نامعتبر: {0}"
+
+#. L10n: {0} is a single tag or a comma-separated list of tags.
+msgid "\"{0}\" is a reserved tag and cannot be used."
+msgid_plural "\"{0}\" are reserved tags and cannot be used."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "You have {0} too many tags."
+msgid_plural "You have {0} too many tags."
+msgstr[0] ""
+msgstr[1] ""
+
+#, python-format
+msgid "All tags must be %s characters or less after invalid characters are removed."
+msgstr "بعد از حذف کاراکترهای ممنوع، برچسب ها هر کدام باید دارای %s یا کمتر کاراکتر باشند."
+
+msgid "All tags must be at least {0} character."
+msgid_plural "All tags must be at least {0} characters."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Categories cannot be changed while your add-on is featured for this application."
+msgstr ""
+
+#. L10n: {0} is the number of categories.
+msgid "You can have only {0} category."
+msgid_plural "You can have only {0} categories."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "The miscellaneous category cannot be combined with additional categories."
+msgstr ""
+
+#, python-format
+msgid "URL domain must be one of [%s], or a subdomain."
+msgstr ""
+
+#, python-format
+msgid "Before changing your default locale you must have a name, summary, and description in that locale. You are missing %s."
+msgstr ""
+
 msgid "Must have at least one owner."
 msgstr ""
 
@@ -2514,6 +1579,12 @@ msgstr ""
 msgid "Continue with existing upload instead?"
 msgstr ""
 
+msgid "Yes"
+msgstr ""
+
+msgid "No"
+msgstr ""
+
 msgid "You have not uploaded a source file."
 msgstr ""
 
@@ -2535,6 +1606,9 @@ msgstr ""
 msgid "Categories cannot be changed while your add-on is featured."
 msgstr ""
 
+msgid "Invalid or corrupt add-on file."
+msgstr ""
+
 msgid "Your developer API key was found in the submitted file. To protect your account, the key will be revoked."
 msgstr ""
 
@@ -2547,6 +1621,23 @@ msgstr ""
 #, python-format
 msgid "Validation generated too many errors/warnings so %s messages were truncated. After addressing the visible messages, you'll be able to see the others."
 msgstr ""
+
+msgid "Updated"
+msgstr "به‌هنگام شده"
+
+msgid "Name"
+msgstr ""
+
+msgid "Created"
+msgstr "ایجاد شده در تاریخ"
+
+# 100%
+msgid "Downloads"
+msgstr "بارگیری‌ها"
+
+# 100%
+msgid "Rating"
+msgstr "رتبه"
 
 msgid "All My Add-ons"
 msgstr ""
@@ -2645,13 +1736,13 @@ msgstr ""
 msgid "Header area background"
 msgstr ""
 
-msgid "The color of the header area background, displayed in the part of the header not covered or visible through the header image. Manifest field:  accentcolor."
+msgid "The color of the header area background, displayed in the part of the header not covered or visible through the header image. Manifest field:  frame."
 msgstr ""
 
 msgid "Header area text and icons"
 msgstr ""
 
-msgid "The color of the text and icons in the header area, except the active tab. Manifest field:  textcolor."
+msgid "The color of the text and icons in the header area, except the active tab. Manifest field:  tab_background_text."
 msgstr ""
 
 msgid "Toolbar area background"
@@ -2663,7 +1754,7 @@ msgstr ""
 msgid "Toolbar area text and icons"
 msgstr ""
 
-msgid "The color of the text and icons in the toolbar and the active tab. Manifest field:  toolbar_text."
+msgid "The color of the text and icons in the toolbar and the active tab. Manifest field:  bookmark_text."
 msgstr ""
 
 msgid "Toolbar field area background"
@@ -2697,6 +1788,9 @@ msgstr ""
 msgid "API key revoked"
 msgstr ""
 
+msgid "My add-on doesn't fit into any of the categories"
+msgstr ""
+
 msgid ""
 "Before starting, please read and accept our Firefox Add-on Distribution Agreement as well as our Review Policies and Rules. The Firefox Add-on Distribution Agreement also links to our Privacy "
 "Notice which explains how we handle your information."
@@ -2718,9 +1812,6 @@ msgstr ""
 msgid "or <a href=\"{0}\">Cancel</a>"
 msgstr ""
 
-msgid "Back to Add-ons"
-msgstr ""
-
 #. {0} is an application, like Firefox.
 msgid "{0} Add-ons"
 msgstr ""
@@ -2735,13 +1826,15 @@ msgstr ""
 msgid "more add-ons..."
 msgstr ""
 
+# Plural in this context means many of the add-on type
+#, fuzzy
+msgid "Extension Workshop"
+msgstr "ضمیمه‌ها"
+
 msgid "Documentation"
 msgstr ""
 
 msgid "Extension Development"
-msgstr ""
-
-msgid "Lightweight Themes"
 msgstr ""
 
 #, fuzzy
@@ -2844,11 +1937,31 @@ msgstr ""
 msgid "Supported Versions"
 msgstr ""
 
+msgid "Remove"
+msgstr ""
+
 msgid "Add Another Application&hellip;"
+msgstr ""
+
+msgid "Save Changes"
+msgstr ""
+
+# This is a separator between the graphical [contribute] button and the
+# graphical [download now] button
+msgid "or"
+msgstr "یا"
+
+msgid "Cancel"
 msgstr ""
 
 msgid "Close"
 msgstr ""
+
+#. {0} is an integer.
+msgid "<b>{0}</b> add-on"
+msgid_plural "<b>{0}</b> add-ons"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Recent Activity"
 msgstr ""
@@ -2907,6 +2020,10 @@ msgstr "منابع دیگر"
 #, fuzzy
 msgid "Additional Details for {0}"
 msgstr "افزودنی‌های {0}"
+
+# 100%
+msgid "Tags"
+msgstr "برچسب‌ها"
 
 msgid "Tags help users find your add-on and should be short descriptors such as tabs, toolbar, or twitter. You may have a maximum of {0} tags."
 msgstr ""
@@ -2979,6 +2096,9 @@ msgstr ""
 
 msgid "This summary should clearly explain what your add-on does. It will be shown in listings and searches, and it will be used by reviewers to test your add-on."
 msgstr ""
+
+msgid "Description"
+msgstr "شرح"
 
 #, fuzzy
 msgid "Experimental?"
@@ -3307,6 +2427,12 @@ msgstr "غیر فعال"
 msgid "<b>Queue position:</b> %(pos)s of %(total)s"
 msgstr ""
 
+#. {0} is the number of downloads.
+msgid "<strong>{0}</strong> weekly download"
+msgid_plural "<strong>{0}</strong> weekly downloads"
+msgstr[0] ""
+msgstr[1] ""
+
 #. {0} is the number of active users.
 msgid "<strong>{0}</strong> active user"
 msgid_plural "<strong>{0}</strong> active users"
@@ -3333,6 +2459,9 @@ msgid "Add-on URL:"
 msgstr ""
 
 msgid "Please use only letters, numbers, underscores, and dashes in your URL."
+msgstr ""
+
+msgid "Name:"
 msgstr ""
 
 msgid "Name on listing on this site. May be different to the name inside the add-on, which is shown inside Firefox"
@@ -3688,6 +2817,11 @@ msgid "Created:"
 msgstr "ایجاد شده در تاریخ"
 
 #. {0} is a date. dennis-ignore: E201,E202,W202
+#, fuzzy
+msgid "Last Updated:"
+msgstr "آخرین به‌هنگام‌سازی"
+
+#. {0} is a date. dennis-ignore: E201,E202,W202
 msgid "Listed on this site after passing code review. Automatic updates are handled by this site"
 msgstr ""
 
@@ -3737,6 +2871,10 @@ msgstr "بازبینی نشده"
 msgid "Unlisted Review Page"
 msgstr ""
 
+#, fuzzy
+msgid "Admin Manage"
+msgstr "تنظیمات مدیریتی"
+
 msgid "View Statistics Dashboard"
 msgstr ""
 
@@ -3752,6 +2890,9 @@ msgstr ""
 
 msgid "This request for information has been resolved"
 msgstr ""
+
+msgid "License"
+msgstr "مجوز"
 
 msgid "Please choose a license appropriate for the rights you grant on your source code. It is only relevant for listed add-ons."
 msgstr ""
@@ -3774,9 +2915,15 @@ msgid_plural "Select <b>up to {0}</b> {1} categories for this add-on:"
 msgstr[0] ""
 msgstr[1] ""
 
+msgid "End-User License Agreement"
+msgstr "توافق‌نامهٔ مجوز کاربر نهایی"
+
 msgid ""
 "Users will be required to accept the following End-User License Agreement (EULA) prior to installing your add-on. The presence of a EULA significantly affects the number of downloads an add-on "
 "receives. Please note that a EULA is not the same as a code license, such as the GPL or MPL.It is only relevant for listed add-ons."
+msgstr ""
+
+msgid "Privacy Policy"
 msgstr ""
 
 msgid "If your add-on transmits any data from the user's computer, a privacy policy is required that explains what data is sent and how it is used. It is only relevant for listed add-ons."
@@ -3855,6 +3002,9 @@ msgstr "گزارش سوء استفاده"
 
 msgid "Legal Notices"
 msgstr "یادداشت‌های قانونی"
+
+msgid "Contribute"
+msgstr "مشارکت"
 
 #, fuzzy
 msgid "Review Add-ons"
@@ -4076,6 +3226,9 @@ msgid "0 files"
 msgstr ""
 
 msgid "Re-enable Version"
+msgstr ""
+
+msgid "Review History"
 msgstr ""
 
 # {0} is the add-on name
@@ -5509,10 +4662,16 @@ msgstr ""
 msgid "Cannot diff a version against itself"
 msgstr ""
 
+msgid "Could not parse the manifest file."
+msgstr ""
+
 msgid "GUID is required for Firefox 47 and below."
 msgstr ""
 
 msgid "Lowest supported \"strict_min_version\" is 42.0."
+msgstr ""
+
+msgid "Unknown \"strict_min_version\" {appver} for {app}"
 msgstr ""
 
 #, python-format
@@ -5543,9 +4702,6 @@ msgid "File exceeding size limit in archive: {0}"
 msgstr ""
 
 msgid "Invalid archive."
-msgstr ""
-
-msgid "Could not parse the manifest file."
 msgstr ""
 
 msgid "Could not find an add-on ID."
@@ -5614,6 +4770,13 @@ msgstr ""
 msgid "The output can be broken, please be careful and %(link_start)sreport an issue%(link_end)s immediately!"
 msgstr ""
 
+msgid "close"
+msgstr "بستن"
+
+# 100%
+msgid "Go"
+msgstr "برو"
+
 msgid "Add-on file being processed, please wait."
 msgstr ""
 
@@ -5627,9 +4790,6 @@ msgid "Deleted files:"
 msgstr ""
 
 msgid "Hide known files"
-msgstr ""
-
-msgid "Add-on SDK Version:"
 msgstr ""
 
 msgid "Tab stops:"
@@ -5666,102 +4826,6 @@ msgid "No files in the uploaded file."
 msgstr ""
 
 msgid "Fetching file."
-msgstr ""
-
-msgid "Shopping Made Easy"
-msgstr "خرید کردن آسان شد"
-
-msgid "Save on your favorite items from the comfort of your browser."
-msgstr "ذخیره‌ی موارد مورد علاقه‌تان را به راحتی مرورگرتان."
-
-msgid "Build the perfect website"
-msgstr ""
-
-msgid "First time with Add-ons?"
-msgstr "اولین بار با افزودنی‌ها؟"
-
-msgid "Not to worry, here are three to get started."
-msgstr "نگران نباشید، اینجا سه تا برای شروع هست."
-
-msgid "Translate content on the web from and into over 40 languages."
-msgstr ""
-
-msgid "Easily connect to your social networks, and share or comment on the page you're visiting."
-msgstr ""
-
-msgid "A quick view to compare prices when you shop online or search for flights."
-msgstr ""
-
-msgid "St. Patrick&rsquo;s Day Themes"
-msgstr ""
-
-msgid "Decorate your browser to celebrate St. Patrick&rsquo;s Day."
-msgstr ""
-
-msgid "A+ add-ons for School"
-msgstr ""
-
-msgid "Add-ons for teachers, parents, and students heading back to school."
-msgstr ""
-
-msgid "Would you like to know which websites you can trust?"
-msgstr ""
-
-msgid "Xmarks is the #1 bookmarking add-on."
-msgstr ""
-
-msgid "Web page and text translator, dictionary, and more!"
-msgstr ""
-
-msgid "Love is in the Air"
-msgstr ""
-
-msgid "Add some romance to your Firefox."
-msgstr ""
-
-msgid "Get up and move!"
-msgstr ""
-
-msgid "Install these fitness add-ons to keep you active and healthy."
-msgstr ""
-
-msgid "New &amp; Now"
-msgstr ""
-
-msgid "Get the latest, must-have add-ons of the moment."
-msgstr ""
-
-msgid "Worry-free browsing"
-msgstr "مرور بدون نگرانی"
-
-msgid "Protect your privacy online with the add-ons in this collection."
-msgstr "حفاظت از حریم خصوصی برخط شما با افزودنی‌های در این مجموعه."
-
-msgid "Great add-ons for work, fun, privacy, productivity&hellip; just about anything!"
-msgstr ""
-
-msgid "Games!"
-msgstr ""
-
-msgid "Add more fun to your Firefox. Play dozens of games right from your browser—puzzles, classic arcade, action games, and more!"
-msgstr ""
-
-msgid "Must-Have Media"
-msgstr ""
-
-msgid "Take better screenshots, improve your online video experience, finally learn how to make a GIF, and other great media tools."
-msgstr ""
-
-msgid "Mozilla&rsquo;s Pick of the Month!"
-msgstr "برگزیده این ماه موزیلا!"
-
-msgid "Become a Test Pilot"
-msgstr ""
-
-msgid "Unlock early access to experimental browser features."
-msgstr ""
-
-msgid "Get Started"
 msgstr ""
 
 #, fuzzy
@@ -5894,6 +4958,9 @@ msgstr ""
 
 msgid "Over the years, many people have contributed to this website, including both volunteers from the community and a dedicated AMO team."
 msgstr ""
+
+msgid "Review Guidelines"
+msgstr "رهنمون‌های بررسی"
 
 msgid "Sections"
 msgstr ""
@@ -6072,6 +5139,9 @@ msgid ""
 "for more detail about user add-on reviews.</p>"
 msgstr ""
 
+msgid "Submit review"
+msgstr ""
+
 msgid "Reply to review by {0}"
 msgstr ""
 
@@ -6091,6 +5161,13 @@ msgstr ""
 
 #, python-format
 msgid "by %(user)s <b>(Developer)</b> on %(date)s"
+msgstr ""
+
+#, python-format
+msgid "by %(user)s on %(date)s"
+msgstr ""
+
+msgid "permalink"
 msgstr ""
 
 #. {0} is a version number (like 1.01)
@@ -6163,6 +5240,9 @@ msgid "Write a New Review"
 msgstr ""
 
 msgid "Be the first to write a review."
+msgstr ""
+
+msgid "This add-on has not yet been reviewed."
 msgstr ""
 
 msgid "{num} review"
@@ -6267,7 +5347,7 @@ msgstr "بازبینی نشده"
 msgid "Needs Admin Static Theme Review"
 msgstr "بازبینی نشده"
 
-msgid "Jetpack Add-on"
+msgid "Requires Restart"
 msgstr ""
 
 msgid "More Information Requested"
@@ -6281,6 +5361,9 @@ msgid "Sources provided"
 msgstr ""
 
 msgid "WebExtension"
+msgstr ""
+
+msgid "Risk breakdown not available."
 msgstr ""
 
 msgid "Is locked by a reviewer."
@@ -6369,6 +5452,9 @@ msgstr ""
 msgid "If you have concerns about this add-on that an admin reviewer should look into, enter your comments in the area below. They will not be sent to the developer."
 msgstr ""
 
+msgid "Comment"
+msgstr ""
+
 msgid "Make a comment on this version. The developer won't be able to see this."
 msgstr ""
 
@@ -6379,16 +5465,8 @@ msgid "This records your approbation of the content of the latest public version
 msgstr ""
 
 #, fuzzy
-msgid "Static Themes and Legacy Add-ons"
-msgstr "افزودنی‌های من"
-
-#, fuzzy
-msgid "Static Themes"
-msgstr "مضامین ویژه"
-
-#, fuzzy
-msgid "Legacy Add-ons"
-msgstr "افزودنی‌های من"
+msgid "Pre-Approval Add-ons"
+msgstr "افزودنی‌های بیشتر"
 
 # {0} is the application the user is browsing.  Examples:  Thunderbird,
 # Firefox,
@@ -6408,10 +5486,6 @@ msgstr "یادداشت بررسی"
 #, fuzzy
 msgid "Add-on Review Guide"
 msgstr "بازبینی نشده"
-
-#, fuzzy
-msgid "Theme Review Guide"
-msgstr "رهنمون‌های بررسی"
 
 #, fuzzy
 msgid "Auto-Approved Add-ons"
@@ -6439,6 +5513,10 @@ msgid "Content Review ({0})"
 msgid_plural "Content Review ({0})"
 msgstr[0] ""
 msgstr[1] ""
+
+#, fuzzy
+msgid "Theme Review Guide"
+msgstr "رهنمون‌های بررسی"
 
 msgid "User Ratings Moderation"
 msgstr ""
@@ -6495,6 +5573,10 @@ msgstr ""
 msgid "Abuse Reports for {addon} and its developers ({num})"
 msgstr ""
 
+#. This is a caption for a table. {0} is an add-on name.
+msgid "Add-on Information for {0}"
+msgstr ""
+
 #, fuzzy
 msgid "Add-on ID"
 msgstr "بازبینی نشده"
@@ -6502,7 +5584,6 @@ msgstr "بازبینی نشده"
 msgid "Internal AMO ID"
 msgstr ""
 
-#. This refers to this version's compatible applications, such as Firefox 8.0
 msgid "Works with"
 msgstr "با این برنامه‌ها کار می‌کند"
 
@@ -6526,6 +5607,10 @@ msgid "Requires Payment"
 msgstr ""
 
 msgid "EULA"
+msgstr "توافق‌نامهٔ مجوز کاربر نهایی"
+
+#, fuzzy
+msgid "View End-User License Agreement"
 msgstr "توافق‌نامهٔ مجوز کاربر نهایی"
 
 #, fuzzy
@@ -6734,6 +5819,9 @@ msgstr ""
 
 msgid "Weight:"
 msgstr ""
+
+msgid "Download"
+msgstr "بارگیری‌"
 
 #, fuzzy
 msgid "Not Auto Approved Because"
@@ -6947,98 +6035,6 @@ msgstr ""
 msgid "Maximum query length exceeded."
 msgstr ""
 
-msgid "search for add-ons"
-msgstr "جست‌وجو برای افزودنی‌ها"
-
-msgid "search for themes"
-msgstr ""
-
-msgid "search for apps"
-msgstr ""
-
-msgid "Relevance"
-msgstr ""
-
-msgid "All Add-ons"
-msgstr ""
-
-msgid "Any {0}"
-msgstr ""
-
-#. L10n: "All Systems" means show everything regardless of platform.
-msgid "All Systems"
-msgstr ""
-
-msgid "All Tags"
-msgstr ""
-
-#. {0} is the string the user was searching for
-msgid "Collection Search Results for {0}"
-msgstr ""
-
-msgid "Collection Search Results"
-msgstr ""
-
-msgid "Search Results"
-msgstr "نتایج جست‌وجو"
-
-msgid "Search Unavailable"
-msgstr ""
-
-msgid "Search is temporarily unavailable. Please try again in a few minutes."
-msgstr ""
-
-#. {0} is the string the user was searching for
-msgid "Themes Search Results for {0}"
-msgstr ""
-
-msgid "Themes Search Results"
-msgstr ""
-
-#. {0} is a search term, such as Firebug.
-msgid "{0} :: Search"
-msgstr ""
-
-#. {0} is a search term, such as Firebug.
-msgid "Search Results for \"{0}\""
-msgstr ""
-
-#. {0} is a tag, such as jetpack.
-msgid "{0} :: Tag"
-msgstr ""
-
-#. {0} is a tag, such as jetpack.
-msgid "Search Results for tag \"{0}\""
-msgstr ""
-
-msgid "<b>{0}</b> matching result"
-msgid_plural "<b>{0}</b> matching results"
-msgstr[0] ""
-msgstr[1] ""
-
-msgid "Filter Results"
-msgstr ""
-
-msgid "Category"
-msgstr ""
-
-#, fuzzy
-msgid "Tag"
-msgstr "برچسب‌ها"
-
-# {0} is a number
-# {1} is a number
-# {2} is a number
-# {3} is the word the person is searching for
-msgid "Showing {0} - {1} of {2} results for <strong>{3}</strong>"
-msgstr "نمایش {0} تا {1} از {2} جست‌وجو به دنبال <strong>{3}</strong>"
-
-# {0} is a number
-# {1} is a number
-# {2} is a number
-msgid "Showing {0} - {1} of {2} results"
-msgstr "نمایش {0} تا {1} از {2} نتیجه"
-
 msgid "Could not find add-on with guid \"{}\"."
 msgstr ""
 
@@ -7080,6 +6076,9 @@ msgstr ""
 msgid "by Source"
 msgstr ""
 
+msgid "Daily Users"
+msgstr ""
+
 msgid "by Add-on Version"
 msgstr ""
 
@@ -7093,33 +6092,6 @@ msgid "by Platform"
 msgstr ""
 
 msgid "by Add-on Status"
-msgstr ""
-
-msgid "Add-on Statistics"
-msgstr ""
-
-msgid "Add-ons in Use"
-msgstr ""
-
-msgid "Add-ons Created"
-msgstr ""
-
-msgid "Add-ons Downloaded"
-msgstr ""
-
-msgid "Add-ons Updated"
-msgstr ""
-
-msgid "Collections Created"
-msgstr ""
-
-msgid "Reviews Written"
-msgstr ""
-
-msgid "User Signups"
-msgstr ""
-
-msgid "Archived Data"
 msgstr ""
 
 msgid "Custom Date Range"
@@ -7209,22 +6181,7 @@ msgstr ""
 msgid "Change settings."
 msgstr ""
 
-msgid "Add-ons Created by Date"
-msgstr ""
-
-msgid "Add-ons Downloaded by Date"
-msgstr ""
-
-msgid "Add-ons in Use by Date"
-msgstr ""
-
-msgid "Add-ons Updated by Date"
-msgstr ""
-
 msgid "Application usage by Date"
-msgstr ""
-
-msgid "Collections Created by Date"
 msgstr ""
 
 msgid "Downloaded by Date"
@@ -7271,12 +6228,6 @@ msgstr ""
 msgid "See more platforms&hellip;"
 msgstr ""
 
-msgid "Ratings by Date"
-msgstr ""
-
-msgid "Reviews Created by Date"
-msgstr ""
-
 msgid "Download sources by Date"
 msgstr ""
 
@@ -7295,9 +6246,6 @@ msgstr ""
 msgid "Add-on Status by Date"
 msgstr ""
 
-msgid "Subscribers by Date"
-msgstr ""
-
 msgid "Daily Users by Date"
 msgstr ""
 
@@ -7314,9 +6262,6 @@ msgid ""
 "down by add-on version, operating system, add-on status, application, and locale. </p>"
 msgstr ""
 
-msgid "User Signups by Date"
-msgstr ""
-
 msgid "Application versions by Date"
 msgstr ""
 
@@ -7324,33 +6269,11 @@ msgstr ""
 msgid "Mozilla Add-ons"
 msgstr "افزودنی‌های بیشتر"
 
-msgid "Find add-ons for other applications"
-msgstr "پیدا کردن افزودنی‌های برنامه‌های دیگر"
-
-msgid "Other Applications"
-msgstr "برنامه‌های دیگر"
-
-msgid "AMO is getting a new look. Would you like to see it?"
-msgstr ""
-
-msgid "Visit the new site"
-msgstr ""
-
-msgid "To create your own collections, you must have a Mozilla Add-ons account."
-msgstr ""
-
-msgid "Create an Add-ons Account"
-msgstr ""
-
-#, python-format
-msgid "or <a href=\"%(login)s\">log in to your current account</a>"
+msgid "Back to Add-ons"
 msgstr ""
 
 msgid "Footer logo"
 msgstr ""
-
-msgid "Choose a category"
-msgstr "انتخاب یک دسته"
 
 msgid "The new website supports mobile and desktop clients"
 msgstr ""
@@ -7412,32 +6335,14 @@ msgstr ""
 msgid "<a href=\"%(reg)s\">Register</a> or <a href=\"%(login)s\">Log in</a>"
 msgstr "<a href=\"%(reg)s\">ثبت نام</a>یا <a href=\"%(login)s\">ورود</a>"
 
-#, python-format
-msgid "To try the thousands of add-ons available here, download <a href=\"%(url)s\">Mozilla Firefox</a>, a fast, free way to surf the Web!"
-msgstr "برای امتحان کردن صدها افزودنی موجود در اینجا، <a href=\"%(url)s\">موزیلا فایرفاکس</a>، یک راه سریع، رایگان برای مرور وب را بارگیری کنید!"
-
-#. {0} is an application, such as Firefox.
-msgid "Welcome to {0} Add-ons."
-msgstr ""
-
-msgid "Choose from thousands of extra features and styles to make Firefox your own."
-msgstr ""
-
-#, python-format
-msgid "Add extra features and styles to make %(app)s your own."
-msgstr ""
-
-msgid "On the go?"
-msgstr ""
-
-msgid "Check out our <a class=\"mobile-link\" href=\"#\">Mobile Add-ons site</a>."
-msgstr ""
-
 msgid "Android Add-ons"
 msgstr ""
 
 msgid "Required fields"
 msgstr ""
+
+msgid "(optional)"
+msgstr "(اختیاری)"
 
 #. {0} is a language name, like 'French'
 #, python-format
@@ -7486,6 +6391,9 @@ msgstr ""
 msgid "Profile Photo"
 msgstr ""
 
+msgid "Collections"
+msgstr "مجموعه‌ها"
+
 msgid "Addons"
 msgstr ""
 
@@ -7502,6 +6410,9 @@ msgstr "فایرفاکس برای آندروید"
 #, fuzzy
 msgid "My Mobile Add-ons"
 msgstr "افزودنی‌های بیشتر"
+
+msgid "My Favorite Add-ons"
+msgstr "افزودنی‌های مورد علاقه من"
 
 msgid "an add-on developer replies to my review"
 msgstr ""
@@ -7564,48 +6475,15 @@ msgstr ""
 msgid "Unfortunately, we weren't able to unsubscribe you. The link you clicked is invalid. However, you can still unsubscribe on your <a href=\"%(edit_url)s\">edit profile page</a>."
 msgstr ""
 
+#, python-format
+msgid "by %(users)s"
+msgstr ""
+
 msgctxt "user_list_others"
 msgid "others"
 msgstr ""
 
-# {0} is the add-on name
-#, python-format
-msgid "%s Version History"
-msgstr "تاریخچه نسخه های %s"
-
-msgid "Version History with Changelogs"
-msgstr "تاریخچهٔ نسخه‌ها به همراه فهرست تغییرات"
-
 msgid "{app} {min} and later"
-msgstr ""
-
-msgid "Permanent link to this version"
-msgstr "پیوند دائمی به این نسخه"
-
-#. {0} is a timestamp, such as September 28, 2011.
-msgid "Released {0}"
-msgstr ""
-
-#, python-format
-msgid "Source code released under <a href=\"%(url)s\">%(name)s</a>"
-msgstr "کد منبع تحت <a href=\"%(url)s\">%(name)s</a> منتشر شده است"
-
-# {0} is the add-on name
-#. {0} is an add-on name.
-msgid "{0} Version History"
-msgstr "تاریخچهٔ نسخه‌های {0}"
-
-#. {0} is a number.
-msgid "<b>{0}</b> version"
-msgid_plural "<b>{0}</b> versions"
-msgstr[0] ""
-msgstr[1] ""
-
-msgid "Be careful with old versions!"
-msgstr ""
-
-#, python-format
-msgid "These versions are displayed for reference and testing purposes. You should always use the <a href=\"%(url)s\">latest version</a> of an add-on."
 msgstr ""
 
 msgid "Deleted versions can`t be changed."

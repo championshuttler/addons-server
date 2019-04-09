@@ -125,8 +125,8 @@ This endpoint allows you to browse through the contents of an Add-on version.
     .. _reviewers-versions-browse-detail:
 
     :param file: The specific file in the XPI to retrieve. Defaults to manifest.json, install.rdf or package.json for Add-ons as well as the XML file for search engines.
-    :>json string validation_url_json: The url to the addons-linter validation report, rendered as JSON.
-    :>json string validation_url: The url to the addons-linter validation report, rendered as HTML.
+    :>json string validation_url_json: The absolute url to the addons-linter validation report, rendered as JSON.
+    :>json string validation_url: The absolute url to the addons-linter validation report, rendered as HTML.
     :>json boolean has_been_validated: ``True`` if the version has been validated through addons-linter.
     :>json object addon: A simplified :ref:`add-on <addon-detail-object>` object that contains only a few properties: ``id``, ``name``, ``icon_url`` and ``slug``.
     :>json object file: The file attached to this version. See :ref:`version detail -> files[] <version-detail-object>` for more details.
@@ -217,17 +217,17 @@ This endpoint allows you to compare two Add-on versions with each other.
         -}
         +{"id": "random"}
 
-    .. code:: json
+    .. code:: javascript
 
         "diff": [
             {
                 "path": "README.md",
                 "old_path": "README.md",
-                "size": 15,  # Size in bytes
-                "lines_added": 1,  # How many lines got added
-                "lines_deleted": 1,  # How many lines got deleted
-                "is_binary": false,  # Is this a binary file (as determined by git)
-                "mode": "M",  # Status of this file, see https://git-scm.com/docs/git-status#_short_format
+                "size": 15,  // Size in bytes
+                "lines_added": 1,  // How many lines got added
+                "lines_deleted": 1,  // How many lines got deleted
+                "is_binary": false,  // Is this a binary file (as determined by git)
+                "mode": "M",  // Status of this file, see https://git-scm.com/docs/git-status#_short_format
                 "hunks": [
                     {
                         "header": "@@ -1 +1 @@\\n",

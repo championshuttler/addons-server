@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
 import json
+import re
 import sys
 
 from datetime import datetime, timedelta
 
+import django
 from django import test
 from django.conf import settings
 from django.test.utils import override_settings
@@ -15,6 +17,7 @@ import pytest
 from lxml import etree
 from mock import patch
 from pyquery import PyQuery as pq
+from six.moves.urllib_parse import urlparse
 from waffle.testutils import override_switch
 
 from olympia import amo, core
@@ -30,7 +33,7 @@ from olympia.users.models import UserProfile
 @pytest.mark.django_db
 @pytest.mark.parametrize('locale', list(settings.LANGUAGES))
 def test_locale_switcher(client, locale):
-    response = client.get('/{}/firefox/'.format(locale))
+    response = client.get('/{}/developers/'.format(locale))
     assert response.status_code == 200
 
 
@@ -92,11 +95,11 @@ class Test404(TestCase):
 
 
 class TestCommon(TestCase):
-    fixtures = ('base/users', 'base/global-stats', 'base/addon_3615')
+    fixtures = ('base/users', 'base/addon_3615')
 
     def setUp(self):
         super(TestCommon, self).setUp()
-        self.url = reverse('home')
+        self.url = reverse('apps.appversions')
 
     def login(self, user=None, get=False):
         email = '%s@mozilla.com' % user
@@ -247,39 +250,19 @@ class TestOtherStuff(TestCase):
 
     @mock.patch.object(settings, 'READ_ONLY', False)
     def test_balloons_no_readonly(self):
-        response = self.client.get('/en-US/firefox/')
+        response = self.client.get('/en-US/firefox/pages/appversions/')
         doc = pq(response.content)
         assert doc('#site-notice').length == 0
-        assert doc('#site-nonfx').length == 1
-        assert doc('#site-welcome').length == 1
 
     @mock.patch.object(settings, 'READ_ONLY', True)
     def test_balloons_readonly(self):
-        response = self.client.get('/en-US/firefox/')
+        response = self.client.get('/en-US/firefox/pages/appversions/')
         doc = pq(response.content)
         assert doc('#site-notice').length == 1
-        assert doc('#site-nonfx').length == 1
-        assert doc('#site-welcome').length == 1
-
-    @mock.patch.object(settings, 'READ_ONLY', False)
-    def test_android_balloons_no_readonly(self):
-        response = self.client.get('/en-US/android/')
-        assert response.status_code == 200
-        doc = pq(response.content)
-        assert doc('#site-notice').length == 0
-
-    @mock.patch.object(settings, 'READ_ONLY', True)
-    def test_android_balloons_readonly(self):
-        response = self.client.get('/en-US/android/')
-        doc = pq(response.content)
-        assert doc('#site-notice').length == 1
-        assert doc('#site-nonfx').length == 0, (
-            'This balloon should appear for Firefox only')
-        assert doc('#site-welcome').length == 1
 
     def test_heading(self):
         def title_eq(url, alt, text):
-            response = self.client.get(url, follow=True)
+            response = self.client.get(url + 'pages/appversions/', follow=True)
             doc = pq(response.content)
             assert alt == doc('.site-title img').attr('alt')
             assert text == doc('.site-title').text()
@@ -290,21 +273,23 @@ class TestOtherStuff(TestCase):
     @patch('olympia.accounts.utils.default_fxa_login_url',
            lambda request: 'https://login.com')
     def test_login_link(self):
-        r = self.client.get(reverse('home'), follow=True)
+        r = self.client.get(reverse('apps.appversions'), follow=True)
         doc = pq(r.content)
         assert 'https://login.com' == (
             doc('.account.anonymous a')[1].attrib['href'])
 
     def test_tools_loggedout(self):
-        r = self.client.get(reverse('home'), follow=True)
+        r = self.client.get(reverse('apps.appversions'), follow=True)
         assert pq(r.content)('#aux-nav .tools').length == 0
 
     def test_language_selector(self):
-        doc = pq(test.Client().get('/en-US/firefox/').content)
+        doc = pq(test.Client().get(
+            '/en-US/firefox/pages/appversions/').content)
         assert doc('form.languages option[selected]').attr('value') == 'en-us'
 
     def test_language_selector_variables(self):
-        r = self.client.get('/en-US/firefox/?foo=fooval&bar=barval')
+        r = self.client.get(
+            '/en-US/firefox/pages/appversions/?foo=fooval&bar=barval')
         doc = pq(r.content)('form.languages')
 
         assert doc('input[type=hidden][name=foo]').attr('value') == 'fooval'
@@ -316,7 +301,7 @@ class TestOtherStuff(TestCase):
         """Make sure we're setting REMOTE_ADDR from X_FORWARDED_FOR."""
         client = test.Client()
         # Send X-Forwarded-For as it shows up in a wsgi request.
-        client.get('/en-US/firefox/', follow=True,
+        client.get('/en-US/developers/', follow=True,
                    HTTP_X_FORWARDED_FOR='1.1.1.1',
                    REMOTE_ADDR='127.0.0.1')
         assert set_remote_addr_mock.call_count == 2
@@ -343,23 +328,6 @@ class TestOtherStuff(TestCase):
             assert 'django.catalog = ' in content
             assert '/* gettext identity library */' not in content
 
-    def test_dictionaries_link(self):
-        doc = pq(test.Client().get('/', follow=True).content)
-        assert doc('#site-nav #more .more-lang a').attr('href') == (
-            reverse('browse.language-tools'))
-
-    def test_no_dictionaries_link_when_not_firefox(self):
-        doc = pq(test.Client().get('/android', follow=True).content)
-        assert doc('#site-nav #more .more-lang').length == 0
-
-    def test_mobile_link_firefox(self):
-        doc = pq(test.Client().get('/firefox', follow=True).content)
-        assert doc('#site-nav #more .more-mobile a').length == 1
-
-    def test_mobile_link_nonfirefox(self):
-        doc = pq(test.Client().get('/android', follow=True).content)
-        assert doc('#site-nav #more .more-mobile').length == 0
-
     def test_opensearch(self):
         client = test.Client()
         page = client.get('/en-US/firefox/opensearch.xml')
@@ -379,7 +347,7 @@ class TestCORS(TestCase):
         return self.client.get(url, HTTP_ORIGIN='testserver', **headers)
 
     def test_no_cors(self):
-        response = self.get(reverse('home'))
+        response = self.get(reverse('devhub.index'))
         assert response.status_code == 200
         assert not response.has_header('Access-Control-Allow-Origin')
         assert not response.has_header('Access-Control-Allow-Credentials')
@@ -399,6 +367,12 @@ class TestCORS(TestCase):
         assert response.status_code == 200
         assert not response.has_header('Access-Control-Allow-Credentials')
         assert response['Access-Control-Allow-Origin'] == '*'
+
+    def test_cors_excludes_accounts_session_endpoint(self):
+        assert re.match(
+            settings.CORS_URLS_REGEX,
+            urlparse(reverse_ns('accounts.session')).path,
+        ) is None
 
 
 class TestContribute(TestCase):
@@ -484,3 +458,5 @@ class TestVersion(TestCase):
         content = json.loads(force_text(res.content))
         assert content['python'] == '%s.%s' % (
             sys.version_info.major, sys.version_info.minor)
+        assert content['django'] == '%s.%s' % (
+            django.VERSION[0], django.VERSION[1])

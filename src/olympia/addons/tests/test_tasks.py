@@ -8,16 +8,13 @@ from django.conf import settings
 from django.core import mail
 from django.test.utils import override_settings
 
-from freezegun import freeze_time
-
 from olympia import amo
 from olympia.activity.models import ActivityLog
 from olympia.addons import cron
 from olympia.addons.models import Addon, AddonCategory, MigratedLWT
 from olympia.addons.tasks import (
     add_static_theme_from_lwt, create_persona_preview_images,
-    migrate_legacy_dictionary_to_webextension, migrate_lwts_to_static_themes,
-    migrate_webextensions_to_git_storage,
+    migrate_lwts_to_static_themes, migrate_webextensions_to_git_storage,
     recreate_theme_previews, save_persona_image)
 from olympia.amo.storage_utils import copy_stored_file
 from olympia.amo.tests import (
@@ -27,13 +24,12 @@ from olympia.amo.utils import image_size
 from olympia.applications.models import AppVersion
 from olympia.constants import licenses
 from olympia.constants.categories import CATEGORIES
-from olympia.files.models import FileUpload
 from olympia.files.utils import id_to_path
 from olympia.ratings.models import Rating
 from olympia.stats.models import ThemeUpdateCount, UpdateCount
 from olympia.tags.models import Tag
 from olympia.users.models import UserProfile
-from olympia.versions.models import License, VersionPreview
+from olympia.versions.models import License, VersionPreview, source_upload_path
 from olympia.lib.git import AddonGitRepository
 
 
@@ -306,71 +302,6 @@ class TestAddStaticThemeFromLwt(TestCase):
             desktop_default_category, android_default_category]
 
 
-@override_settings(ENABLE_ADDON_SIGNING=True)
-class TestMigrateLegacyDictionaryToWebextension(TestCase):
-    def setUp(self):
-        self.user = user_factory(
-            id=settings.TASK_USER_ID, username='taskuser',
-            email='taskuser@mozilla.com')
-        with freeze_time('2017-07-27 07:00'):
-            self.addon = addon_factory(
-                type=amo.ADDON_DICT,
-                guid='@my-dict',  # Same id used in dict-webext.xpi.
-                version_kw={'version': '6.3'})
-
-        AppVersion.objects.get_or_create(
-            application=amo.FIREFOX.id, version='61.0')
-        AppVersion.objects.get_or_create(
-            application=amo.FIREFOX.id, version='*')
-
-        self.call_signing_mock = self.patch(
-            'olympia.lib.crypto.signing.call_signing')
-        self.call_signing_mock.return_value = 'abcdefg1234'
-
-        self.build_mock = self.patch(
-            'olympia.addons.tasks.build_webext_dictionary_from_legacy')
-        self.build_mock.side_effect = self._mock_xpi_side_effect
-
-    def _mock_xpi_side_effect(self, addon, destination):
-        xpi_path = os.path.join(
-            settings.ROOT, 'src/olympia/files/fixtures/files/dict-webext.xpi')
-        copy_stored_file(xpi_path, destination)
-        assert not os.path.isdir(destination)
-        return mock.DEFAULT
-
-    def test_basic(self):
-        assert not FileUpload.objects.exists()
-        assert not ActivityLog.objects.filter(
-            action=amo.LOG.ADD_VERSION.id).exists()
-        old_version = self.addon.current_version
-
-        self.build_mock.return_value = 'fake-locale'
-
-        with freeze_time('2018-08-28 08:00'):
-            self.migration_date = datetime.now()
-            migrate_legacy_dictionary_to_webextension(self.addon)
-
-        self.build_mock.assert_called_once_with(self.addon, mock.ANY)
-        assert FileUpload.objects.exists()
-        self.addon.reload()
-        assert self.addon.target_locale == 'fake-locale'
-        assert self.addon.current_version != old_version
-        activity_log = ActivityLog.objects.filter(
-            action=amo.LOG.ADD_VERSION.id).get()
-        assert activity_log.arguments == [
-            self.addon.current_version, self.addon
-        ]
-
-        assert self.addon.last_updated == self.migration_date
-
-        current_file = self.addon.current_version.all_files[0]
-        assert current_file.datestatuschanged == self.migration_date
-        assert current_file.status == amo.STATUS_PUBLIC
-
-        self.call_signing_mock.assert_called_with(current_file)
-        assert current_file.cert_serial_num == 'abcdefg1234'
-
-
 class TestMigrateWebextensionsToGitStorage(TestCase):
     def test_basic(self):
         addon = addon_factory(file_kw={'filename': 'webextension_no_id.xpi'})
@@ -424,6 +355,26 @@ class TestMigrateWebextensionsToGitStorage(TestCase):
         assert extract_mock.call_args_list[0][0][0] == oldest_version.pk
         assert extract_mock.call_args_list[1][0][0] == older_version.pk
         assert extract_mock.call_args_list[2][0][0] == most_recent.pk
+
+    @mock.patch('olympia.versions.tasks.extract_version_to_git')
+    @mock.patch('olympia.versions.tasks.extract_version_source_to_git')
+    def test_migrate_versions_extracts_source(
+            self, extract_source_mock, extract_mock):
+        addon = addon_factory(file_kw={'filename': 'webextension_no_id.xpi'})
+        version_to_migrate = addon.current_version
+        version_to_migrate.update(
+            source=source_upload_path(version_to_migrate, 'foo.tar.gz'))
+
+        version_without_source = version_factory(
+            addon=addon, file_kw={'filename': 'webextension_no_id.xpi'})
+
+        migrate_webextensions_to_git_storage([addon.pk])
+
+        extract_source_mock.assert_called_once_with(version_to_migrate.pk)
+        extract_mock.assert_has_calls([
+            mock.call(version_to_migrate.pk),
+            mock.call(version_without_source.pk)
+        ])
 
 
 @pytest.mark.django_db

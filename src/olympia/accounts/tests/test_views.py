@@ -141,6 +141,32 @@ class TestLoginStartBaseView(WithDynamicEndpoints, TestCase):
         query = parse_qs(url.query)
         assert ':' not in query['state'][0]
 
+    def test_allows_code_manager_url(self):
+        self.initialize_session({})
+        code_manager_url = 'https://code.example.org'
+        to = '{}/foobar'.format(code_manager_url)
+        with override_settings(CODE_MANAGER_URL=code_manager_url):
+            response = self.client.get(
+                '{url}?to={to}'.format(to=to, url=self.url)
+            )
+        url = urlparse(response['location'])
+        query = parse_qs(url.query)
+        state_parts = query['state'][0].split(':')
+        assert base64.urlsafe_b64decode(state_parts[1] + '====') == to.encode()
+
+    def test_allows_absolute_urls(self):
+        self.initialize_session({})
+        domain = 'example.org'
+        to = 'https://{}/foobar'.format(domain)
+        with override_settings(DOMAIN=domain):
+            response = self.client.get(
+                '{url}?to={to}'.format(to=to, url=self.url)
+            )
+        url = urlparse(response['location'])
+        query = parse_qs(url.query)
+        state_parts = query['state'][0].split(':')
+        assert base64.urlsafe_b64decode(state_parts[1] + '====') == to.encode()
+
 
 def has_cors_headers(response, origin='https://addons-frontend'):
     return (
@@ -153,7 +179,7 @@ class TestLoginStartView(TestCase):
     def test_default_config_is_used(self):
         assert views.LoginStartView.DEFAULT_FXA_CONFIG_NAME == 'default'
         assert views.LoginStartView.ALLOWED_FXA_CONFIGS == (
-            ['default', 'amo', 'local'])
+            ['default', 'amo', 'local', 'code-manager'])
 
 
 class TestLoginUserAndRegisterUser(TestCase):
@@ -723,6 +749,10 @@ class TestFxAConfigMixin(TestCase):
         assert config == {'BAZ': 789}
 
 
+def empty_view(*args, **kwargs):
+    return http.HttpResponse()
+
+
 class TestAuthenticateView(BaseAuthenticationView):
     view_name = 'accounts.authenticate'
 
@@ -791,10 +821,6 @@ class TestAuthenticateView(BaseAuthenticationView):
         self.test_success_no_account_registers()
 
     def test_register_redirects_edit(self):
-
-        def empty_view(*args, **kwargs):
-            return http.HttpResponse()
-
         user_qs = UserProfile.objects.filter(email='me@yeahoo.com')
         assert not user_qs.exists()
         identity = {u'email': u'me@yeahoo.com', u'uid': u'e0b6f'}
@@ -844,9 +870,10 @@ class TestAuthenticateView(BaseAuthenticationView):
             username='foobar', email='real@yeahoo.com', fxa_id='10')
         identity = {'email': 'real@yeahoo.com', 'uid': '9001'}
         self.fxa_identify.return_value = identity
-        response = self.client.get(
-            self.url, {'code': 'code', 'state': self.fxa_state})
-        self.assertRedirects(response, reverse('home'))
+        with mock.patch('olympia.amo.views._frontend_view', empty_view):
+            response = self.client.get(
+                self.url, {'code': 'code', 'state': self.fxa_state})
+            self.assertRedirects(response, reverse('home'))
         token = response.cookies['frontend_auth_token'].value
         verify = WebTokenAuthentication().authenticate_token(token)
         assert verify[0] == user
@@ -897,6 +924,74 @@ class TestAuthenticateView(BaseAuthenticationView):
         self.login_user.assert_called_with(
             views.AuthenticateView, mock.ANY, user, identity)
         assert not self.register_user.called
+
+    def test_log_in_redirects_to_absolute_url(self):
+        email = 'real@yeahoo.com'
+        UserProfile.objects.create(email=email)
+        self.fxa_identify.return_value = {'email': email, 'uid': '9001'}
+        domain = 'example.org'
+        next_path = 'https://{}/path'.format(domain)
+        with override_settings(DOMAIN=domain):
+            response = self.client.get(self.url, {
+                'code': 'code',
+                'state': ':'.join([
+                    self.fxa_state,
+                    force_text(base64.urlsafe_b64encode(next_path.encode())),
+                ]),
+            })
+        self.assertRedirects(response, next_path,
+                             fetch_redirect_response=False)
+
+    def test_log_in_redirects_to_code_manager(self):
+        email = 'real@yeahoo.com'
+        UserProfile.objects.create(email=email)
+        self.fxa_identify.return_value = {'email': email, 'uid': '9001'}
+        code_manager_url = 'https://example.org'
+        next_path = '{}/path'.format(code_manager_url)
+        with override_settings(CODE_MANAGER_URL=code_manager_url):
+            response = self.client.get(self.url, {
+                'code': 'code',
+                'state': ':'.join([
+                    self.fxa_state,
+                    force_text(base64.urlsafe_b64encode(next_path.encode())),
+                ]),
+            })
+        self.assertRedirects(response, next_path,
+                             fetch_redirect_response=False)
+
+    def test_log_in_requires_https_when_request_is_secure(self):
+        email = 'real@yeahoo.com'
+        UserProfile.objects.create(email=email)
+        self.fxa_identify.return_value = {'email': email, 'uid': '9001'}
+        domain = 'example.org'
+        next_path = 'https://{}/path'.format(domain)
+        with override_settings(DOMAIN=domain):
+            response = self.client.get(self.url, secure=True, data={
+                'code': 'code',
+                'state': ':'.join([
+                    self.fxa_state,
+                    force_text(base64.urlsafe_b64encode(next_path.encode())),
+                ]),
+            })
+        self.assertRedirects(response, next_path,
+                             fetch_redirect_response=False)
+
+    def test_log_in_redirects_to_home_when_request_is_secure_but_next_path_is_not(self): # noqa
+        email = 'real@yeahoo.com'
+        UserProfile.objects.create(email=email)
+        self.fxa_identify.return_value = {'email': email, 'uid': '9001'}
+        domain = 'example.org'
+        next_path = 'http://{}/path'.format(domain)
+        with override_settings(DOMAIN=domain):
+            response = self.client.get(self.url, secure=True, data={
+                'code': 'code',
+                'state': ':'.join([
+                    self.fxa_state,
+                    force_text(base64.urlsafe_b64encode(next_path.encode())),
+                ]),
+            })
+        with mock.patch('olympia.amo.views._frontend_view', empty_view):
+            self.assertRedirects(response, reverse('home'))
 
 
 class TestAccountViewSet(TestCase):
@@ -1138,6 +1233,48 @@ class TestAccountViewSetUpdate(TestCase):
         response = self.patch(
             data={'display_name': 'a' * 50})
         assert response.status_code == 200
+
+    def test_reviewer_name_validation(self):
+        # For reviewer_name, validation rules are the same as display_name,
+        # except that it's only for reviewers and blank names are allowed.
+        # (validation is only applied if there is a non-blank value).
+        self.grant_permission(self.user, 'Addons:PostReview')
+        self.client.login_api(self.user)
+        response = self.patch(
+            data={'reviewer_name': 'a'})
+        assert response.status_code == 400
+        assert json.loads(force_text(response.content)) == {
+            'reviewer_name': ['Ensure this field has at least 2 characters.']}
+
+        response = self.patch(
+            data={'reviewer_name': 'a' * 51})
+        assert response.status_code == 400
+        assert json.loads(force_text(response.content)) == {
+            'reviewer_name': [
+                'Ensure this field has no more than 50 characters.']}
+
+        response = self.patch(
+            data={'reviewer_name': u'\x7F\u20DF'})
+        assert response.status_code == 400
+        assert json.loads(force_text(response.content)) == {
+            'reviewer_name': [
+                'Must contain at least one printable character.']}
+
+        response = self.patch(
+            data={'reviewer_name': u'a\x7F'})
+        assert response.status_code == 200
+
+        response = self.patch(
+            data={'reviewer_name': 'a' * 50})
+        assert response.status_code == 200
+        self.user.reload()
+        assert self.user.reviewer_name == 'a' * 50
+
+        response = self.patch(
+            data={'reviewer_name': ''})
+        assert response.status_code == 200
+        self.user.reload()
+        assert self.user.reviewer_name == ''
 
     def test_picture_upload(self):
         # Make sure the picture doesn't exist already or we get a false-postive
@@ -1492,6 +1629,52 @@ class TestSessionView(TestCase):
     def test_delete_when_unauthenticated(self):
         response = self.client.delete(reverse_ns('accounts.session'))
         assert response.status_code == 401
+
+    def test_cors_headers_are_exposed(self):
+        user = user_factory(fxa_id='123123412')
+        token = self.login_user(user)
+        authorization = 'Bearer {token}'.format(token=token)
+        origin = 'http://example.org'
+        response = self.client.delete(
+            reverse_ns('accounts.session'),
+            HTTP_AUTHORIZATION=authorization,
+            HTTP_ORIGIN=origin,
+        )
+        assert response['Access-Control-Allow-Origin'] == origin
+        assert response['Access-Control-Allow-Credentials'] == 'true'
+
+    def test_delete_omits_cors_headers_when_there_is_no_origin(self):
+        user = user_factory(fxa_id='123123412')
+        token = self.login_user(user)
+        authorization = 'Bearer {token}'.format(token=token)
+        response = self.client.delete(
+            reverse_ns('accounts.session'),
+            HTTP_AUTHORIZATION=authorization,
+        )
+        assert not response.has_header('Access-Control-Allow-Origin')
+        assert not response.has_header('Access-Control-Allow-Credentials')
+
+    def test_responds_to_cors_preflight_requests(self):
+        origin = 'http://example.org'
+        response = self.client.options(
+            reverse_ns('accounts.session'),
+            HTTP_ORIGIN=origin,
+        )
+        assert response['Content-Length'] == '0'
+        assert response['Access-Control-Allow-Credentials'] == 'true'
+        assert response.has_header('Access-Control-Allow-Headers')
+        assert response.has_header('Access-Control-Allow-Methods')
+        assert 'DELETE' in response['Access-Control-Allow-Methods']
+        assert response.has_header('Access-Control-Max-Age')
+        assert response['Access-Control-Allow-Origin'] == origin
+
+    def test_options_omits_cors_headers_when_there_is_no_origin(self):
+        response = self.client.options(reverse_ns('accounts.session'))
+        assert not response.has_header('Access-Control-Allow-Credentials')
+        assert not response.has_header('Access-Control-Allow-Headers')
+        assert not response.has_header('Access-Control-Allow-Methods')
+        assert not response.has_header('Access-Control-Allow-Origin')
+        assert not response.has_header('Access-Control-Max-Age')
 
 
 class TestAccountNotificationViewSetList(TestCase):
